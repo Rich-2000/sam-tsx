@@ -28,7 +28,7 @@ export function HeroSection() {
             <span className="is-color-lime-300">
               {"software"}
             </span>
-            {" for Accra"}
+            {" for Africa"}
           </h1>
           <div className="hero-flex">
             <p data-w-id="cf1d3dc4-a54e-773c-276f-52cfbc4a1929" className="hero-description">

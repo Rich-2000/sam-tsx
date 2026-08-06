@@ -1,7 +1,7 @@
 import express, { type Express } from 'express'
 import { fileURLToPath } from 'node:url'
 import { resolve } from 'node:path'
-import { renderDocument } from './renderDocument.js'
+import { renderDocument, renderNotFound } from './renderDocument.js'
 import { siteRoutes } from './sitePages.js'
 
 const projectRoot = resolve(import.meta.dirname, '..')
@@ -22,7 +22,7 @@ export function createApp(): Express {
     const document = renderDocument(request.path)
 
     if (!document) {
-      response.status(404).type('text').send('Not Found')
+      response.status(404).type('html').send(renderNotFound())
       return
     }
 
@@ -30,7 +30,7 @@ export function createApp(): Express {
   })
 
   app.use((_request, response) => {
-    response.status(404).type('text').send('Not Found')
+    response.status(404).type('html').send(renderNotFound())
   })
 
   return app

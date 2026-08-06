@@ -2,14 +2,20 @@ const publicPartners = [
   {
     name: 'CardLogix',
     detail: 'Smart cards and biometric enrolment',
+    logo: '/images/cardlogix-logo.jpg',
+    href: '/partners/cardlogix',
   },
   {
     name: 'ZenduIT',
     detail: 'Fleet management and telematics',
+    logo: '/images/zenduit.png',
+    href: '/partners/zenduit',
   },
   {
     name: 'Zaelet Precision',
     detail: 'Geospatial and surveying solutions',
+    logo: '/images/ZAELET-logo.png',
+    href: '/partners/zaelet',
   },
 ]
 
@@ -28,27 +34,29 @@ export function InvestorsSection() {
         <div className="investors-logos">
           <div className="logos-container">
             {publicPartners.map((partner, index) => (
-              <div
+              <a
                 key={partner.name}
-                className={`framed-logo${index === 0 ? ' _1' : index === 1 ? ' _2' : index === 2 ? ' _3' : ''}`}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  justifyContent: 'center',
-                  padding: '1.25rem 1.5rem',
-                  minHeight: '7.5rem',
-                  textAlign: 'left',
-                }}
+                href={partner.href}
+                className={`framed-logo partner-card${index === 0 ? ' _1' : index === 1 ? ' _2' : index === 2 ? ' _3' : ''}`}
+                aria-label={`${partner.name} — ${partner.detail}`}
               >
-                <div className="is-font-size-title-m">{partner.name}</div>
-                <p
-                  className="is-font-size-body-m is-color-grey-600"
-                  style={{ margin: '0.45rem 0 0' }}
-                >
-                  {partner.detail}
-                </p>
-              </div>
+                <span className="partner-card__text">
+                  <span className="partner-card__name is-font-size-title-m">
+                    {partner.name}
+                  </span>
+                  <span className="partner-card__detail is-font-size-body-m is-color-grey-600">
+                    {partner.detail}
+                  </span>
+                </span>
+                <span className="partner-card__logo">
+                  <img
+                    src={partner.logo}
+                    loading="lazy"
+                    alt={partner.name}
+                    className="partner-card__logo-img"
+                  />
+                </span>
+              </a>
             ))}
           </div>
         </div>

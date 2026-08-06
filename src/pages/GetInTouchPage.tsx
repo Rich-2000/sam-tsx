@@ -31,7 +31,7 @@ function PageHead() {
 function GetInTouchContent() {
   return (
     <div>
-      <div className={"page-wrapper dark-wrapper touch-hero"}>
+      <div className={"page-wrapper dark-wrapper touch-hero is-contact-hero"}>
         <section className={"section is-get-in-touch-section"}>
           <div className={"w-layout-blockcontainer container hero-description-container w-container"}>
             <div className={"git-hero"}>
@@ -173,7 +173,7 @@ function GetInTouchContent() {
 function PageRuntime() {
   return (
     <>
-      <script src={"/vendor/jquery.js"} type={"text/javascript"} integrity={"sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="} crossOrigin={"anonymous"}></script>
+      <script src={"/vendor/jquery.js"} type={"text/javascript"} integrity={"sha256-82hEkGrSMJh3quMSG4f7FbngmAPLTDM63H4eNayS4Us="} crossOrigin={"anonymous"}></script>
       <script src={"/vendor/webflow.js"} type={"text/javascript"}></script>
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.getInTouch[2] }} />
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.getInTouch[3] }} />

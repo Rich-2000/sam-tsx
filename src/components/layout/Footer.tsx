@@ -12,7 +12,7 @@ export function Footer({ brand = 'flow' }: FooterProps) {
           <div className="w-layout-blockcontainer container w-container">
             <div className="footer-flex">
               <div className="footer-logo-wrapper">
-                <img src={isMaddy ? "/images/maddy-group-horizontal.png" : "https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de4e_logo%20(1).png"} loading="lazy" width={isMaddy ? 200 : 111} height={isMaddy ? 48 : 37} alt={isMaddy ? "Maddy Group" : ""} className="footer-logo" style={isMaddy ? { filter: 'brightness(0) invert(1)' } : undefined}/>
+                <img src={isMaddy ? "/images/maddy-group-horizontal-white.png" : "https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de4e_logo%20(1).png"} loading="lazy" width={isMaddy ? 200 : 111} height={isMaddy ? 48 : 37} alt={isMaddy ? "Maddy Group" : ""} className="footer-logo"/>
               </div>
               <div className="footer-menu">
                 <a href="/products-appetite" className="footer-link">

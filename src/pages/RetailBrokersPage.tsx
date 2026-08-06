@@ -33,12 +33,20 @@ function RetailBrokersHero() {
     <div className={"page-wrapper dark-wrapper is-overflow-hidden"}>
       <section className={"section is-why-flow-hero"}>
         <div className={"hero-media"} aria-hidden={"true"}>
-          <img
-            className={"hero-media__image"}
-            src={"/images/brand/accra-spintex-skyline-storm.jpg"}
-            alt={""}
-            loading={"eager"}
-          />
+          <video
+            className={"hero-media__video"}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload={"auto"}
+            poster={"/images/brand/accra-spintex-skyline-storm.jpg"}
+          >
+            {/* Add an optimised source above the full-size one once generated:
+                <source src="/images/thunder-720.webm" type="video/webm" />
+                <source src="/images/thunder-720.mp4" type="video/mp4" /> */}
+            <source src={"/images/thunder.mp4"} type={"video/mp4"} />
+          </video>
           <div className={"hero-hue-overlay"} />
         </div>
         <div className={"w-layout-blockcontainer container hero-description-container w-container"}>
@@ -291,7 +299,7 @@ function RetailBrokersFooterArea() {
 function PageRuntime() {
   return (
     <>
-      <script src={"/vendor/jquery.js"} type={"text/javascript"} integrity={"sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="} crossOrigin={"anonymous"}></script>
+      <script src={"/vendor/jquery.js"} type={"text/javascript"} integrity={"sha256-82hEkGrSMJh3quMSG4f7FbngmAPLTDM63H4eNayS4Us="} crossOrigin={"anonymous"}></script>
       <script src={"/vendor/webflow.js"} type={"text/javascript"}></script>
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.retailBrokers[2] }} />
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.retailBrokers[3] }} />

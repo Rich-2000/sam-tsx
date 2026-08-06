@@ -1,3 +1,4 @@
+import { partnerNavItems } from '../../content/partnerPages.js'
 import { technologyNavItems } from '../../content/technologyNav.js'
 import { ButtonLink } from '../ui/ButtonLink.js'
 
@@ -15,6 +16,7 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
     const isCurrent = (href: string) => href === currentPath
     const isMaddy = brand === 'maddy'
     const technologyActive = technologyNavItems.some((item) => item.href === currentPath)
+    const partnersActive = partnerNavItems.some((item) => item.href === currentPath)
 
     return (<div className="navbar-wrap">
         <div data-w-id="c12b8b16-d300-2a9c-ceac-b3f5e3d95ba0" className="navbar-trigger"></div>
@@ -22,7 +24,7 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
           <div className="container nav-flex w-container">
             <a href="/" aria-current={isCurrent('/') ? 'page' : undefined} className={currentLinkClass(isMaddy ? 'logo maddy-logo w-nav-brand' : 'logo w-nav-brand', '/', currentPath)} style={isMaddy ? { width: '7.5rem' } : undefined}>
               {isMaddy ? (
-                <img src="/images/maddy-group-horizontal.png" loading="eager" width="240" height="57" alt="Maddy Group" className="logo-img" style={{ width: '100%', height: 'auto' }}/>
+                <img src="/images/maddy-group-horizontal-white.png" loading="eager" width="240" height="57" alt="Maddy Group" className="logo-img" style={{ width: '100%', height: 'auto' }}/>
               ) : (
                 <img src="https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de9c_Clip%20path%20group.svg" loading="eager" width="111" height="37" alt="" className="logo-img"/>
               )}
@@ -67,9 +69,42 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
                   </div>
                 </nav>
               </div>
-              <a href="/about-us" aria-current={isCurrent('/about-us') ? 'page' : undefined} className={currentLinkClass('nav-link w-nav-link', '/about-us', currentPath)}>
-                {"About Us"}
-              </a>
+              {isMaddy ? (
+                <div data-hover="true" data-delay="200" className="dropdown w-dropdown">
+                  <div className={`nav-link is-dropdown w-dropdown-toggle${(partnersActive || isCurrent('/about-us')) ? ' w--current' : ''}`}>
+                    <div>
+                      {"About Us"}
+                    </div>
+                    <img src="https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de0b_Group.svg" loading="lazy" alt="" className="arrow-icon drop"/>
+                  </div>
+                  <nav className="dropdown-list w-dropdown-list">
+                    <div className="navbar-dropdown-wrapper">
+                      <a
+                        href="/about-us#team"
+                        aria-current={isCurrent('/about-us') ? 'page' : undefined}
+                        className={currentLinkClass('dropdown-link navbar-dl-link w-dropdown-link', '/about-us', currentPath)}
+                      >
+                        {"Team"}
+                      </a>
+                      <div className="navbar-dl-label">{"Partners"}</div>
+                      {partnerNavItems.map((item) => (
+                        <a
+                          key={item.href}
+                          href={item.href}
+                          aria-current={isCurrent(item.href) ? 'page' : undefined}
+                          className={currentLinkClass('dropdown-link navbar-dl-link w-dropdown-link', item.href, currentPath)}
+                        >
+                          {item.label}
+                        </a>
+                      ))}
+                    </div>
+                  </nav>
+                </div>
+              ) : (
+                <a href="/about-us" aria-current={isCurrent('/about-us') ? 'page' : undefined} className={currentLinkClass('nav-link w-nav-link', '/about-us', currentPath)}>
+                  {"About Us"}
+                </a>
+              )}
               <ButtonLink href="/get-in-touch" aria-current={isCurrent('/get-in-touch') ? 'page' : undefined} className={currentLinkClass('is-black-button mobile-contact w-inline-block', '/get-in-touch', currentPath)}>
                 <p>
                   {"Contact us"}
