@@ -40,11 +40,9 @@ function RetailBrokersHero() {
             muted
             playsInline
             preload={"auto"}
-            poster={"/images/brand/accra-spintex-skyline-storm.jpg"}
+            poster={"/images/thunder-poster.jpg"}
           >
-            {/* Add an optimised source above the full-size one once generated:
-                <source src="/images/thunder-720.webm" type="video/webm" />
-                <source src="/images/thunder-720.mp4" type="video/mp4" /> */}
+            <source src={"/images/thunder.webm"} type={"video/webm"} />
             <source src={"/images/thunder.mp4"} type={"video/mp4"} />
           </video>
           <div className={"hero-hue-overlay"} />
