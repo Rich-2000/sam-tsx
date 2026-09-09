@@ -3,7 +3,7 @@ export function Loader() {
     <div className="maddy-loader" id="maddy-loader" aria-hidden="true" aria-busy="true">
       <img
         className="maddy-loader__logo"
-        src="/images/maddy-group-horizontal.png"
+        src="/images/maddy_group_animated_fixed.svg"
         width={240}
         height={57}
         alt="Maddy Group"
@@ -21,8 +21,8 @@ export function LoaderRuntime() {
   var loader = document.getElementById('maddy-loader');
   if (!loader) return;
 
-  var minVisibleMs = 450;
-  var maxWaitMs = 1200;
+  var minVisibleMs = 1800;
+  var maxWaitMs = 2600;
   var startedAt = Date.now();
   var finished = false;
 
@@ -126,6 +126,53 @@ export function LoaderRuntime() {
       if (existing) existing.classList.add('is-done');
     }
   });
+})();
+
+// Scroll-reactive hero: full-bleed at the top, settles into a rounded inset
+// card as you scroll. Drives --hero-inset (0 -> 1) via a smoothstep, per frame.
+(function () {
+  var heroes = document.querySelectorAll(
+    '.section.is-hero-section, .section.is-why-flow-hero, ' +
+      '.section.is-products-hero, .section.is-why-about-hero'
+  );
+  if (!heroes.length) return;
+
+  var reduce =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) {
+    for (var i = 0; i < heroes.length; i++) {
+      heroes[i].style.setProperty('--hero-inset', '1');
+    }
+    return;
+  }
+
+  var RANGE = 260; // px of scroll to fully settle into the card
+  var ticking = false;
+  var last = -1;
+
+  function update() {
+    ticking = false;
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var p = Math.min(1, Math.max(0, y / RANGE));
+    var e = p * p * (3 - 2 * p); // smoothstep
+    if (e === last) return;
+    last = e;
+    for (var i = 0; i < heroes.length; i++) {
+      heroes[i].style.setProperty('--hero-inset', e.toFixed(4));
+    }
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
 })();
 `,
       }}

@@ -124,7 +124,7 @@ function AboutDetails() {
           </div>
         </div>
       </section>
-      <section className={"section is-markets-features leadership-team-features"}>
+      <section id={"team"} className={"section is-markets-features leadership-team-features"}>
         <div className={"w-layout-blockcontainer container about-container w-container"}>
           <div className={"max-width _745px is-centered is-text-center"}>
             <h2 className={"is-space-24"}>
@@ -489,7 +489,7 @@ function AboutFooterArea() {
           <img src={"https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de69_Layer_1.webp"} loading={"lazy"} sizes={"(max-width: 767px) 100vw, 750px"} srcSet={"https://assets-global.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de69_Layer_1-p-500.webp 500w, https://assets-global.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de69_Layer_1.webp 750w"} alt={""} className={"kv-footer-mobile"} />
         </div>
       </section>
-      <Footer brand="maddy" />
+      <Footer />
     </div>
   )
 }
@@ -497,7 +497,7 @@ function AboutFooterArea() {
 function PageRuntime() {
   return (
     <>
-      <script src={"/vendor/jquery.js"} type={"text/javascript"} integrity={"sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="} crossOrigin={"anonymous"}></script>
+      <script src={"/vendor/jquery.js"} type={"text/javascript"} integrity={"sha256-82hEkGrSMJh3quMSG4f7FbngmAPLTDM63H4eNayS4Us="} crossOrigin={"anonymous"}></script>
       <script src={"/vendor/webflow.js"} type={"text/javascript"}></script>
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.aboutUs[2] }} />
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.aboutUs[3] }} />

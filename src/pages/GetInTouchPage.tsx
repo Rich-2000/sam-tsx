@@ -31,7 +31,7 @@ function PageHead() {
 function GetInTouchContent() {
   return (
     <div>
-      <div className={"page-wrapper dark-wrapper touch-hero"}>
+      <div className={"page-wrapper dark-wrapper touch-hero is-contact-hero"}>
         <section className={"section is-get-in-touch-section"}>
           <div className={"w-layout-blockcontainer container hero-description-container w-container"}>
             <div className={"git-hero"}>
@@ -164,7 +164,7 @@ function GetInTouchContent() {
         <img src={"/images/brand/accra-contact-prince-enos-31782030.jpg"} loading={"eager"} data-w-id={"850cdf28-50b2-a4dc-dddb-3c8bb97ffb23"} alt={""} className={"kv_get-in-touch maddy-background-image"} />
       </div>
       <div className={"page-wrapper is-overflow-hidden is-no-padding"}>
-        <Footer brand="maddy" />
+        <Footer />
       </div>
     </div>
   )
@@ -173,7 +173,7 @@ function GetInTouchContent() {
 function PageRuntime() {
   return (
     <>
-      <script src={"/vendor/jquery.js"} type={"text/javascript"} integrity={"sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="} crossOrigin={"anonymous"}></script>
+      <script src={"/vendor/jquery.js"} type={"text/javascript"} integrity={"sha256-82hEkGrSMJh3quMSG4f7FbngmAPLTDM63H4eNayS4Us="} crossOrigin={"anonymous"}></script>
       <script src={"/vendor/webflow.js"} type={"text/javascript"}></script>
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.getInTouch[2] }} />
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.getInTouch[3] }} />

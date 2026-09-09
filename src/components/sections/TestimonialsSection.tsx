@@ -2,7 +2,7 @@ export function TestimonialsSection() {
     return (<section data-w-id="7062e3bc-ec33-c9db-3c42-1feb27baca01" className="section is-testimonials-section">
         <div className="w-layout-blockcontainer container testimonial-container w-container">
           <h2 data-w-id="8cf9e924-9934-4d5e-a489-58354b927c81" className="is-text-center">
-            {"What Ghanaian businesses"}
+            {"What businesses"}
             <br />
             <span className="is-color-lime-300">
               {"say"}
