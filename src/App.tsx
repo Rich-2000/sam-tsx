@@ -47,7 +47,7 @@ export function App() {
         <ProductsHighlightSection />
         <InvestorsSection />
         <CallToActionSection />
-        <Footer brand="maddy" />
+        <Footer />
       </PageWrapper>
     </>
   )

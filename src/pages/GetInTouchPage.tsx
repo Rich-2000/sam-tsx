@@ -164,7 +164,7 @@ function GetInTouchContent() {
         <img src={"/images/brand/accra-contact-prince-enos-31782030.jpg"} loading={"eager"} data-w-id={"850cdf28-50b2-a4dc-dddb-3c8bb97ffb23"} alt={""} className={"kv_get-in-touch maddy-background-image"} />
       </div>
       <div className={"page-wrapper is-overflow-hidden is-no-padding"}>
-        <Footer brand="maddy" />
+        <Footer />
       </div>
     </div>
   )

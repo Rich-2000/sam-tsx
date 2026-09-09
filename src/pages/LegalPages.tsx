@@ -51,7 +51,7 @@ function LegalShell({
         <div className={"maddy-section-backdrop"} aria-hidden={"true"} />
       </section>
       <div className={"page-wrapper is-overflow-hidden is-no-padding"}>
-        <Footer brand="maddy" />
+        <Footer />
       </div>
     </div>
   )

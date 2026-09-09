@@ -255,7 +255,7 @@ export function PartnerServiceDocument({ config }: { config: PartnerPageConfig }
       <Categories config={config} />
       <QuoteSection config={config} />
       <div className={"page-wrapper is-overflow-hidden is-no-padding"}>
-        <Footer brand="maddy" />
+        <Footer />
       </div>
     </SiteDocument>
   )

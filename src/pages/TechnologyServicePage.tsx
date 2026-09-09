@@ -192,7 +192,7 @@ function FooterArea({ config }: { config: TechnologyPageConfig }) {
           />
         </div>
       </section>
-      <Footer brand="maddy" />
+      <Footer />
     </div>
   )
 }
