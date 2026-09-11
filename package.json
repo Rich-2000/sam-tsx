@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "node dist/server.js",
-    "build": "tsc -p tsconfig.build.json",
+    "build": "npm run check:integrity && tsc -p tsconfig.build.json",
+    "check:integrity": "tsx scripts/check-script-integrity.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit --pretty false"
   },
   "dependencies": {

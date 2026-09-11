@@ -1,0 +1,2 @@
+# SRI hashes depend on identical bytes on Windows and Linux deployments.
+/public/vendor/jquery.js text eol=lf
