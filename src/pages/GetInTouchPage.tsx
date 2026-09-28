@@ -50,7 +50,20 @@ function GetInTouchContent() {
                   {"Cybersecurity, software development and technology services for organisations across Africa. Tell us what you need and we will get back to you promptly."}
                 </p>
                 <div className={"text-with-icon is-bottom-24"}>
-                  <img src={"https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de6a_Group%20(2).svg"} loading={"lazy"} alt={""} />
+                  <span className={"phone-icon"} aria-hidden={"true"}>
+                    <svg
+                      width={"20"}
+                      height={"20"}
+                      viewBox={"0 0 24 24"}
+                      fill={"none"}
+                      stroke={"currentColor"}
+                      strokeWidth={"2"}
+                      strokeLinecap={"round"}
+                      strokeLinejoin={"round"}
+                    >
+                      <path d={"M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"} />
+                    </svg>
+                  </span>
                   <div className={"mail-wrapper"}>
                     <p className={"is-font-size-body-m"}>
                       <span className={"is-opacity-60"}>
@@ -64,7 +77,21 @@ function GetInTouchContent() {
                   </div>
                 </div>
                 <div className={"text-with-icon is-bottom-24"}>
-                  <img src={"https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de6a_Group%20(2).svg"} loading={"lazy"} alt={""} />
+                  <span className={"at-icon"} aria-hidden={"true"}>
+                    <svg
+                      width={"20"}
+                      height={"20"}
+                      viewBox={"0 0 24 24"}
+                      fill={"none"}
+                      stroke={"currentColor"}
+                      strokeWidth={"2"}
+                      strokeLinecap={"round"}
+                      strokeLinejoin={"round"}
+                    >
+                      <circle className={"at-icon__circle"} cx={"12"} cy={"12"} r={"4"} pathLength={1} />
+                      <path className={"at-icon__path"} d={"M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"} pathLength={1} />
+                    </svg>
+                  </span>
                   <div className={"mail-wrapper"}>
                     <p className={"is-font-size-body-m"}>
                       <span className={"is-opacity-60"}>
@@ -78,7 +105,27 @@ function GetInTouchContent() {
                   </div>
                 </div>
                 <div className={"text-with-icon"}>
-                  <img src={"https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de6a_Group%20(2).svg"} loading={"lazy"} alt={""} />
+                  <span className={"pin-icon"} aria-hidden={"true"}>
+                    <svg
+                      width={"20"}
+                      height={"20"}
+                      viewBox={"0 0 24 24"}
+                      fill={"none"}
+                      stroke={"currentColor"}
+                      strokeWidth={"2"}
+                      strokeLinecap={"round"}
+                      strokeLinejoin={"round"}
+                    >
+                      <path d={"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"} />
+                      <circle
+                        className={"pin-icon__circle"}
+                        cx={"12"}
+                        cy={"10"}
+                        r={"3"}
+                        pathLength={1}
+                      />
+                    </svg>
+                  </span>
                   <div className={"mail-wrapper"}>
                     <p className={"is-font-size-body-m"}>
                       <span className={"is-opacity-60"}>
@@ -95,49 +142,51 @@ function GetInTouchContent() {
                     <input className={"text-field w-input"} maxLength={256} name={"name"} data-name={"Name"} placeholder={"Full name"} type={"text"} id={"name"} required />
                     <input className={"text-field w-input"} maxLength={256} name={"email"} data-name={"E-mail"} placeholder={"E-mail address"} type={"email"} id={"E-mail"} required />
                     <input className={"text-field w-input"} maxLength={256} name={"company"} data-name={"Company name"} placeholder={"Company name"} type={"text"} id={"Company-name"} required />
-                    <select id={"Enquiry-type"} name={"enquiry"} data-name={"Enquiry type"} required className={"text-field select-field w-select"}>
-                      <option value={""}>
-                        {"How can we help?"}
-                      </option>
-                      <option value={"Cybersecurity"}>
-                        {"Cybersecurity"}
-                      </option>
-                      <option value={"Software development"}>
-                        {"Software development"}
-                      </option>
-                      <option value={"Software products"}>
-                        {"Software products"}
-                      </option>
-                      <option value={"UAV / IoT / procurement"}>
-                        {"UAV, IoT or ICT procurement"}
-                      </option>
-                      <option value={"Training"}>
-                        {"Training"}
-                      </option>
-                      <option value={"Request a quote"}>
-                        {"Request a quote"}
-                      </option>
-                      <option value={"Other"}>
-                        {"Other"}
-                      </option>
-                    </select>
-                    <select id={"Where-did-you-hear-about-us"} name={"source"} data-name={"Where did you hear about us?"} className={"text-field select-field w-select"}>
-                      <option value={""}>
-                        {"Where did you hear about us? (optional)"}
-                      </option>
-                      <option value={"Referral"}>
-                        {"Referral"}
-                      </option>
-                      <option value={"Search"}>
-                        {"Search"}
-                      </option>
-                      <option value={"Event"}>
-                        {"Event"}
-                      </option>
-                      <option value={"Other"}>
-                        {"Other"}
-                      </option>
-                    </select>
+                    <div className={"form-select-row"}>
+                      <select id={"Enquiry-type"} name={"enquiry"} data-name={"Enquiry type"} required className={"text-field select-field w-select"}>
+                        <option value={""}>
+                          {"How can we help?"}
+                        </option>
+                        <option value={"Cybersecurity"}>
+                          {"Cybersecurity"}
+                        </option>
+                        <option value={"Software development"}>
+                          {"Software development"}
+                        </option>
+                        <option value={"Software products"}>
+                          {"Software products"}
+                        </option>
+                        <option value={"UAV / IoT / procurement"}>
+                          {"UAV, IoT or ICT procurement"}
+                        </option>
+                        <option value={"Training"}>
+                          {"Training"}
+                        </option>
+                        <option value={"Request a quote"}>
+                          {"Request a quote"}
+                        </option>
+                        <option value={"Other"}>
+                          {"Other"}
+                        </option>
+                      </select>
+                      <select id={"Where-did-you-hear-about-us"} name={"source"} data-name={"Where did you hear about us?"} className={"text-field select-field w-select"}>
+                        <option value={""}>
+                          {"How did you find us?"}
+                        </option>
+                        <option value={"Referral"}>
+                          {"Referral"}
+                        </option>
+                        <option value={"Search"}>
+                          {"Search"}
+                        </option>
+                        <option value={"Event"}>
+                          {"Event"}
+                        </option>
+                        <option value={"Other"}>
+                          {"Other"}
+                        </option>
+                      </select>
+                    </div>
                     <textarea required placeholder={"Message"} maxLength={5000} id={"Text-Message"} name={"message"} data-name={"Text Message"} className={"text-field message-area w-input"}></textarea>
                     <input type={"submit"} data-wait={"Please wait..."} className={"button submit-button w-button"} value={"Request a quote"} />
                   </form>
