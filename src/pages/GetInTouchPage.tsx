@@ -47,7 +47,7 @@ function GetInTouchContent() {
                   {"Contact us"}
                 </h1>
                 <p className={"is-md-font-size-body-l is-bottom-48 is-sm-bottom-32 git-intro"}>
-                  {"Cybersecurity, software development and technology services for organisations across Ghana. Tell us what you need and we will get back to you promptly."}
+                  {"Cybersecurity, software development and technology services for organisations across Africa. Tell us what you need and we will get back to you promptly."}
                 </p>
                 <div className={"text-with-icon is-bottom-24"}>
                   <img src={"https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de6a_Group%20(2).svg"} loading={"lazy"} alt={""} />

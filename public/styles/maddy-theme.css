@@ -491,11 +491,11 @@ html.is-page-loading {
 }
 
 /* Contact intro: justified block with a width cap so the last line doesn't
-   stretch; hyphens keep word gaps even. */
+   stretch. Whole words only, no hyphenation. */
 .git-intro {
   max-width: 30rem;
   text-align: justify;
-  hyphens: auto;
+  hyphens: none;
 }
 
 /* Dropdown group label (e.g. "Partners" heading inside the About Us menu) */
