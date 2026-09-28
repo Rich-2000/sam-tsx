@@ -31,22 +31,23 @@ function PageHead() {
 function GetInTouchContent() {
   return (
     <div>
-      <div className={"page-wrapper dark-wrapper touch-hero is-contact-hero"}>
-        <section className={"section is-get-in-touch-section"}>
+      <div className={"page-wrapper dark-wrapper is-overflow-hidden"}>
+        <section className={"section is-get-in-touch-section is-contact-hero"}>
+          <div className={"hero-media"} aria-hidden={"true"}>
+            <video className={"hero-media__video"} poster={"/images/brand/contact-bg-poster.jpg"} autoPlay muted loop playsInline>
+              <source src={"/images/brand/contact-bg.webm"} type={"video/webm"} />
+              <source src={"/images/brand/contact-bg.mp4"} type={"video/mp4"} />
+            </video>
+            <div className={"contact-bg-overlay"}></div>
+          </div>
           <div className={"w-layout-blockcontainer container hero-description-container w-container"}>
             <div className={"git-hero"}>
               <div data-w-id={"d6ec158b-413a-2252-c730-9e6331badb22"} className={"git-left"}>
                 <h1 data-w-id={"5688d7d9-6d15-3f37-8131-e8be09b8e9fa"} className={"is-h2"}>
                   {"Contact us"}
                 </h1>
-                <p className={"is-md-font-size-body-l is-bottom-48 is-sm-bottom-32"}>
-                  {"Ready to talk about your next project?"}
-                </p>
-                <p className={"is-bottom-48 is-sm-bottom-32"}>
-                  {"Tell us what you need: cybersecurity support, software development, or a broader technology engagement. We will get back to you promptly."}
-                  <br />
-                  <br />
-                  {"We work with businesses and public organisations across Ghana from our office in Adjiriganor, Accra."}
+                <p className={"is-md-font-size-body-l is-bottom-48 is-sm-bottom-32 git-intro"}>
+                  {"Cybersecurity, software development and technology services for organisations across Ghana. Tell us what you need and we will get back to you promptly."}
                 </p>
                 <div className={"text-with-icon is-bottom-24"}>
                   <img src={"https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de6a_Group%20(2).svg"} loading={"lazy"} alt={""} />
@@ -83,12 +84,7 @@ function GetInTouchContent() {
                       <span className={"is-opacity-60"}>
                         {"Office "}
                       </span>
-                      {"- GD-219-3654, Adjetey Mensah Owusu St, Adjiriganor, Accra, Ghana"}
-                      <br />
-                      <span className={"is-opacity-60"}>
-                        {"Postal "}
-                      </span>
-                      {"- P.O. Box 10606, Accra North, Ghana"}
+                      {"- GD-219-3654, Adjiriganor, Accra"}
                     </p>
                   </div>
                 </div>
@@ -161,7 +157,6 @@ function GetInTouchContent() {
             </div>
           </div>
         </section>
-        <img src={"/images/brand/accra-contact-prince-enos-31782030.jpg"} loading={"eager"} data-w-id={"850cdf28-50b2-a4dc-dddb-3c8bb97ffb23"} alt={""} className={"kv_get-in-touch maddy-background-image"} />
       </div>
       <div className={"page-wrapper is-overflow-hidden is-no-padding"}>
         <Footer />
