@@ -1109,3 +1109,122 @@ html.is-page-loading {
     gap: 24px;
   }
 }
+
+/* Software product cards on the homepage: the same crossfade as .partner-card,
+   for a card that reveals a product screenshot instead of a logo. These cards
+   are divs rather than links, so tabindex makes the reveal reachable from the
+   keyboard the way :focus-visible does on the partner cards. */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.product-card:hover,
+.product-card:focus-visible {
+  background-color: #fff;
+  box-shadow: inset 0 0 0 1px var(--color--grey-100);
+  outline: none;
+}
+
+/* Name layer: visible by default, fades and lifts away on hover */
+.product-card__text {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.4s ease;
+}
+
+.product-card:hover .product-card__text,
+.product-card:focus-visible .product-card__text {
+  opacity: 0;
+  transform: translateY(-0.5rem);
+}
+
+/* Screenshot layer: hidden until hover, then fades in over the whole card */
+.product-card__media {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  opacity: 0;
+  transform: translateY(0.6rem) scale(0.94);
+  transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.product-card__media-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.4rem;
+}
+
+.product-card:hover .product-card__media,
+.product-card:focus-visible .product-card__media {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card__text,
+  .product-card__media {
+    transition: opacity 0.2s ease;
+    transform: none;
+  }
+}
+
+/* Screenshot opened from a product card. The dialog handles Escape, the
+   backdrop and focus itself; the script only adds click-outside to close. */
+.product-lightbox {
+  max-width: min(72rem, 92vw);
+  max-height: 90vh;
+  width: auto;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.8rem;
+  background-color: #fff;
+  box-shadow: 0 2rem 4rem rgba(20, 20, 20, 0.35);
+  overflow: visible;
+}
+
+.product-lightbox::backdrop {
+  background-color: rgba(19, 17, 22, 0.75);
+}
+
+.product-lightbox__img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(90vh - 1rem);
+  width: auto;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.product-lightbox__close {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  color: var(--color--grey-900, #131116);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 0.25rem 0.75rem rgba(20, 20, 20, 0.25);
+}
+
+@media screen and (max-width: 767px) {
+  .product-lightbox__close {
+    top: 0.25rem;
+    right: 0.25rem;
+  }
+}

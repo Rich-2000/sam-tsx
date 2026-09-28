@@ -86,6 +86,9 @@ export function LoaderRuntime() {
       if (event.defaultPrevented || event.button !== 0) return;
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       if (link.target && link.target !== '_self') return;
+      // Links that act on this page instead of navigating away, such as the
+      // product screenshot triggers, must not raise the transition loader.
+      if (link.hasAttribute('data-no-page-transition')) return;
 
       var href = link.getAttribute('href');
       if (!href || href.charAt(0) === '#' || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) {
