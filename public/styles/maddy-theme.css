@@ -57,7 +57,8 @@
 .section.is-hero-section,
 .section.is-why-flow-hero,
 .section.is-products-hero,
-.section.is-why-about-hero {
+.section.is-why-about-hero,
+.section.is-contact-hero {
   border-radius: 1.5rem;
 }
 
@@ -68,7 +69,8 @@
 .is-hero-section .hero-media,
 .is-why-flow-hero .hero-media,
 .is-products-hero .hero-media,
-.is-why-about-hero .hero-media {
+.is-why-about-hero .hero-media,
+.is-contact-hero .hero-media {
   border-radius: inherit;
   overflow: hidden;
   isolation: isolate;
@@ -392,25 +394,108 @@ html.is-page-loading {
   }
 }
 
-/* Contact hero: match the homepage hero — rounded top corners + the 1rem navy
-   frame ("border" at the top) that touch-hero had stripped to 0. Overflow is
-   clipped so the oversized decorative KV photo can't push past the viewport. */
-.is-contact-hero {
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
+/* Contact hero: same rounded card in a navy frame as the homepage hero. The
+   hero-media clip + scroll zoom come from the shared hero rules above. */
+.section.is-contact-hero {
+  position: relative;
   overflow: hidden;
 }
 
-.dark-wrapper.touch-hero.is-contact-hero {
-  padding: 1rem 1rem 0;
+/* Contact form as frosted glass over the video, in the site's navy/lime palette.
+   The webflow gradient slab behind it is dropped. */
+.is-contact-hero .git-right-bg {
+  display: none;
 }
 
-/* Contact hero KV photo: webflow anchored it left (max-width:89%; left:0),
-   leaving a gap on the right. Centre it at any width. */
-.kv_get-in-touch {
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%);
+.is-contact-hero .form-block {
+  /* navy-tinted so white text holds up over the bright parts of the video */
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04)),
+    rgba(1, 5, 53, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 1.5rem 3rem rgba(1, 5, 53, 0.35);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+.is-contact-hero .text-field {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--color--white);
+  caret-color: var(--color--flow-pastel-lime-300);
+  /* Windows' I-beam inverts what's under it, which vanishes over mid-tone
+     glass. A white I-beam with a navy outline reads on any background. */
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M9 4h6M9 20h6M12 4v16' fill='none' stroke='%23010535' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M9 4h6M9 20h6M12 4v16' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") 12 12, text;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.is-contact-hero .text-field::placeholder {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.is-contact-hero .text-field:focus {
+  border-color: var(--color--flow-pastel-lime-300);
+  background-color: rgba(255, 255, 255, 0.16);
+  outline: none;
+}
+
+/* Browser autofill paints inputs yellow/white; keep the glass look. */
+.is-contact-hero .text-field:-webkit-autofill {
+  -webkit-text-fill-color: var(--color--white);
+  box-shadow: 0 0 0 100px rgba(36, 17, 75, 0.9) inset;
+}
+
+/* Video fills the card edge to edge (cover). No scroll zoom here, so only the
+   unavoidable top/bottom trim from the wider-than-16:9 card is lost. */
+.is-contact-hero .hero-media {
+  background-image: none;
+}
+
+/* Even navy tint so the text and form read over the video. */
+.contact-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(1, 5, 53, 0.35), rgba(1, 5, 53, 0.55));
+}
+
+.is-contact-hero .hero-description-container {
+  position: relative;
+}
+
+/* Desktop: the framed hero fills exactly one screen (viewport minus the 1rem
+   frame top and bottom), content centred below the fixed navbar, so the footer
+   only appears on scroll. min-height lets it grow rather than clip on short
+   screens; stacked tablet/mobile layouts keep their natural height. */
+@media (min-width: 992px) {
+  .section.is-get-in-touch-section.is-contact-hero {
+    min-height: calc(100vh - 2rem);
+    min-height: calc(100svh - 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 7rem; /* clears the 6.58rem fixed navbar */
+    padding-bottom: 1rem;
+  }
+
+  /* Tighter form card so the whole hero fits a laptop screen. */
+  .is-contact-hero .git-right {
+    padding: 0 1rem;
+  }
+
+  .is-contact-hero .form-block {
+    padding: 1.5rem;
+  }
+
+  .is-contact-hero .text-field.message-area {
+    min-height: 3.6rem;
+  }
+}
+
+/* Contact intro: justified block with a width cap so the last line doesn't
+   stretch; hyphens keep word gaps even. */
+.git-intro {
+  max-width: 30rem;
+  text-align: justify;
+  hyphens: auto;
 }
 
 /* Dropdown group label (e.g. "Partners" heading inside the About Us menu) */
