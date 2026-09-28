@@ -142,49 +142,51 @@ function GetInTouchContent() {
                     <input className={"text-field w-input"} maxLength={256} name={"name"} data-name={"Name"} placeholder={"Full name"} type={"text"} id={"name"} required />
                     <input className={"text-field w-input"} maxLength={256} name={"email"} data-name={"E-mail"} placeholder={"E-mail address"} type={"email"} id={"E-mail"} required />
                     <input className={"text-field w-input"} maxLength={256} name={"company"} data-name={"Company name"} placeholder={"Company name"} type={"text"} id={"Company-name"} required />
-                    <select id={"Enquiry-type"} name={"enquiry"} data-name={"Enquiry type"} required className={"text-field select-field w-select"}>
-                      <option value={""}>
-                        {"How can we help?"}
-                      </option>
-                      <option value={"Cybersecurity"}>
-                        {"Cybersecurity"}
-                      </option>
-                      <option value={"Software development"}>
-                        {"Software development"}
-                      </option>
-                      <option value={"Software products"}>
-                        {"Software products"}
-                      </option>
-                      <option value={"UAV / IoT / procurement"}>
-                        {"UAV, IoT or ICT procurement"}
-                      </option>
-                      <option value={"Training"}>
-                        {"Training"}
-                      </option>
-                      <option value={"Request a quote"}>
-                        {"Request a quote"}
-                      </option>
-                      <option value={"Other"}>
-                        {"Other"}
-                      </option>
-                    </select>
-                    <select id={"Where-did-you-hear-about-us"} name={"source"} data-name={"Where did you hear about us?"} className={"text-field select-field w-select"}>
-                      <option value={""}>
-                        {"Where did you hear about us? (optional)"}
-                      </option>
-                      <option value={"Referral"}>
-                        {"Referral"}
-                      </option>
-                      <option value={"Search"}>
-                        {"Search"}
-                      </option>
-                      <option value={"Event"}>
-                        {"Event"}
-                      </option>
-                      <option value={"Other"}>
-                        {"Other"}
-                      </option>
-                    </select>
+                    <div className={"form-select-row"}>
+                      <select id={"Enquiry-type"} name={"enquiry"} data-name={"Enquiry type"} required className={"text-field select-field w-select"}>
+                        <option value={""}>
+                          {"How can we help?"}
+                        </option>
+                        <option value={"Cybersecurity"}>
+                          {"Cybersecurity"}
+                        </option>
+                        <option value={"Software development"}>
+                          {"Software development"}
+                        </option>
+                        <option value={"Software products"}>
+                          {"Software products"}
+                        </option>
+                        <option value={"UAV / IoT / procurement"}>
+                          {"UAV, IoT or ICT procurement"}
+                        </option>
+                        <option value={"Training"}>
+                          {"Training"}
+                        </option>
+                        <option value={"Request a quote"}>
+                          {"Request a quote"}
+                        </option>
+                        <option value={"Other"}>
+                          {"Other"}
+                        </option>
+                      </select>
+                      <select id={"Where-did-you-hear-about-us"} name={"source"} data-name={"Where did you hear about us?"} className={"text-field select-field w-select"}>
+                        <option value={""}>
+                          {"How did you find us?"}
+                        </option>
+                        <option value={"Referral"}>
+                          {"Referral"}
+                        </option>
+                        <option value={"Search"}>
+                          {"Search"}
+                        </option>
+                        <option value={"Event"}>
+                          {"Event"}
+                        </option>
+                        <option value={"Other"}>
+                          {"Other"}
+                        </option>
+                      </select>
+                    </div>
                     <textarea required placeholder={"Message"} maxLength={5000} id={"Text-Message"} name={"message"} data-name={"Text Message"} className={"text-field message-area w-input"}></textarea>
                     <input type={"submit"} data-wait={"Please wait..."} className={"button submit-button w-button"} value={"Request a quote"} />
                   </form>

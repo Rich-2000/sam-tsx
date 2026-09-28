@@ -438,6 +438,40 @@ html.is-page-loading {
   outline: none;
 }
 
+/* Webflow hides .select-field, which made the required "How can we help?"
+   dropdown unfocusable, so reportValidity() failed silently and the form never
+   sent. Show both dropdowns side by side (stacking when narrow) in the glass
+   style, with a white chevron. */
+.is-contact-hero .form-select-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.6rem;
+}
+
+.is-contact-hero .select-field {
+  display: block;
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 2.4rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: right 1.1rem center;
+  background-repeat: no-repeat;
+  background-size: 12px 8px;
+  text-overflow: ellipsis;
+}
+
+/* Empty (placeholder) choice reads like the text-field placeholders. */
+.is-contact-hero .select-field:has(option[value=""]:checked) {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* The opened list is drawn by the OS on a light surface. */
+.is-contact-hero .select-field option {
+  color: #010535;
+  background-color: #fff;
+}
+
 /* Browser autofill paints inputs yellow/white; keep the glass look. */
 .is-contact-hero .text-field:-webkit-autofill {
   -webkit-text-fill-color: var(--color--white);
@@ -472,8 +506,8 @@ html.is-page-loading {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 7rem; /* clears the 6.58rem fixed navbar */
-    padding-bottom: 1rem;
+    padding-top: 6.8rem; /* clears the 6.58rem fixed navbar */
+    padding-bottom: 0.8rem;
   }
 
   /* Tighter form card so the whole hero fits a laptop screen. */
@@ -482,11 +516,16 @@ html.is-page-loading {
   }
 
   .is-contact-hero .form-block {
-    padding: 1.5rem;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .is-contact-hero .form,
+  .is-contact-hero .form-select-row {
+    gap: 0.45rem;
   }
 
   .is-contact-hero .text-field.message-area {
-    min-height: 3.6rem;
+    min-height: 3.2rem;
   }
 }
 
