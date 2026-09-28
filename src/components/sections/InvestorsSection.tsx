@@ -12,10 +12,10 @@ const publicPartners = [
     href: '/partners/zenduit',
   },
   {
-    name: 'Zaelet Precision',
-    detail: 'Geospatial and surveying solutions',
-    logo: '/images/ZAELET-logo.png',
-    href: '/partners/zaelet',
+    name: 'Palo Alto Networks',
+    detail: 'Network, cloud and AI driven security',
+    logo: '/images/palo-alto-networks.svg',
+    href: '/partners/palo-alto-networks',
   },
 ]
 
