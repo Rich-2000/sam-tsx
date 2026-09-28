@@ -1510,3 +1510,169 @@ html.is-page-loading {
     transition: none;
   }
 }
+
+/* One knob for all three contact icons. */
+.text-with-icon {
+  --contact-icon: #ffffff;
+}
+
+/* Animated at-sign on the contact page. pathLength="1" on both shapes
+   normalises their lengths, so one dashoffset keyframe draws either of them,
+   which is what framer's pathLength animation does. */
+.at-icon {
+  display: inline-flex;
+  color: var(--contact-icon);
+}
+
+.at-icon svg {
+  display: block;
+  overflow: visible;
+}
+
+.at-icon__circle,
+.at-icon__path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+/* Hovering anywhere on the email line redraws the mark: the ring first, then
+   the tail a beat later, matching the delay in the original variants. */
+.text-with-icon:hover .at-icon__circle {
+  animation: at-draw 0.3s ease both;
+}
+
+.text-with-icon:hover .at-icon__path {
+  animation: at-draw 0.3s ease 0.3s both;
+}
+
+@keyframes at-draw {
+  from {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-with-icon:hover .at-icon__circle,
+  .text-with-icon:hover .at-icon__path {
+    animation: none;
+  }
+}
+
+/* Animated phone on the contact page. Motion spreads a keyframe array evenly
+   across the duration, so rotate's five values land on 0/25/50/75/100% and
+   scale's three on 0/50/100%; the two timelines are merged below. */
+.phone-icon {
+  display: inline-flex;
+  color: var(--contact-icon);
+}
+
+.phone-icon svg {
+  display: block;
+  overflow: visible;
+  transform-origin: center;
+}
+
+.text-with-icon:hover .phone-icon svg {
+  animation: phone-ring 0.9s ease-in-out both;
+}
+
+@keyframes phone-ring {
+  0% {
+    transform: rotate(10deg) scale(1);
+  }
+  25% {
+    transform: rotate(20deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(10deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-with-icon:hover .phone-icon svg {
+    animation: none;
+  }
+}
+
+/* Animated map pin on the contact page. The whole mark hops, and the inner
+   ring draws itself a beat later. The hop distance is scaled from the
+   original's -5px at size 28 to keep the same lift at our 20px. */
+.pin-icon {
+  display: inline-flex;
+  color: var(--contact-icon);
+}
+
+.pin-icon svg {
+  display: block;
+  overflow: visible;
+}
+
+/* Motion drives pathLength through stroke-dasharray and pathOffset through a
+   negated stroke-dashoffset. pathLength="1" on the circle normalises its
+   length, so both animate between plain numbers. */
+.pin-icon__circle {
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+.text-with-icon:hover .pin-icon svg {
+  animation: pin-hop 0.5s ease-in-out both;
+}
+
+.text-with-icon:hover .pin-icon__circle {
+  animation: pin-ring 0.5s ease 0.3s both;
+}
+
+/* pathOffset 0.5 -> 0 starts the ring half a turn round, so it sweeps into
+   place rather than growing from its start point. */
+@keyframes pin-ring {
+  from {
+    stroke-dasharray: 0 1;
+    stroke-dashoffset: -0.5;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    stroke-dasharray: 1 1;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+/* times: [0, 0.6, 1] puts the peak at 60% rather than halfway. */
+@keyframes pin-hop {
+  0% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-3.5px);
+  }
+  100% {
+    transform: translateY(-2.1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-with-icon:hover .pin-icon svg,
+  .text-with-icon:hover .pin-icon__circle {
+    animation: none;
+  }
+}
