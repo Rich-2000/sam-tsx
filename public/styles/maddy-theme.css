@@ -1109,3 +1109,404 @@ html.is-page-loading {
     gap: 24px;
   }
 }
+
+/* Software products showcase: a list of rows where hovering one floats a
+   picture and a "View" badge alongside the pointer. The trailing motion is
+   driven from script; everything else here is transitions. */
+.product-showcase__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.product-showcase__intro {
+  max-width: 24rem;
+  margin: 0;
+}
+
+.product-showcase {
+  margin-top: 3.2rem;
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.5rem 1.5rem;
+  border-top: 1px solid var(--color--grey-100);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.product-row:last-child {
+  border-bottom: 1px solid var(--color--grey-100);
+}
+
+.product-row__name {
+  font-size: 2.6rem;
+  line-height: 1.1;
+  font-weight: 400;
+  transition: transform 0.3s ease;
+}
+
+.product-row__label {
+  color: var(--color--grey-500);
+  text-align: right;
+  transition: transform 0.3s ease;
+}
+
+/* Dimming the whole list and lifting only the hovered row is what makes the
+   pointer feel like it is picking one item out of the set. */
+.product-showcase[data-active='true'] .product-row {
+  opacity: 0.45;
+}
+
+.product-showcase[data-active='true'] .product-row:hover {
+  opacity: 1;
+}
+
+.product-row:hover .product-row__name,
+.product-row:hover .product-row__label {
+  transform: translateX(0.6rem);
+}
+
+.product-row:focus-visible {
+  outline: 2px solid var(--color--purple-500);
+  outline-offset: -2px;
+}
+
+/* Floating picture. Fixed positioning keeps it with the pointer without the
+   page scroll offset that pageX would otherwise need correcting for. */
+.product-showcase__panel,
+.product-showcase__badge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -50%);
+}
+
+.product-showcase__panel {
+  width: 20rem;
+  height: 17.5rem;
+  transition: opacity 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+    visibility 0s linear 0.4s;
+}
+
+/* The tilt lives on an inner layer so the script can keep translating the
+   outer one along the pointer without the two transforms fighting. */
+.product-showcase__tilt {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0.4rem;
+  background-color: #fff;
+  box-shadow: 0 1.5rem 3rem rgba(19, 17, 22, 0.25);
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.product-showcase__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: var(--color--purple-500);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 300;
+  z-index: 41;
+  transition: opacity 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+    visibility 0s linear 0.4s;
+}
+
+.product-showcase[data-active='true'] .product-showcase__panel,
+.product-showcase[data-active='true'] .product-showcase__badge {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* The slides are stacked full-height; the script slides the stack by whole
+   multiples of 100% so the hovered row's picture lands in the frame. */
+.product-showcase__stack {
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.product-showcase__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.product-showcase__slide img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 991px) {
+  .product-row {
+    padding: 1.75rem 0.5rem;
+  }
+  .product-row__name {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+  .product-row__label {
+    text-align: left;
+  }
+}
+
+/* No pointer to follow, and nothing to reveal on hover, so the panel stays
+   out of the way entirely. Tapping a row still opens the picture. */
+@media (hover: none) {
+  .product-showcase__panel,
+  .product-showcase__badge {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-showcase__panel,
+  .product-showcase__badge {
+    display: none;
+  }
+  .product-row,
+  .product-row__name,
+  .product-row__label,
+  .product-showcase__stack {
+    transition: none;
+  }
+}
+
+/* Picture gallery opened from a product row. The dialog supplies Escape, the
+   backdrop and focus handling; everything below is presentation. */
+.pg {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.pg::backdrop {
+  background-color: rgba(19, 17, 22, 0.72);
+  backdrop-filter: blur(0.5rem);
+}
+
+.pg__stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 1.5rem 9rem;
+}
+
+.pg__frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: min(64rem, 92vw);
+  margin: 0;
+}
+
+/* Re-added by script on every change of picture, so each one lands with the
+   same settle as the first. */
+.pg__frame.is-entering {
+  animation: pg-enter 0.45s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+
+@keyframes pg-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.pg__image {
+  display: block;
+  max-width: min(64rem, 92vw);
+  max-height: 62vh;
+  width: auto;
+  height: auto;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.pg__caption {
+  padding: 0;
+  text-align: center;
+  pointer-events: none;
+}
+
+.pg__title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.pg__desc {
+  margin: 0.5rem 0 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.pg__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--color--grey-800, #26222e);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.pg__close:hover {
+  transform: scale(1.1);
+  background-color: #fff;
+}
+
+.pg__close:active {
+  transform: scale(0.9);
+}
+
+/* Dock of every shot, draggable anywhere in the dialog. */
+.pg__dock {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  z-index: 2;
+  transform: translateX(-50%);
+  touch-action: none;
+  cursor: grab;
+}
+
+.pg__dock[data-pg-dragging='true'] {
+  cursor: grabbing;
+}
+
+.pg__dock-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(160, 130, 245, 0.35);
+  background-color: rgba(122, 68, 235, 0.22);
+  backdrop-filter: blur(1rem);
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.35);
+}
+
+.pg__thumb {
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  transition: transform 0.35s cubic-bezier(0.22, 1.4, 0.36, 1),
+    box-shadow 0.25s ease;
+}
+
+/* Alternating tilt, the way the dock reads in the original. */
+.pg__thumb:nth-child(odd) {
+  transform: rotate(-15deg);
+}
+
+.pg__thumb:nth-child(even) {
+  transform: rotate(15deg);
+}
+
+.pg__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pg__thumb:hover,
+.pg__thumb:focus-visible {
+  transform: rotate(0deg) scale(1.3) translateY(-0.6rem);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
+  outline: none;
+  z-index: 2;
+}
+
+.pg__thumb[data-pg-current='true'] {
+  transform: rotate(0deg) scale(1.2) translateY(-0.5rem);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7),
+    0 0 1.5rem rgba(255, 255, 255, 0.45);
+  z-index: 3;
+}
+
+@media screen and (max-width: 600px) {
+  .pg__stage {
+    padding: 1rem 0.75rem 8rem;
+  }
+  .pg__thumb {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg__frame.is-entering {
+    animation: none;
+  }
+  .pg__thumb {
+    transition: none;
+  }
+}
