@@ -314,12 +314,12 @@ export function NotFoundDocument() {
             muted
             playsInline
             preload="auto"
+            poster="/images/error404-poster.jpg"
             aria-hidden="true"
           >
-            {/* Drop an optimised 720p source above the full-size one when you have it:
-                <source src="/images/error404-720.webm" type="video/webm" />
-                <source src="/images/error404-720.mp4" type="video/mp4" /> */}
-            <source src="/images/error404.mp4" type="video/mp4" />
+            {/* 720p, faststart (moov first) so playback starts before the whole file arrives */}
+            <source src="/images/error404-720.webm" type="video/webm" />
+            <source src="/images/error404-720.mp4" type="video/mp4" />
           </video>
 
           <a className="nf-logo" href="/" aria-label="Maddy Group — back to home">
