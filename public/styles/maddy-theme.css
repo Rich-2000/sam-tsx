@@ -1715,3 +1715,16 @@ html.is-page-loading {
     animation: none;
   }
 }
+
+/* Contact page: the phone and email links keep their underline for hover and
+   keyboard focus instead of wearing it permanently. Scoped to .git-left so the
+   same class on the partner pages is left alone. */
+.git-left .link-on-dark {
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+
+.git-left .link-on-dark:hover,
+.git-left .link-on-dark:focus-visible {
+  text-decoration: underline;
+}
