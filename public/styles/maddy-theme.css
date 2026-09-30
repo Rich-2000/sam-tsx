@@ -1404,13 +1404,11 @@ html.is-page-loading {
   width: auto;
   height: auto;
   border-radius: 0.6rem;
-  cursor: pointer;
 }
 
 .pg__caption {
   padding: 0;
   text-align: center;
-  pointer-events: none;
 }
 
 .pg__title {
