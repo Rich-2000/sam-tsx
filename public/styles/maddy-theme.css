@@ -1725,3 +1725,14 @@ html.is-page-loading {
 .git-left .link-on-dark:focus-visible {
   text-decoration: underline;
 }
+
+/* About Us mission photo: Webflow keeps its portrait shape only below 768px.
+   Between 768px and 991px the box became a short full-width strip that showed
+   just the top half of the picture, so keep the shape there too. */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .rounded-feature-picture.about-logo {
+    aspect-ratio: 33 / 35;
+    height: auto;
+    max-width: 29.6rem;
+  }
+}
