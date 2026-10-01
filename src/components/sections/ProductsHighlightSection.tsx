@@ -251,12 +251,18 @@ const galleryBehavior = `
     })(thumbs[k]);
   }
 
-  // Anything outside the dock and the close button dismisses the gallery. The
-  // stage fills the dialog, so testing for the dialog itself would only catch
-  // clicks on the very edge of the viewport.
+  // Clicking the empty stage around the picture dismisses the gallery, the way
+  // a backdrop click would. The stage fills the dialog, so testing for the
+  // dialog itself would only catch clicks on the very edge of the viewport.
+  // The picture itself is not a dismiss target: it is the thing being looked
+  // at, so a click on it must not throw the viewer out.
   dialog.addEventListener('click', function (event) {
     var node = event.target;
-    if (node && node.closest && (node.closest('[data-pg-dock]') || node.closest('form'))) {
+    if (node && node.closest && (
+      node.closest('[data-pg-frame]') ||
+      node.closest('[data-pg-dock]') ||
+      node.closest('form')
+    )) {
       return;
     }
     dialog.close();
