@@ -8,6 +8,33 @@ type HeaderProps = {
   brand?: 'flow' | 'maddy'
 }
 
+/**
+ * Desktop with a mouse: dropdowns open on hover and close on mouse-out, and a
+ * click still toggles. Mobile menu and touch: click only, since hover-open and
+ * click-toggle cancel each other out there. Webflow reads data-hover when it
+ * sets dropdowns up, so set it before that runs and re-run setup on breakpoint
+ * changes.
+ */
+const dropdownHoverScript = `(function () {
+  var mq = window.matchMedia('(min-width: 992px) and (hover: hover)');
+  function apply() {
+    var dropdowns = document.querySelectorAll('.navbar .w-dropdown');
+    for (var i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].setAttribute('data-hover', mq.matches ? 'true' : 'false');
+    }
+  }
+  function onChange() {
+    apply();
+    if (window.Webflow && window.Webflow.require) {
+      var dropdown = window.Webflow.require('dropdown');
+      if (dropdown && dropdown.ready) dropdown.ready();
+    }
+  }
+  apply();
+  if (mq.addEventListener) mq.addEventListener('change', onChange);
+  else if (mq.addListener) mq.addListener(onChange);
+})();`
+
 function currentLinkClass(baseClassName: string, href: string, currentPath: string) {
   return href === currentPath ? `${baseClassName} w--current` : baseClassName
 }
@@ -126,5 +153,6 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
             </ButtonLink>
           </div>
         </div>
+        <script dangerouslySetInnerHTML={{ __html: dropdownHoverScript }}/>
       </div>);
 }
