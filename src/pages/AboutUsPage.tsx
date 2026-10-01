@@ -453,7 +453,6 @@ function AboutDetails() {
             </div>
           </div>
         </div>
-        <img src={"/images/brand/accra-business-district-kwaku-37304183.jpg"} loading={"lazy"} alt={""} className={"image maddy-background-image"} />
       </section>
     </div>
   )

@@ -168,11 +168,6 @@
   display: block;
 }
 
-.maddy-background-image {
-  object-fit: cover;
-  object-position: center;
-}
-
 .maddy-section-backdrop {
   position: absolute;
   inset: 0;
