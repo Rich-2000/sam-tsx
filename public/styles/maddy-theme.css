@@ -894,13 +894,17 @@ html.is-page-loading {
     white-space: nowrap;
   }
 
+  /* The arrow follows the same :hover/:focus-within as the panel. Webflow's
+     w--open is click-driven (data-hover="false" so mouse clicks in the mobile
+     menu don't fight hover), so it would leave the arrow flipped on a closed panel. */
   .navbar .arrow-icon.drop {
     transition: transform 0.28s ease;
+    transform: none !important;
   }
 
-  .navbar .dropdown.w--open .arrow-icon.drop,
-  .navbar .w-dropdown-toggle.w--open .arrow-icon.drop {
-    transform: rotate(180deg);
+  .navbar .dropdown.w-dropdown:hover .arrow-icon.drop,
+  .navbar .dropdown.w-dropdown:focus-within .arrow-icon.drop {
+    transform: rotate(180deg) !important;
   }
 }
 
