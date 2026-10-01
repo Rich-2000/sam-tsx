@@ -1736,3 +1736,20 @@ html.is-page-loading {
     max-width: 29.6rem;
   }
 }
+
+/* Navbar logo: white over the dark hero, navy once the navbar turns white (on
+   scroll, or behind the open mobile menu). Header.tsx mirrors the navbar's
+   background opacity into --maddy-nav-solid; both images share one canvas. */
+.logo.maddy-logo {
+  position: relative;
+}
+
+.maddy-logo .maddy-logo-light {
+  opacity: calc(1 - var(--maddy-nav-solid, 0));
+}
+
+.maddy-logo .maddy-logo-dark {
+  position: absolute;
+  inset: 0;
+  opacity: var(--maddy-nav-solid, 0);
+}
