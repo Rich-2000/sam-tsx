@@ -853,9 +853,9 @@ html.is-page-loading {
     z-index: 5100;
   }
 
-  /* Panels open and close on click only (data-hover="false"), driven by Webflow's
-     w--open. Webflow closes the other dropdown when one opens, and on an outside
-     click, so only one panel is ever shown. */
+  /* Panels follow Webflow's w--open: hover opens and mouse-out closes (data-hover
+     is set for desktop mice in Header.tsx), and a click toggles. Webflow closes
+     the other dropdown when one opens, so only one panel is ever shown. */
   .navbar .dropdown.w-dropdown > .dropdown-list.w-dropdown-list {
     display: none !important;
   }
