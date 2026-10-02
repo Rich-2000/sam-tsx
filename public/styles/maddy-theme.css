@@ -903,17 +903,125 @@ html.is-page-loading {
   }
 }
 
-/* Navbar dropdown items: a soft brand tint on hover/keyboard focus instead of
-   Webflow's solid flow-lime fill. */
-.navbar .dropdown-link.navbar-dl-link {
+/* Navbar dropdown items: arrow-fill hover. The arrow circle on the right grows
+   to fill the item, the label turns white as the fill passes over it (a white
+   copy revealed by clip-path), and the arrow slides out as a new one slides in.
+   Markup comes from DropdownLink in Header.tsx. */
+.navbar .dropdown-link.navbar-dl-link.arrow-fill {
+  --af-circle: 1.5rem;
+  --af-right: 0.3rem;
+  --af-inset-y: calc((100% - var(--af-circle)) / 2);
+  --af-ease: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  --af-duration: 0.45s;
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 999px !important;
+  padding-right: calc(var(--af-circle) + var(--af-right) + 0.9rem) !important;
   background-color: transparent !important;
-  transition: background-color 0.15s ease, color 0.15s ease !important;
+  transition: none !important;
 }
 
-.navbar .dropdown-link.navbar-dl-link:hover,
-.navbar .dropdown-link.navbar-dl-link:focus-visible {
-  background-color: var(--color--purple-10) !important;
+.arrow-fill .arrow-fill__label {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.arrow-fill .arrow-fill__fill {
+  position: absolute;
+  z-index: 2;
+  inset: var(--af-inset-y) var(--af-right) var(--af-inset-y)
+    calc(100% - var(--af-right) - var(--af-circle));
+  border-radius: 999px;
+  background-color: var(--color--purple-10);
+  pointer-events: none;
+  transition:
+    inset var(--af-duration) var(--af-ease),
+    background-color var(--af-duration) var(--af-ease);
+}
+
+.arrow-fill .arrow-fill__label--filled {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: inherit;
+  color: #fff;
+  pointer-events: none;
+  clip-path: inset(var(--af-inset-y) var(--af-right) var(--af-inset-y)
+    calc(100% - var(--af-right) - var(--af-circle)) round 999px);
+  transition: clip-path var(--af-duration) var(--af-ease);
+}
+
+.arrow-fill .arrow-fill__icon {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: var(--af-right);
+  width: var(--af-circle);
+  height: var(--af-circle);
+  overflow: hidden;
+  border-radius: 50%;
   color: var(--color--purple-500);
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: color var(--af-duration) var(--af-ease);
+}
+
+.arrow-fill .arrow-fill__arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  transition: transform var(--af-duration) var(--af-ease);
+}
+
+.arrow-fill .arrow-fill__arrow--in {
+  transform: translate(-170%, -50%) scale(0);
+}
+
+.arrow-fill .arrow-fill__arrow--out {
+  transform: translate(-50%, -50%);
+}
+
+.arrow-fill:hover .arrow-fill__fill,
+.arrow-fill:focus-visible .arrow-fill__fill {
+  inset: 0;
+  background-color: var(--color--purple-500);
+}
+
+.arrow-fill:hover .arrow-fill__label--filled,
+.arrow-fill:focus-visible .arrow-fill__label--filled {
+  clip-path: inset(0 round 999px);
+}
+
+.arrow-fill:hover .arrow-fill__icon,
+.arrow-fill:focus-visible .arrow-fill__icon {
+  color: #fff;
+}
+
+.arrow-fill:hover .arrow-fill__arrow--in,
+.arrow-fill:focus-visible .arrow-fill__arrow--in {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.arrow-fill:hover .arrow-fill__arrow--out,
+.arrow-fill:focus-visible .arrow-fill__arrow--out {
+  transform: translate(70%, -50%) scale(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow-fill .arrow-fill__fill,
+  .arrow-fill .arrow-fill__label--filled,
+  .arrow-fill .arrow-fill__icon,
+  .arrow-fill .arrow-fill__arrow {
+    transition: none;
+  }
 }
 
 /* Reference footer layout over the existing animated background. */

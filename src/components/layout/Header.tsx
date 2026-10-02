@@ -59,6 +59,47 @@ function currentLinkClass(baseClassName: string, href: string, currentPath: stri
   return href === currentPath ? `${baseClassName} w--current` : baseClassName
 }
 
+/** lucide-react ArrowRight, inlined so the static pages need no icon package */
+function ArrowRightIcon({ className }: { className: string }) {
+  return (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+      <path d="M5 12h14"/>
+      <path d="m12 5 7 7-7 7"/>
+    </svg>
+  )
+}
+
+type DropdownLinkProps = {
+  href: string
+  label: string
+  currentPath: string
+  /** Page the link belongs to, when href carries a #fragment */
+  pagePath?: string
+}
+
+/**
+ * Navbar dropdown item with an arrow-fill hover: the arrow circle on the right
+ * expands to fill the item, the label turns white and the arrow slides through.
+ * Pure CSS (see .arrow-fill in maddy-theme.css) since these pages ship no client React.
+ */
+function DropdownLink({ href, label, currentPath, pagePath = href }: DropdownLinkProps) {
+  return (
+    <a
+      href={href}
+      aria-current={pagePath === currentPath ? 'page' : undefined}
+      className={currentLinkClass('dropdown-link navbar-dl-link w-dropdown-link arrow-fill', pagePath, currentPath)}
+    >
+      <span className="arrow-fill__label">{label}</span>
+      <span className="arrow-fill__fill" aria-hidden="true"></span>
+      <span className="arrow-fill__label arrow-fill__label--filled" aria-hidden="true">{label}</span>
+      <span className="arrow-fill__icon" aria-hidden="true">
+        <ArrowRightIcon className="arrow-fill__arrow arrow-fill__arrow--in"/>
+        <ArrowRightIcon className="arrow-fill__arrow arrow-fill__arrow--out"/>
+      </span>
+    </a>
+  )
+}
+
 export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow' }: HeaderProps) {
     const isCurrent = (href: string) => href === currentPath
     const isMaddy = brand === 'maddy'
@@ -97,23 +138,12 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
                   <div className="navbar-dropdown-wrapper">
                     {isMaddy ? (
                       technologyNavItems.map((item) => (
-                        <a
-                          key={item.href}
-                          href={item.href}
-                          aria-current={isCurrent(item.href) ? 'page' : undefined}
-                          className={currentLinkClass('dropdown-link navbar-dl-link w-dropdown-link', item.href, currentPath)}
-                        >
-                          {item.label}
-                        </a>
+                        <DropdownLink key={item.href} href={item.href} label={item.label} currentPath={currentPath}/>
                       ))
                     ) : (
                       <>
-                        <a href="/retail-brokers" aria-current={isCurrent('/retail-brokers') ? 'page' : undefined} className={currentLinkClass('dropdown-link navbar-dl-link w-dropdown-link', '/retail-brokers', currentPath)}>
-                          {"For Retail Agents"}
-                        </a>
-                        <a href="/carriers" aria-current={isCurrent('/carriers') ? 'page' : undefined} className={currentLinkClass('dropdown-link navbar-dl-link w-dropdown-link', '/carriers', currentPath)}>
-                          {"For Carriers"}
-                        </a>
+                        <DropdownLink href="/retail-brokers" label="For Retail Agents" currentPath={currentPath}/>
+                        <DropdownLink href="/carriers" label="For Carriers" currentPath={currentPath}/>
                       </>
                     )}
                   </div>
@@ -129,23 +159,10 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
                   </div>
                   <nav className="dropdown-list w-dropdown-list">
                     <div className="navbar-dropdown-wrapper">
-                      <a
-                        href="/about-us#team"
-                        aria-current={isCurrent('/about-us') ? 'page' : undefined}
-                        className={currentLinkClass('dropdown-link navbar-dl-link w-dropdown-link', '/about-us', currentPath)}
-                      >
-                        {"Team"}
-                      </a>
+                      <DropdownLink href="/about-us#team" pagePath="/about-us" label="Team" currentPath={currentPath}/>
                       <div className="navbar-dl-label">{"Partners"}</div>
                       {partnerNavItems.map((item) => (
-                        <a
-                          key={item.href}
-                          href={item.href}
-                          aria-current={isCurrent(item.href) ? 'page' : undefined}
-                          className={currentLinkClass('dropdown-link navbar-dl-link w-dropdown-link', item.href, currentPath)}
-                        >
-                          {item.label}
-                        </a>
+                        <DropdownLink key={item.href} href={item.href} label={item.label} currentPath={currentPath}/>
                       ))}
                     </div>
                   </nav>
