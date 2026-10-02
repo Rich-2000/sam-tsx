@@ -1,0 +1,5 @@
+# Quick checks before code leaves your machine. Browser tests run in CI
+# on every pull request; run them locally with: npm run test:e2e
+npm run typecheck
+npm run lint
+npm run check:integrity

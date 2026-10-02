@@ -6,27 +6,30 @@ The page is composed in `src/App.tsx`. Reusable sections live in `src/components
 
 ## Run
 
-```powershell
+Requires Node 22 (`.nvmrc`).
+
+```sh
 npm install
 npm run dev
 ```
 
-Open `http://localhost:8080`.
+Open `http://localhost:8080`. Set `PORT` to use another port.
 
-Production:
+Production build:
 
-```powershell
+```sh
 npm run build
 npm start
 ```
 
-Set `PORT` to override port `8080`.
-
 ## Check
 
-```powershell
-npm run typecheck
-npm run build
+```sh
+npm run check       # typecheck, lint, formatting and build
+npm run test:e2e    # browser tests (first run: npx playwright install chromium)
+npm run format      # fix formatting
 ```
+
+The same checks run on every pull request. Merging to `master` deploys to production on Vercel. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full workflow.
 
 Images, SVGs, responsive image sets, videos, posters, embedded media, PDFs, and ordinary outbound links remain external. Stylesheets, fonts, and executable JavaScript are local under `public/`.

@@ -1,0 +1,66 @@
+name: Live site check
+
+# Vercel reports each deployment to GitHub. After a production deploy
+# succeeds, run the read-only @smoke browser tests against the live site and
+# open an issue if anything is broken.
+on:
+  deployment_status:
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  HUSKY: 0
+  # The production address. Per-deployment URLs sit behind Vercel's login.
+  # Override with a repository variable when a custom domain goes live.
+  PRODUCTION_URL: ${{ vars.PRODUCTION_URL || 'https://sam-tsx.vercel.app' }}
+
+jobs:
+  smoke:
+    if: >-
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.deployment.sha }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Test the live site
+        run: npm run test:smoke
+        env:
+          BASE_URL: ${{ env.PRODUCTION_URL }}
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: live-site-report
+          path: playwright-report/
+          retention-days: 30
+      - name: Open an issue
+        if: failure()
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const sha = context.payload.deployment.sha.slice(0, 7)
+            const run = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Live site check failed after deploying ${sha}`,
+              labels: ['production'],
+              body: [
+                `The browser checks failed against ${process.env.PRODUCTION_URL} after commit ${sha} went live.`,
+                '',
+                `Test run and report: ${run}`,
+                '',
+                'If the site is broken, roll back first (Vercel → Deployments → previous production deployment → Promote), then fix forward with a pull request. See CONTRIBUTING.md.',
+              ].join('\n'),
+            })
