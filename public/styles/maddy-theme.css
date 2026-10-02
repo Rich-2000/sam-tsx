@@ -906,21 +906,31 @@ html.is-page-loading {
   }
 }
 
-/* Navbar dropdown items: arrow-fill hover. The arrow circle on the right grows
-   to fill the item, the label turns white as the fill passes over it (a white
-   copy revealed by clip-path), and the arrow slides out as a new one slides in.
-   Markup comes from DropdownLink in Header.tsx. */
-.navbar .dropdown-link.navbar-dl-link.arrow-fill {
+/* Arrow-fill hover (markup: ArrowFillContent in components/ui/ArrowFill.tsx).
+   The arrow circle on the right grows to fill the element, the label changes
+   colour as the fill passes over it (a recoloured copy revealed by clip-path),
+   and the arrow slides out as a new one slides in. Each use sets the circle
+   size and the colours below. */
+.arrow-fill {
   --af-circle: 1.5rem;
   --af-right: 0.3rem;
   --af-inset-y: calc((100% - var(--af-circle)) / 2);
   --af-ease: cubic-bezier(0.785, 0.135, 0.15, 0.86);
   --af-duration: 0.45s;
+  --af-rest-bg: var(--color--purple-10); /* circle at rest */
+  --af-fill-bg: var(--color--purple-500); /* fill on hover */
+  --af-filled-text: #fff; /* label once filled */
+  --af-arrow: var(--color--purple-500);
+  --af-arrow-hover: #fff;
   position: relative;
-  display: flex !important;
   align-items: center;
   overflow: hidden;
   isolation: isolate;
+}
+
+/* Navbar dropdown items */
+.navbar .dropdown-link.navbar-dl-link.arrow-fill {
+  display: flex !important;
   border-radius: 999px !important;
   padding-right: calc(var(--af-circle) + var(--af-right) + 0.9rem) !important;
   background-color: transparent !important;
@@ -939,7 +949,7 @@ html.is-page-loading {
   inset: var(--af-inset-y) var(--af-right) var(--af-inset-y)
     calc(100% - var(--af-right) - var(--af-circle));
   border-radius: 999px;
-  background-color: var(--color--purple-10);
+  background-color: var(--af-rest-bg);
   pointer-events: none;
   transition:
     inset var(--af-duration) var(--af-ease),
@@ -953,7 +963,7 @@ html.is-page-loading {
   display: flex;
   align-items: center;
   padding: inherit;
-  color: #fff;
+  color: var(--af-filled-text);
   pointer-events: none;
   clip-path: inset(var(--af-inset-y) var(--af-right) var(--af-inset-y)
     calc(100% - var(--af-right) - var(--af-circle)) round 999px);
@@ -969,7 +979,7 @@ html.is-page-loading {
   height: var(--af-circle);
   overflow: hidden;
   border-radius: 50%;
-  color: var(--color--purple-500);
+  color: var(--af-arrow);
   pointer-events: none;
   transform: translateY(-50%);
   transition: color var(--af-duration) var(--af-ease);
@@ -979,8 +989,8 @@ html.is-page-loading {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 0.8rem;
-  height: 0.8rem;
+  width: var(--af-arrow-size, 0.8rem);
+  height: var(--af-arrow-size, 0.8rem);
   transition: transform var(--af-duration) var(--af-ease);
 }
 
@@ -995,7 +1005,7 @@ html.is-page-loading {
 .arrow-fill:hover .arrow-fill__fill,
 .arrow-fill:focus-visible .arrow-fill__fill {
   inset: 0;
-  background-color: var(--color--purple-500);
+  background-color: var(--af-fill-bg);
 }
 
 .arrow-fill:hover .arrow-fill__label--filled,
@@ -1005,7 +1015,7 @@ html.is-page-loading {
 
 .arrow-fill:hover .arrow-fill__icon,
 .arrow-fill:focus-visible .arrow-fill__icon {
-  color: #fff;
+  color: var(--af-arrow-hover);
 }
 
 .arrow-fill:hover .arrow-fill__arrow--in,
@@ -1016,6 +1026,36 @@ html.is-page-loading {
 .arrow-fill:hover .arrow-fill__arrow--out,
 .arrow-fill:focus-visible .arrow-fill__arrow--out {
   transform: translate(70%, -50%) scale(0);
+}
+
+/* Buttons: a white arrow circle that fills the button on hover, turning the
+   label to the button's own colour. The fill replaces Webflow's hover tint. */
+.button.arrow-fill--button {
+  --af-circle: 2.4rem;
+  --af-right: 0.4rem;
+  --af-arrow-size: 0.95rem;
+  --af-rest-bg: var(--color--white);
+  --af-fill-bg: var(--color--white);
+  border-radius: 999px;
+  padding-right: calc(var(--af-circle) + var(--af-right) + 1rem);
+}
+
+.button.is-black-button.arrow-fill--button {
+  --af-filled-text: var(--color--black);
+  --af-arrow: var(--color--black);
+  --af-arrow-hover: var(--color--black);
+}
+
+/* Once the fill has covered the button, match the button to it so no dark
+   hairline shows at the rounded edge; snap back instantly on leave. */
+.button.is-black-button.arrow-fill--button {
+  transition: background-color 0s;
+}
+
+.button.is-black-button.arrow-fill--button:hover,
+.button.is-black-button.arrow-fill--button:focus-visible {
+  background-color: var(--color--white);
+  transition-delay: var(--af-duration);
 }
 
 @media (prefers-reduced-motion: reduce) {

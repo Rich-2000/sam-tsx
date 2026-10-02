@@ -1,6 +1,7 @@
 import { Footer } from '../components/layout/Footer.js'
 import { SiteDocument } from '../components/layout/SiteDocument.js'
 import { SiteIcons } from '../components/layout/SiteIcons.js'
+import { ArrowFillContent } from '../components/ui/ArrowFill.js'
 import { sitePageCode } from '../content/sitePageCode.js'
 
 function PageHead() {
@@ -476,11 +477,8 @@ function AboutFooterArea() {
                 {"Tell us what you need to secure or build. We will come back with a clear quote."}
               </p>
             </div>
-            <a data-w-id={"6f019d19-8439-ebb1-03aa-e83ff5622970"} href={"/get-in-touch"} className={"button is-black-button w-inline-block"}>
-              <p>
-                {"Request a quote"}
-              </p>
-              <img src={"https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg"} loading={"lazy"} alt={""} className={"button-arrow inversed"} />
+            <a data-w-id={"6f019d19-8439-ebb1-03aa-e83ff5622970"} href={"/get-in-touch"} className={"button is-black-button w-inline-block arrow-fill arrow-fill--button"}>
+              <ArrowFillContent label={"Request a quote"} />
             </a>
           </div>
         </div>
