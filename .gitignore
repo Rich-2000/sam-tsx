@@ -3,3 +3,7 @@ dist/
 
 # local dev server log
 dev*.log
+
+# Playwright output
+playwright-report/
+test-results/
