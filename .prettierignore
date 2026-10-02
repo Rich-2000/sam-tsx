@@ -1,0 +1,14 @@
+dist/
+node_modules/
+package-lock.json
+playwright-report/
+test-results/
+
+# Third-party code and stylesheets, kept byte-for-byte as shipped
+public/vendor/
+public/styles/webflow.css
+public/styles/swiper.css
+
+# Raw page code captured as strings; reformatting only adds noise
+src/content/pageCode.ts
+src/content/sitePageCode.ts
