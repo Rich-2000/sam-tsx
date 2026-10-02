@@ -1,5 +1,6 @@
 import { partnerNavItems } from '../../content/partnerPages.js'
 import { technologyNavItems } from '../../content/technologyNav.js'
+import { ArrowFillContent } from '../ui/ArrowFill.js'
 import { ButtonLink } from '../ui/ButtonLink.js'
 
 type HeaderProps = {
@@ -59,16 +60,6 @@ function currentLinkClass(baseClassName: string, href: string, currentPath: stri
   return href === currentPath ? `${baseClassName} w--current` : baseClassName
 }
 
-/** lucide-react ArrowRight, inlined so the static pages need no icon package */
-function ArrowRightIcon({ className }: { className: string }) {
-  return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
-      <path d="M5 12h14"/>
-      <path d="m12 5 7 7-7 7"/>
-    </svg>
-  )
-}
-
 type DropdownLinkProps = {
   href: string
   label: string
@@ -80,7 +71,6 @@ type DropdownLinkProps = {
 /**
  * Navbar dropdown item with an arrow-fill hover: the arrow circle on the right
  * expands to fill the item, the label turns white and the arrow slides through.
- * Pure CSS (see .arrow-fill in maddy-theme.css) since these pages ship no client React.
  */
 function DropdownLink({ href, label, currentPath, pagePath = href }: DropdownLinkProps) {
   return (
@@ -89,13 +79,7 @@ function DropdownLink({ href, label, currentPath, pagePath = href }: DropdownLin
       aria-current={pagePath === currentPath ? 'page' : undefined}
       className={currentLinkClass('dropdown-link navbar-dl-link w-dropdown-link arrow-fill', pagePath, currentPath)}
     >
-      <span className="arrow-fill__label">{label}</span>
-      <span className="arrow-fill__fill" aria-hidden="true"></span>
-      <span className="arrow-fill__label arrow-fill__label--filled" aria-hidden="true">{label}</span>
-      <span className="arrow-fill__icon" aria-hidden="true">
-        <ArrowRightIcon className="arrow-fill__arrow arrow-fill__arrow--in"/>
-        <ArrowRightIcon className="arrow-fill__arrow arrow-fill__arrow--out"/>
-      </span>
+      <ArrowFillContent label={label}/>
     </a>
   )
 }
