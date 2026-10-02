@@ -282,7 +282,13 @@ const pageScript = `
 function ArrowLeft() {
   return (
     <svg className="nf-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M10 3L5 8l5 5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }
@@ -294,7 +300,7 @@ export function NotFoundDocument() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="noindex" />
-        <title>{"404 — Page not found | Maddy Group Ltd"}</title>
+        <title>{'404 — Page not found | Maddy Group Ltd'}</title>
         <link rel="icon" href="/images/maddy-logo-icon.jpg" type="image/jpeg" />
         <style
           dangerouslySetInnerHTML={{
@@ -323,22 +329,27 @@ export function NotFoundDocument() {
           </video>
 
           <a className="nf-logo" href="/" aria-label="Maddy Group — back to home">
-            <img src="/images/maddy-group-horizontal-white.png" alt="Maddy Group" width={200} height={40} />
+            <img
+              src="/images/maddy-group-horizontal-white.png"
+              alt="Maddy Group"
+              width={200}
+              height={40}
+            />
           </a>
 
           <div className="nf-content">
-            <h1 className="nf-404">{"404"}</h1>
+            <h1 className="nf-404">{'404'}</h1>
             <hr className="nf-divider" aria-hidden="true" />
             <p className="nf-msg" id="nf-msg">
-              {"Somewhere across the Ghanaian savannah, you wandered off the map."}
+              {'Somewhere across the Ghanaian savannah, you wandered off the map.'}
             </p>
             <div className="nf-actions">
               <button id="nf-back" type="button" className="nf-btn nf-btn--ghost">
                 <ArrowLeft />
-                {"Go Back"}
+                {'Go Back'}
               </button>
               <a href="/" className="nf-btn nf-btn--primary">
-                {"Home"}
+                {'Home'}
               </a>
             </div>
           </div>

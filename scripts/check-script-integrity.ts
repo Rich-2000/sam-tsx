@@ -13,8 +13,11 @@ for (const route of siteRoutes) {
   const html = renderDocument(route)!
   const tag = html.match(/<script\b[^>]*src="\/vendor\/jquery\.js"[^>]*>/)?.[0]
   assert(tag, `${route}: missing jQuery script`)
-  assert.equal(tag.match(/\bintegrity="([^"]+)"/)?.[1], integrity,
-    `${route}: jQuery integrity mismatch blocks text animations and navigation`)
+  assert.equal(
+    tag.match(/\bintegrity="([^"]+)"/)?.[1],
+    integrity,
+    `${route}: jQuery integrity mismatch blocks text animations and navigation`,
+  )
 }
 
 console.log(`Script integrity passed for all ${siteRoutes.length} routes`)

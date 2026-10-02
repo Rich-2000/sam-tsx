@@ -140,7 +140,9 @@ export function Footer() {
             <div className="mf__news">
               <h2 className="mf__heading">{'Stay in the loop'}</h2>
               <p className="mf__news-copy">
-                {'Security advisories, project notes and the occasional update from the team in Accra. No noise.'}
+                {
+                  'Security advisories, project notes and the occasional update from the team in Accra. No noise.'
+                }
               </p>
               <form id="mf-subscribe" className="mf__form" noValidate={false}>
                 <label className="mf__sr-only" htmlFor="mf-email">
@@ -181,9 +183,7 @@ export function Footer() {
           <hr className="mf__divider" />
 
           <div className="mf__bar">
-            <p className="mf__copyright">
-              {'© 2026 Maddy Group Ltd. All rights reserved.'}
-            </p>
+            <p className="mf__copyright">{'© 2026 Maddy Group Ltd. All rights reserved.'}</p>
             <div className="mf__bar-links">
               <a href="/privacy-policy" className="mf__link">
                 {'Privacy Policy'}
