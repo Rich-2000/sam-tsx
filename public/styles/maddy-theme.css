@@ -1903,6 +1903,19 @@ html.is-page-loading {
     padding-bottom: 0;
     border-radius: 1.6rem;
   }
+
+  /* The font leaves more room under the letters than above them, so a centred
+     line box still reads high. Trim the line to cap height and baseline so the
+     label is optically centred; older browsers get the original 0.1rem nudge. */
+  .navbar .nav-flex > .is-navbar-button p {
+    text-box: trim-both cap alphabetic;
+  }
+
+  @supports not (text-box: trim-both cap alphabetic) {
+    .navbar .nav-flex > .is-navbar-button {
+      padding-top: 0.1rem;
+    }
+  }
 }
 
 /* Webflow widens the heroes' side padding to 5rem from 1440px, which put the
