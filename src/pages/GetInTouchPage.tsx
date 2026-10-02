@@ -273,13 +273,38 @@ const glassSelectScript = `
     });
 
     wrap.appendChild(trigger);
-    wrap.appendChild(menu);
+    // The list lives on <body> so the hero card's overflow clip can't cut it
+    // off; it is positioned against the field whenever it opens.
+    document.body.appendChild(menu);
 
     var active = -1;
-    var api = { close: close };
+    var api = { close: close, place: place, owns: owns };
 
     function isOpen() {
-      return wrap.classList.contains('is-open');
+      return menu.classList.contains('is-open');
+    }
+
+    function owns(node) {
+      return wrap.contains(node) || menu.contains(node);
+    }
+
+    // Below the field, or above it when there is more room there (never under
+    // the fixed navbar). Page coordinates, so the list scrolls with the page.
+    function place() {
+      var box = trigger.getBoundingClientRect();
+      var navbar = document.querySelector('.navbar');
+      var top = navbar ? navbar.getBoundingClientRect().bottom : 0;
+      menu.style.minWidth = box.width + 'px';
+      var height = menu.offsetHeight;
+      var width = menu.offsetWidth;
+      var below = window.innerHeight - box.bottom - 12;
+      var above = box.top - top - 12;
+      var up = height > below && above > below;
+      menu.classList.toggle('opens-up', up);
+      var row = wrap.parentElement.getBoundingClientRect();
+      var left = box.left + width > row.right ? box.right - width : box.left;
+      menu.style.left = left + window.scrollX + 'px';
+      menu.style.top = (up ? box.top - 6 - height : box.bottom + 6) + window.scrollY + 'px';
     }
 
     function sync() {
@@ -301,7 +326,6 @@ const glassSelectScript = `
       });
       if (index >= 0) {
         trigger.setAttribute('aria-activedescendant', items[index].id);
-        items[index].scrollIntoView({ block: 'nearest' });
       } else {
         trigger.removeAttribute('aria-activedescendant');
       }
@@ -309,22 +333,9 @@ const glassSelectScript = `
 
     function open(fromKeyboard) {
       if (openOne && openOne !== api) openOne.close();
-      // Open upward when the hero card (which clips overflow) has no room below,
-      // never under the fixed navbar.
-      var bounds = (wrap.closest('section') || document.body).getBoundingClientRect();
-      var navbar = document.querySelector('.navbar');
-      var top = Math.max(bounds.top, navbar ? navbar.getBoundingClientRect().bottom : 0, 0);
-      var box = trigger.getBoundingClientRect();
-      var below = Math.min(bounds.bottom, window.innerHeight) - box.bottom - 12;
-      var above = box.top - top - 12;
-      menu.style.maxHeight = '';
-      var up = menu.scrollHeight > below && above > below;
-      wrap.classList.toggle('opens-up', up);
-      menu.style.maxHeight = Math.max(up ? above : below, 120) + 'px';
-      // The list can be wider than its field; keep it inside the form row.
-      var row = wrap.parentElement.getBoundingClientRect();
-      wrap.classList.toggle('aligns-right', box.left + menu.offsetWidth > row.right);
+      place();
       wrap.classList.add('is-open');
+      menu.classList.add('is-open');
       trigger.setAttribute('aria-expanded', 'true');
       var selected = items.findIndex(function (item) { return item.dataset.value === select.value; });
       // Highlight only for keyboard use; on click/tap a highlight reads as selected.
@@ -334,6 +345,7 @@ const glassSelectScript = `
 
     function close() {
       wrap.classList.remove('is-open');
+      menu.classList.remove('is-open');
       trigger.setAttribute('aria-expanded', 'false');
       setActive(-1);
       if (openOne === api) openOne = null;
@@ -395,7 +407,10 @@ const glassSelectScript = `
   });
 
   document.addEventListener('click', function (event) {
-    if (openOne && !event.target.closest('.glass-select.is-open')) openOne.close();
+    if (openOne && !openOne.owns(event.target)) openOne.close();
+  });
+  window.addEventListener('resize', function () {
+    if (openOne) openOne.place();
   });
 })();
 `
