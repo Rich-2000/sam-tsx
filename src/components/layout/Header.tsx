@@ -35,6 +35,26 @@ const dropdownHoverScript = `(function () {
   else if (mq.addListener) mq.addListener(onChange);
 })();`
 
+/**
+ * The navbar fades from transparent to white on scroll (Webflow interaction) and
+ * is white behind the open mobile menu. Mirror its background opacity into
+ * --maddy-nav-solid so the white logo cross-fades to the navy one with it.
+ */
+const logoContrastScript = `(function () {
+  var nav = document.querySelector('.navbar');
+  var wrap = nav && nav.closest('.navbar-wrap');
+  if (!wrap) return;
+  function sync() {
+    var rgba = getComputedStyle(nav).backgroundColor.match(/[\\d.]+/g) || [];
+    var alpha = rgba.length < 3 ? 0 : rgba.length > 3 ? Number(rgba[3]) : 1;
+    wrap.style.setProperty('--maddy-nav-solid', String(alpha));
+  }
+  sync();
+  new MutationObserver(sync).observe(nav, { attributes: true, attributeFilter: ['style', 'class'], subtree: true });
+  nav.addEventListener('transitionend', sync);
+  window.addEventListener('resize', sync);
+})();`
+
 function currentLinkClass(baseClassName: string, href: string, currentPath: string) {
   return href === currentPath ? `${baseClassName} w--current` : baseClassName
 }
@@ -51,7 +71,10 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
           <div className="container nav-flex w-container">
             <a href="/" aria-current={isCurrent('/') ? 'page' : undefined} className={currentLinkClass(isMaddy ? 'logo maddy-logo w-nav-brand' : 'logo w-nav-brand', '/', currentPath)} style={isMaddy ? { width: '7.5rem' } : undefined}>
               {isMaddy ? (
-                <img src="/images/maddy-group-horizontal-white.png" loading="eager" width="240" height="57" alt="Maddy Group" className="logo-img" style={{ width: '100%', height: 'auto' }}/>
+                <>
+                  <img src="/images/maddy-group-horizontal-white.png" loading="eager" width="240" height="57" alt="Maddy Group" className="logo-img maddy-logo-light" style={{ width: '100%', height: 'auto' }}/>
+                  <img src="/images/maddy-group-horizontal-navy.png" loading="eager" width="240" height="57" alt="" aria-hidden="true" className="logo-img maddy-logo-dark" style={{ width: '100%', height: 'auto' }}/>
+                </>
               ) : (
                 <img src="https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70de9c_Clip%20path%20group.svg" loading="eager" width="111" height="37" alt="" className="logo-img"/>
               )}
@@ -154,5 +177,6 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
           </div>
         </div>
         <script dangerouslySetInnerHTML={{ __html: dropdownHoverScript }}/>
+        {isMaddy ? <script dangerouslySetInnerHTML={{ __html: logoContrastScript }}/> : null}
       </div>);
 }

@@ -903,12 +903,17 @@ html.is-page-loading {
   }
 }
 
-/* Technologies submenu: no hover flash/animation */
-.navbar .dropdown-link.navbar-dl-link,
-.navbar .dropdown-link.navbar-dl-link:hover,
-.navbar .dropdown-link.navbar-dl-link:focus {
+/* Navbar dropdown items: a soft brand tint on hover/keyboard focus instead of
+   Webflow's solid flow-lime fill. */
+.navbar .dropdown-link.navbar-dl-link {
   background-color: transparent !important;
-  transition: none !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.navbar .dropdown-link.navbar-dl-link:hover,
+.navbar .dropdown-link.navbar-dl-link:focus-visible {
+  background-color: var(--color--purple-10) !important;
+  color: var(--color--purple-500);
 }
 
 /* Reference footer layout over the existing animated background. */
@@ -1724,4 +1729,32 @@ html.is-page-loading {
 .git-left .link-on-dark:hover,
 .git-left .link-on-dark:focus-visible {
   text-decoration: underline;
+}
+
+/* About Us mission photo: Webflow keeps its portrait shape only below 768px.
+   Between 768px and 991px the box became a short full-width strip that showed
+   just the top half of the picture, so keep the shape there too. */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .rounded-feature-picture.about-logo {
+    aspect-ratio: 33 / 35;
+    height: auto;
+    max-width: 29.6rem;
+  }
+}
+
+/* Navbar logo: white over the dark hero, navy once the navbar turns white (on
+   scroll, or behind the open mobile menu). Header.tsx mirrors the navbar's
+   background opacity into --maddy-nav-solid; both images share one canvas. */
+.logo.maddy-logo {
+  position: relative;
+}
+
+.maddy-logo .maddy-logo-light {
+  opacity: calc(1 - var(--maddy-nav-solid, 0));
+}
+
+.maddy-logo .maddy-logo-dark {
+  position: absolute;
+  inset: 0;
+  opacity: var(--maddy-nav-solid, 0);
 }
