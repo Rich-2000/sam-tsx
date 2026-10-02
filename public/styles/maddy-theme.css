@@ -472,6 +472,169 @@ html.is-page-loading {
   background-color: #fff;
 }
 
+/* Custom glass dropdowns (built over the selects by GetInTouchPage.tsx). The
+   native select stays underneath, invisible, for submit and validation. */
+.is-contact-hero .glass-select {
+  position: relative;
+  min-width: 0;
+}
+
+.is-contact-hero .glass-select > .select-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.is-contact-hero .glass-select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.is-contact-hero .glass-select__value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.is-contact-hero .glass-select.is-placeholder .glass-select__value {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.is-contact-hero .glass-select__chevron {
+  flex: none;
+  width: 12px;
+  height: 8px;
+  transition: transform 0.3s ease;
+}
+
+.is-contact-hero .glass-select.is-open .glass-select__chevron {
+  transform: rotate(180deg);
+}
+
+.is-contact-hero .glass-select.is-open .glass-select__trigger,
+.is-contact-hero .glass-select__trigger:focus-visible {
+  border-color: var(--color--flow-pastel-lime-300);
+  background-color: rgba(255, 255, 255, 0.16);
+  outline: none;
+}
+
+.is-contact-hero .glass-select.is-invalid .glass-select__trigger {
+  border-color: #ff9b9b;
+}
+
+.is-contact-hero .glass-select__menu {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  width: max-content;
+  min-width: 100%;
+  max-width: 20rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 0.75rem;
+  background-color: var(--color--purple-900);
+  box-shadow: 0 24px 48px rgba(1, 5, 53, 0.55);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+}
+
+.is-contact-hero .glass-select.opens-up .glass-select__menu {
+  top: auto;
+  bottom: calc(100% + 0.4rem);
+  transform: translateY(10px);
+}
+
+.is-contact-hero .glass-select.aligns-right .glass-select__menu {
+  left: auto;
+  right: 0;
+}
+
+.is-contact-hero .glass-select.is-open .glass-select__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
+}
+
+.is-contact-hero .glass-select__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0; /* Webflow gives every li a 1.11rem bottom margin */
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--color--white);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(-20px);
+  /* reset instantly once the menu has faded out */
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0s 0.2s, transform 0s 0.2s;
+}
+
+.is-contact-hero .glass-select__option:last-child {
+  border-bottom: none;
+}
+
+/* Options slide in one after another as the menu opens */
+.is-contact-hero .glass-select.is-open .glass-select__option {
+  opacity: 1;
+  transform: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease calc(var(--i, 0) * 0.05s),
+    transform 0.2s ease calc(var(--i, 0) * 0.05s);
+}
+
+.is-contact-hero .glass-select__option.is-active {
+  background-color: var(--color--white);
+  color: var(--color--purple-900);
+}
+
+.is-contact-hero .glass-select__check {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  transform: scale(0);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.is-contact-hero .glass-select__option[aria-selected="true"] .glass-select__check {
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-contact-hero .glass-select__chevron,
+  .is-contact-hero .glass-select__menu,
+  .is-contact-hero .glass-select.is-open .glass-select__menu,
+  .is-contact-hero .glass-select__option,
+  .is-contact-hero .glass-select.is-open .glass-select__option,
+  .is-contact-hero .glass-select__check {
+    transition: none;
+  }
+}
+
 /* Browser autofill paints inputs yellow/white; keep the glass look. */
 .is-contact-hero .text-field:-webkit-autofill {
   -webkit-text-fill-color: var(--color--white);
