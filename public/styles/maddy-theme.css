@@ -508,6 +508,9 @@ html.is-page-loading {
     justify-content: center;
     padding-top: 6.8rem; /* clears the 6.58rem fixed navbar */
     padding-bottom: 0.8rem;
+    /* 4rem sides like the other heroes, so the copy lines up with the navbar */
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   /* Tighter form card so the whole hero fits a laptop screen. */
@@ -1865,4 +1868,52 @@ html.is-page-loading {
   position: absolute;
   inset: 0;
   opacity: var(--maddy-nav-solid, 0);
+}
+
+/* Desktop navbar: logo | menu pill | Contact Us on a 1fr auto 1fr grid, so the
+   pill sits dead centre whatever the logo and button widths (Webflow nudged it
+   with left: 3rem), and the button stretches to the pill's height and radius. */
+@media screen and (min-width: 992px) {
+  .navbar .container.nav-flex {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .navbar .nav-flex > .logo {
+    grid-column: 1;
+    justify-self: start;
+    align-self: center;
+  }
+
+  .navbar .nav-flex > .nav-menu {
+    grid-column: 2;
+    left: auto;
+    margin: 0;
+  }
+
+  .navbar .nav-flex > .is-navbar-button {
+    grid-column: 3;
+    justify-self: end;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 1.6rem;
+  }
+}
+
+/* Webflow widens the heroes' side padding to 5rem from 1440px, which put the
+   hero copy 1rem inside the navbar's edges (the hero card adds its own 1rem).
+   Keep 4rem so the heroes line up with the navbar like the rest of the page. */
+@media screen and (min-width: 1440px) {
+  .section.is-hero-section,
+  .section.is-why-flow-hero,
+  .section.is-why-about-hero,
+  .section.is-products-hero {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }
