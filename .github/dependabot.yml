@@ -6,6 +6,11 @@ updates:
       interval: weekly
     open-pull-requests-limit: 5
     groups:
+      # React and its type definitions only work at matching major versions,
+      # so they must move in one pull request. Listed first: groups match in
+      # order.
+      react:
+        patterns: [react, react-dom, '@types/react', '@types/react-dom']
       development:
         dependency-type: development
         update-types: [minor, patch]
@@ -17,6 +22,12 @@ updates:
       - dependency-name: eslint
         update-types: [version-update:semver-major]
       - dependency-name: '@eslint/js'
+        update-types: [version-update:semver-major]
+      # typescript-eslint does not support TypeScript 7 yet.
+      - dependency-name: typescript
+        update-types: [version-update:semver-major]
+      # Keep Node's type definitions on the Node version we run (.nvmrc).
+      - dependency-name: '@types/node'
         update-types: [version-update:semver-major]
 
   - package-ecosystem: github-actions
