@@ -903,12 +903,17 @@ html.is-page-loading {
   }
 }
 
-/* Technologies submenu: no hover flash/animation */
-.navbar .dropdown-link.navbar-dl-link,
-.navbar .dropdown-link.navbar-dl-link:hover,
-.navbar .dropdown-link.navbar-dl-link:focus {
+/* Navbar dropdown items: a soft brand tint on hover/keyboard focus instead of
+   Webflow's solid flow-lime fill. */
+.navbar .dropdown-link.navbar-dl-link {
   background-color: transparent !important;
-  transition: none !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.navbar .dropdown-link.navbar-dl-link:hover,
+.navbar .dropdown-link.navbar-dl-link:focus-visible {
+  background-color: var(--color--purple-10) !important;
+  color: var(--color--purple-500);
 }
 
 /* Reference footer layout over the existing animated background. */
