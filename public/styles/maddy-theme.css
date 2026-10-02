@@ -536,6 +536,11 @@ html.is-page-loading {
    rules aren't scoped to .is-contact-hero. Glass to match the form card. */
 .glass-select__menu {
   position: absolute;
+  /* Parked at the page's top-left until opened (the script then sets top/left).
+     Left at its static position after the footer, the hidden list made the page
+     taller and left empty space under the footer. */
+  top: 0;
+  left: 0;
   z-index: 4000; /* under the fixed navbar (5000) */
   width: max-content;
   max-width: 20rem;
