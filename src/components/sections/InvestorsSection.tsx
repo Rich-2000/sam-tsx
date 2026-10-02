@@ -23,13 +23,10 @@ export function InvestorsSection() {
   return (
     <section className="section is-investors-section">
       <div className="w-layout-blockcontainer container w-container">
-        <h2
-          data-w-id="9c1c2636-75b4-763c-b450-7bbbe77e3539"
-          className="is-text-center"
-        >
-          {"Our Trusted "}
+        <h2 data-w-id="9c1c2636-75b4-763c-b450-7bbbe77e3539" className="is-text-center">
+          {'Our Trusted '}
           <br />
-          {"Partners"}
+          {'Partners'}
         </h2>
         <div className="investors-logos">
           <div className="logos-container">
@@ -41,9 +38,7 @@ export function InvestorsSection() {
                 aria-label={`${partner.name} — ${partner.detail}`}
               >
                 <span className="partner-card__text">
-                  <span className="partner-card__name is-font-size-title-m">
-                    {partner.name}
-                  </span>
+                  <span className="partner-card__name is-font-size-title-m">{partner.name}</span>
                   <span className="partner-card__detail is-font-size-body-m is-color-grey-600">
                     {partner.detail}
                   </span>

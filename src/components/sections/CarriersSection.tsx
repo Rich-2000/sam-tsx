@@ -29,31 +29,18 @@ const technologyPartners = [
   },
 ]
 
-const marqueePartners = [
-  ...technologyPartners,
-  ...technologyPartners,
-  ...technologyPartners,
-]
+const marqueePartners = [...technologyPartners, ...technologyPartners, ...technologyPartners]
 
 export function CarriersSection() {
   return (
     <section className="section is-carriers-section">
       <div className="w-layout-blockcontainer container w-container">
-        <h2
-          data-w-id="cdfb6100-2f81-74c5-12b1-fc1af069914c"
-          className="is-text-center"
-        >
-          {"Powered by Industry Leaders"}
+        <h2 data-w-id="cdfb6100-2f81-74c5-12b1-fc1af069914c" className="is-text-center">
+          {'Powered by Industry Leaders'}
         </h2>
-        <div
-          data-w-id="cdfb6100-2f81-74c5-12b1-fc1af069914e"
-          className="logo-loop"
-        >
+        <div data-w-id="cdfb6100-2f81-74c5-12b1-fc1af069914e" className="logo-loop">
           {[0, 1, 2].map((loopIndex) => (
-            <div
-              className="logo-loop-container carriers-loop"
-              key={loopIndex}
-            >
+            <div className="logo-loop-container carriers-loop" key={loopIndex}>
               {marqueePartners.map((partner, partnerIndex) => (
                 <div className="looped-logo" key={`${partner.name}-${partnerIndex}`}>
                   <img

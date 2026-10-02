@@ -65,34 +65,22 @@ export const partnerPageConfigs: PartnerPageConfig[] = [
       {
         title: 'Card Printers & Encoding',
         body: 'Personalise and program cards in-house with the right equipment.',
-        items: [
-          'Card printers and personalisation systems',
-          'Encoding and issuance equipment',
-        ],
+        items: ['Card printers and personalisation systems', 'Encoding and issuance equipment'],
       },
       {
         title: 'Readers & Terminals',
         body: 'Read and process cards reliably across your operations.',
-        items: [
-          'Contact and contactless readers',
-          'Terminals for access and payment',
-        ],
+        items: ['Contact and contactless readers', 'Terminals for access and payment'],
       },
       {
         title: 'Biometrics & Enrolment',
         body: 'Strengthen identity checks with biometric capture.',
-        items: [
-          'Fingerprint and biometric enrolment',
-          'Secure authentication workflows',
-        ],
+        items: ['Fingerprint and biometric enrolment', 'Secure authentication workflows'],
       },
       {
         title: 'SDKs & Software',
         body: 'Build card technology into your own applications.',
-        items: [
-          'Software development kits (SDKs)',
-          'Card management and issuance software',
-        ],
+        items: ['Software development kits (SDKs)', 'Card management and issuance software'],
       },
     ],
     quoteInterests: [
@@ -136,50 +124,32 @@ export const partnerPageConfigs: PartnerPageConfig[] = [
       {
         title: 'Fleet Telematics',
         body: 'Real-time location, trips, diagnostics and fault monitoring.',
-        items: [
-          'Live GPS tracking and trip history',
-          'Engine diagnostics and fault alerts',
-        ],
+        items: ['Live GPS tracking and trip history', 'Engine diagnostics and fault alerts'],
       },
       {
         title: 'Video Safety',
         body: 'AI dash cameras that watch the road and the driver.',
-        items: [
-          '360° AI dash cameras',
-          'Driver behaviour alerts and coaching',
-        ],
+        items: ['360° AI dash cameras', 'Driver behaviour alerts and coaching'],
       },
       {
         title: 'Asset Tracking',
         body: 'Track powered and non-powered assets across sites.',
-        items: [
-          'Trailer and equipment tracking',
-          'Fuel insights and utilisation',
-        ],
+        items: ['Trailer and equipment tracking', 'Fuel insights and utilisation'],
       },
       {
         title: 'Maintenance & Asset Management',
         body: 'Keep vehicles serviced and running costs visible.',
-        items: [
-          'Service scheduling and reminders',
-          'Ownership and running-cost analysis',
-        ],
+        items: ['Service scheduling and reminders', 'Ownership and running-cost analysis'],
       },
       {
         title: 'Compliance (ELD)',
         body: 'Electronic logs and regulatory reporting.',
-        items: [
-          'Electronic logbooks (ELD)',
-          'Compliance and audit reporting',
-        ],
+        items: ['Electronic logbooks (ELD)', 'Compliance and audit reporting'],
       },
       {
         title: 'Routing & Dispatch',
         body: 'Plan routes and dispatch work efficiently.',
-        items: [
-          'Route optimisation',
-          'Automated dispatch and smart forms',
-        ],
+        items: ['Route optimisation', 'Automated dispatch and smart forms'],
       },
     ],
     quoteInterests: [
@@ -246,11 +216,7 @@ export const partnerPageConfigs: PartnerPageConfig[] = [
       {
         title: 'Cloud Security',
         body: 'Protection for workloads and accounts across public and private cloud.',
-        items: [
-          'Prisma Cloud',
-          'Cortex Cloud',
-          'Cloud NGFW for AWS and Cloud NGFW for Azure',
-        ],
+        items: ['Prisma Cloud', 'Cortex Cloud', 'Cloud NGFW for AWS and Cloud NGFW for Azure'],
       },
       {
         title: 'Security Operations (Cortex)',
@@ -266,11 +232,7 @@ export const partnerPageConfigs: PartnerPageConfig[] = [
       {
         title: 'AI Security',
         body: 'Controls for the AI applications and models your organisation builds or uses.',
-        items: [
-          'Prisma AIRS',
-          'AI Runtime Security',
-          'AI Access Security',
-        ],
+        items: ['Prisma AIRS', 'AI Runtime Security', 'AI Access Security'],
       },
       {
         title: 'Identity Security',

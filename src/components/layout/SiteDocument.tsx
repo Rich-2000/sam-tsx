@@ -11,13 +11,7 @@ type SiteDocumentProps = {
   runtime: ReactNode
 }
 
-export function SiteDocument({
-  children,
-  currentPath,
-  head,
-  pageId,
-  runtime,
-}: SiteDocumentProps) {
+export function SiteDocument({ children, currentPath, head, pageId, runtime }: SiteDocumentProps) {
   return (
     <html
       className="is-page-loading"

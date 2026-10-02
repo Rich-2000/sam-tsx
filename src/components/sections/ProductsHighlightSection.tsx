@@ -56,8 +56,7 @@ const shots: Shot[] = products.map((product) => ({
   url: product.image,
 }))
 
-const rowShotIndex = (name: string) =>
-  shots.findIndex((shot) => shot.product === name)
+const rowShotIndex = (name: string) => shots.findIndex((shot) => shot.product === name)
 
 // The dialog renders the first shot server side so it is never empty before
 // the script runs. Indexed access is checked, hence the fallback.
@@ -320,12 +319,14 @@ export function ProductsHighlightSection() {
       <div className="w-layout-blockcontainer container w-container">
         <div className="product-showcase__head">
           <h2 className="is-space-24">
-            {"Software "}
+            {'Software '}
             <br />
-            {"products"}
+            {'products'}
           </h2>
           <p className="is-font-size-body-m is-color-grey-600 product-showcase__intro">
-            {"Our own platforms sit alongside custom build work. Ask for a demo or quote for any product below."}
+            {
+              'Our own platforms sit alongside custom build work. Ask for a demo or quote for any product below.'
+            }
           </p>
         </div>
 
@@ -342,18 +343,12 @@ export function ProductsHighlightSection() {
                 aria-label={`${product.name}. View the picture`}
               >
                 <span className="product-row__name">{product.name}</span>
-                <span className="product-row__label is-font-size-body-m">
-                  {product.label}
-                </span>
+                <span className="product-row__label is-font-size-body-m">{product.label}</span>
               </a>
             ))}
           </div>
 
-          <div
-            className="product-showcase__panel"
-            data-product-panel="true"
-            aria-hidden="true"
-          >
+          <div className="product-showcase__panel" data-product-panel="true" aria-hidden="true">
             <div className="product-showcase__tilt" data-product-tilt="true">
               <div className="product-showcase__stack" data-product-stack="true">
                 {products.map((product) => (
@@ -369,18 +364,14 @@ export function ProductsHighlightSection() {
             </div>
           </div>
 
-          <div
-            className="product-showcase__badge"
-            data-product-badge="true"
-            aria-hidden="true"
-          >
-            {"View"}
+          <div className="product-showcase__badge" data-product-badge="true" aria-hidden="true">
+            {'View'}
           </div>
         </div>
 
         <div className="is-text-center" style={{ marginTop: '3rem' }}>
           <a href="/software-products" className="button w-inline-block">
-            <p>{"Explore software products"}</p>
+            <p>{'Explore software products'}</p>
             <img
               loading="lazy"
               src="https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg"
