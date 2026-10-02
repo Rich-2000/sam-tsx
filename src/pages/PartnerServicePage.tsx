@@ -174,7 +174,7 @@ function QuoteSection({ config }: { config: PartnerPageConfig }) {
             </div>
             <div className={"git-right"}>
               <div className={"form-block w-form"}>
-                <form id={"partner-quote-form"} name={"partner-quote-form"} data-name={"Partner Quote Form"} method={"post"} action={"mailto:info@maddygroupltd.com"} encType={"text/plain"} className={"form"}>
+                <form id={"partner-quote-form"} name={"partner-quote-form"} data-name={"Partner Quote Form"} method={"post"} action={"/get-in-touch"} className={"form"}>
                   <input type={"hidden"} name={"partner"} value={config.navLabel} />
                   <input className={"text-field w-input"} maxLength={256} name={"name"} data-name={"Name"} placeholder={"Full name"} type={"text"} id={"partner-name"} required />
                   <input className={"text-field w-input"} maxLength={256} name={"email"} data-name={"E-mail"} placeholder={"E-mail address"} type={"email"} id={"partner-email"} required />

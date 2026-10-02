@@ -138,7 +138,7 @@ function GetInTouchContent() {
               </div>
               <div className={"git-right"}>
                 <div className={"form-block w-form"}>
-                  <form id={"email-form"} name={"email-form"} data-name={"Email Form"} method={"post"} action={"mailto:info@maddygroupltd.com"} encType={"text/plain"} className={"form"}>
+                  <form id={"email-form"} name={"email-form"} data-name={"Email Form"} method={"post"} action={"/get-in-touch"} className={"form"}>
                     <input className={"text-field w-input"} maxLength={256} name={"name"} data-name={"Name"} placeholder={"Full name"} type={"text"} id={"name"} required />
                     <input className={"text-field w-input"} maxLength={256} name={"email"} data-name={"E-mail"} placeholder={"E-mail address"} type={"email"} id={"E-mail"} required />
                     <input className={"text-field w-input"} maxLength={256} name={"company"} data-name={"Company name"} placeholder={"Company name"} type={"text"} id={"Company-name"} required />
