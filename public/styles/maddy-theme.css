@@ -232,6 +232,19 @@
   min-height: 2.8rem;
 }
 
+/* Name and role sit on the section photo: dark text with a light halo keeps them legible. */
+.leadership-team-features .person-description > p {
+  text-shadow:
+    0 0 0.2rem #fff,
+    0 0 0.5rem #fff,
+    0 0 0.9rem rgba(255, 255, 255, 0.9);
+}
+
+.leadership-team-features .person-description .height-48 {
+  color: var(--color--grey-900);
+  font-weight: 500;
+}
+
 .leadership-team-features .person-image-wrapper {
   position: relative;
 }
