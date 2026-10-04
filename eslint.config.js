@@ -26,6 +26,11 @@ export default tseslint.config(
       'react/prop-types': 'off',
     },
   },
+  {
+    // Scripts served to the browser as-is.
+    files: ['public/scripts/**/*.js'],
+    languageOptions: { sourceType: 'script', globals: { ...globals.browser } },
+  },
   // Turns off rules that would fight Prettier's formatting. Keep last.
   prettier,
 )

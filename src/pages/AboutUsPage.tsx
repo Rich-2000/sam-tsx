@@ -2,6 +2,7 @@ import { Footer } from '../components/layout/Footer.js'
 import { SiteDocument } from '../components/layout/SiteDocument.js'
 import { SiteIcons } from '../components/layout/SiteIcons.js'
 import { ArrowFillContent } from '../components/ui/ArrowFill.js'
+import { leaders } from '../content/leadership.js'
 import { sitePageCode } from '../content/sitePageCode.js'
 
 function PageHead() {
@@ -141,6 +142,118 @@ function AboutHero() {
   )
 }
 
+function ModalIcon({ paths }: { paths: string[] }) {
+  return (
+    <svg
+      viewBox={'0 0 24 24'}
+      width={'24'}
+      height={'24'}
+      fill={'none'}
+      stroke={'currentColor'}
+      strokeWidth={'2'}
+      strokeLinecap={'round'}
+      strokeLinejoin={'round'}
+      aria-hidden={'true'}
+    >
+      {paths.map((d) => (
+        <path key={d} d={d} />
+      ))}
+    </svg>
+  )
+}
+
+// One shared pop-up for all leaders; /scripts/leadership-modal.js opens it and moves between profiles.
+function LeaderModal() {
+  return (
+    <div
+      className={'leader-modal'}
+      data-leader-modal={''}
+      role={'dialog'}
+      aria-modal={'true'}
+      aria-label={'Leadership profiles'}
+      hidden
+    >
+      <div className={'leader-modal__backdrop'}></div>
+      <button
+        type={'button'}
+        className={'leader-modal__close'}
+        data-leader-close={''}
+        aria-label={'Close profile'}
+      >
+        <ModalIcon paths={['M18 6 6 18', 'm6 6 12 12']} />
+      </button>
+      <div className={'leader-modal__body'}>
+        {leaders.map((leader, index) => (
+          <article
+            key={leader.name}
+            className={'leader-slide'}
+            data-leader-slide={index}
+            hidden={index !== 0}
+          >
+            <div className={'leader-slide__photo'}>
+              <img src={leader.image} loading={'lazy'} alt={leader.name} />
+            </div>
+            <div className={'leader-slide__card'}>
+              <h3 className={'leader-slide__name'}>{leader.name}</h3>
+              <p className={'leader-slide__role'}>{leader.role}</p>
+              <div className={'leader-slide__bio'}>
+                {leader.bio.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              {leader.email && (
+                <div className={'leader-slide__links'}>
+                  <a
+                    href={`mailto:${leader.email}`}
+                    className={'leader-slide__link'}
+                    aria-label={`Email ${leader.name}`}
+                  >
+                    <ModalIcon
+                      paths={[
+                        'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z',
+                        'm22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7',
+                      ]}
+                    />
+                  </a>
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+        <div className={'leader-modal__nav'}>
+          <button
+            type={'button'}
+            className={'leader-modal__arrow'}
+            data-leader-prev={''}
+            aria-label={'Previous profile'}
+          >
+            <ModalIcon paths={['m15 18-6-6 6-6']} />
+          </button>
+          <div className={'leader-modal__dots'}>
+            {leaders.map((leader, index) => (
+              <button
+                key={leader.name}
+                type={'button'}
+                className={'leader-modal__dot'}
+                data-leader-dot={index}
+                aria-label={`Show ${leader.name}`}
+              ></button>
+            ))}
+          </div>
+          <button
+            type={'button'}
+            className={'leader-modal__arrow'}
+            data-leader-next={''}
+            aria-label={'Next profile'}
+          >
+            <ModalIcon paths={['m9 18 6-6-6-6']} />
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function AboutDetails() {
   return (
     <div id={'find-flow'} className={'page-wrapper is-overflow-hidden'}>
@@ -184,663 +297,58 @@ function AboutDetails() {
           <div>
             <div className={'team-grid-wrapper w-dyn-list'}>
               <div role={'list'} className={'team-grid w-dyn-items'}>
-                <div role={'listitem'} className={'team-member w-dyn-item'}>
-                  <div className={'person-image-wrapper'}>
-                    <img
-                      src={'/images/team/dunstan-guba.webp'}
-                      loading={'lazy'}
-                      alt={'Dunstan Guba'}
-                      className={'person-image'}
-                    />
-                    <a
-                      href={'mailto:dunstan@maddygroupltd.com'}
-                      className={'person-image-link w-inline-block'}
-                    >
+                {leaders.map((leader, index) => (
+                  <div key={leader.name} role={'listitem'} className={'team-member w-dyn-item'}>
+                    <div className={'person-image-wrapper'}>
                       <img
-                        src={
-                          'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debe_Vector%20(3).svg'
-                        }
+                        src={leader.image}
                         loading={'lazy'}
-                        alt={'Email Dunstan Guba'}
-                        className={'linkedin-img'}
+                        alt={leader.name}
+                        className={'person-image'}
                       />
-                    </a>
-                  </div>
-                  <div className={'person-description'}>
-                    <p className={'is-font-size-title-m is-space-8'}>{'Dunstan Guba'}</p>
-                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Director, VAPT & Forensic Expert'}
-                    </p>
-                    <div className={'button-bio'}>
-                      <div className={'person-modal-bio'}>
-                        <div
-                          data-w-id={'819a7619-058e-fe5e-e508-32c2a8c2073f'}
-                          className={'close-modal-screen'}
-                        ></div>
-                        <div className={'modal-content'}>
-                          <div className={'modal-flex'}>
-                            <img
-                              src={'/images/team/dunstan-guba.webp'}
-                              loading={'lazy'}
-                              alt={'Dunstan Guba'}
-                              className={'modal-img'}
-                            />
-                            <div className={'modal-desc'}>
-                              <h3 className={'is-space-16'}>{'Dunstan Guba'}</h3>
-                              <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
-                              <p className={'is-color-grey-600'}>
-                                {'Director, VAPT & Forensic Expert'}
-                              </p>
-                              <a
-                                href={'mailto:dunstan@maddygroupltd.com'}
-                                className={'w-inline-block'}
-                              >
-                                <img
-                                  src={
-                                    'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debf_linkedin.svg'
-                                  }
-                                  loading={'lazy'}
-                                  alt={'Email Dunstan Guba'}
-                                  className={'modal-social'}
-                                />
-                              </a>
-                            </div>
-                            <a
-                              data-w-id={'13c97fee-792b-f948-687f-e27b50c682e5'}
-                              href={'#'}
-                              className={'close-block w-inline-block'}
-                            >
-                              <img
-                                src={
-                                  'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70dec0_close.svg'
-                                }
-                                loading={'eager'}
-                                alt={''}
-                              />
-                            </a>
-                          </div>
-                          <div className={'modal-bio is-font-size-body-m'}>
-                            <p className={'bio-text'}>
-                              {
-                                'Dunstan leads vulnerability assessment, penetration testing and digital forensics work. Certifications include CEH, OSCP and CHFI.'
-                              }
-                            </p>
-                          </div>
-                        </div>
+                      {leader.email && (
+                        <a
+                          href={`mailto:${leader.email}`}
+                          className={'person-image-link w-inline-block'}
+                        >
+                          <img
+                            src={
+                              'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debe_Vector%20(3).svg'
+                            }
+                            loading={'lazy'}
+                            alt={`Email ${leader.name}`}
+                            className={'linkedin-img'}
+                          />
+                        </a>
+                      )}
+                    </div>
+                    <div className={'person-description'}>
+                      <p className={'is-font-size-title-m is-space-8'}>{leader.name}</p>
+                      <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
+                        {leader.role}
+                      </p>
+                      <div className={'button-bio'}>
+                        <a
+                          href={'#'}
+                          role={'button'}
+                          aria-haspopup={'dialog'}
+                          data-leader-open={index}
+                          className={'button is-purple-button w-inline-block'}
+                        >
+                          <p className={'is-font-size-title-s'}>{'Read Bio'}</p>
+                          <img
+                            src={
+                              'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg'
+                            }
+                            loading={'lazy'}
+                            alt={''}
+                            className={'button-arrow inversed'}
+                          />
+                        </a>
                       </div>
-                      <a
-                        data-w-id={'4335ad49-91df-10c7-ba15-f818e8a4b63c'}
-                        href={'#'}
-                        className={'button is-purple-button w-inline-block'}
-                      >
-                        <p className={'is-font-size-title-s'}>{'Read Bio'}</p>
-                        <img
-                          src={
-                            'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg'
-                          }
-                          loading={'lazy'}
-                          alt={''}
-                          className={'button-arrow inversed'}
-                        />
-                      </a>
                     </div>
                   </div>
-                </div>
-                <div role={'listitem'} className={'team-member w-dyn-item'}>
-                  <div className={'person-image-wrapper'}>
-                    <img
-                      src={'/images/team/george-anim.webp'}
-                      loading={'lazy'}
-                      alt={'Dr. George Anim'}
-                      className={'person-image'}
-                    />
-                  </div>
-                  <div className={'person-description'}>
-                    <p className={'is-font-size-title-m is-space-8'}>{'Dr. George Anim'}</p>
-                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Director, Artificial Intelligence & Data Science'}
-                    </p>
-                    <div className={'button-bio'}>
-                      <div className={'person-modal-bio'}>
-                        <div
-                          data-w-id={'819a7619-058e-fe5e-e508-32c2a8c2073f'}
-                          className={'close-modal-screen'}
-                        ></div>
-                        <div className={'modal-content'}>
-                          <div className={'modal-flex'}>
-                            <img
-                              src={'/images/team/george-anim.webp'}
-                              loading={'lazy'}
-                              alt={'Dr. George Anim'}
-                              className={'modal-img'}
-                            />
-                            <div className={'modal-desc'}>
-                              <h3 className={'is-space-16'}>{'Dr. George Anim'}</h3>
-                              <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
-                              <p className={'is-color-grey-600'}>
-                                {'Director, Artificial Intelligence & Data Science'}
-                              </p>
-                            </div>
-                            <a
-                              data-w-id={'13c97fee-792b-f948-687f-e27b50c682e5'}
-                              href={'#'}
-                              className={'close-block w-inline-block'}
-                            >
-                              <img
-                                src={
-                                  'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70dec0_close.svg'
-                                }
-                                loading={'eager'}
-                                alt={''}
-                              />
-                            </a>
-                          </div>
-                          <div className={'modal-bio is-font-size-body-m'}>
-                            <p className={'bio-text'}>
-                              {
-                                'Dr. George Anim is an Artificial Intelligence expert, data scientist, and technology strategist with a Ph.D. in Computer Science.'
-                              }
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <a
-                        data-w-id={'4335ad49-91df-10c7-ba15-f818e8a4b63c'}
-                        href={'#'}
-                        className={'button is-purple-button w-inline-block'}
-                      >
-                        <p className={'is-font-size-title-s'}>{'Read Bio'}</p>
-                        <img
-                          src={
-                            'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg'
-                          }
-                          loading={'lazy'}
-                          alt={''}
-                          className={'button-arrow inversed'}
-                        />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div role={'listitem'} className={'team-member w-dyn-item'}>
-                  <div className={'person-image-wrapper'}>
-                    <img
-                      src={'/images/team/kojo-harding-mienza.webp'}
-                      loading={'lazy'}
-                      alt={'Kojo Harding Mienza'}
-                      className={'person-image'}
-                    />
-                  </div>
-                  <div className={'person-description'}>
-                    <p className={'is-font-size-title-m is-space-8'}>{'Kojo Harding Mienza'}</p>
-                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Director, Cybersecurity & Cyber Defense'}
-                    </p>
-                    <div className={'button-bio'}>
-                      <div className={'person-modal-bio'}>
-                        <div
-                          data-w-id={'819a7619-058e-fe5e-e508-32c2a8c2073f'}
-                          className={'close-modal-screen'}
-                        ></div>
-                        <div className={'modal-content'}>
-                          <div className={'modal-flex'}>
-                            <img
-                              src={'/images/team/kojo-harding-mienza.webp'}
-                              loading={'lazy'}
-                              alt={'Kojo Harding Mienza'}
-                              className={'modal-img'}
-                            />
-                            <div className={'modal-desc'}>
-                              <h3 className={'is-space-16'}>{'Kojo Harding Mienza'}</h3>
-                              <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
-                              <p className={'is-color-grey-600'}>
-                                {'Director, Cybersecurity & Cyber Defense'}
-                              </p>
-                            </div>
-                            <a
-                              data-w-id={'13c97fee-792b-f948-687f-e27b50c682e5'}
-                              href={'#'}
-                              className={'close-block w-inline-block'}
-                            >
-                              <img
-                                src={
-                                  'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70dec0_close.svg'
-                                }
-                                loading={'eager'}
-                                alt={''}
-                              />
-                            </a>
-                          </div>
-                          <div className={'modal-bio is-font-size-body-m'}>
-                            <p className={'bio-text'}>
-                              {
-                                'Kojo Mienza is a cybersecurity expert with over nine years of experience protecting organizations from cyber threats. He has worked with major companies and government agencies, including Microsoft, the National Institutes of Health, and the U.S. Commodity Futures Trading Commission.'
-                              }
-                            </p>
-                            <p className={'bio-text'}>
-                              {
-                                'At Microsoft, Kojo was a founding member of a team that worked to stop ransomware attacks around the world. He helped track down criminals who used ransomware to steal money, and his work supported cases with the FBI, U.S. Secret Service, and Interpol. He also helped shut down thousands of servers used by hackers.'
-                              }
-                            </p>
-                            <p className={'bio-text'}>
-                              {
-                                'Kojo has led security teams, developed security architecture, built detection tools using Python and Java, and trained dozens of security analysts. He is skilled at finding threats before they cause harm, and he has experience with tools used to track stolen cryptocurrency, analyze malware, and monitor networks for attacks.'
-                              }
-                            </p>
-                            <p className={'bio-text'}>
-                              {
-                                'He also works as a security consultant for start-up companies, helping them build strong security plans from the ground up.'
-                              }
-                            </p>
-                            <p className={'bio-text'}>
-                              {
-                                'Kojo holds CompTIA A+ and Security+ certifications, along with training in Python, SQL, and blockchain technology. He studied at Ohio State University and Montgomery College.'
-                              }
-                            </p>
-                            <p className={'bio-text'}>
-                              {
-                                'Today, Kojo helps businesses build strong defenses against cyberattacks and protect what matters most: their people, their data, and their future.'
-                              }
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <a
-                        data-w-id={'4335ad49-91df-10c7-ba15-f818e8a4b63c'}
-                        href={'#'}
-                        className={'button is-purple-button w-inline-block'}
-                      >
-                        <p className={'is-font-size-title-s'}>{'Read Bio'}</p>
-                        <img
-                          src={
-                            'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg'
-                          }
-                          loading={'lazy'}
-                          alt={''}
-                          className={'button-arrow inversed'}
-                        />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div role={'listitem'} className={'team-member w-dyn-item'}>
-                  <div className={'person-image-wrapper'}>
-                    <img
-                      src={'/images/team/naa-koshie-wellington.webp'}
-                      loading={'lazy'}
-                      alt={'Naa Koshie Wellington'}
-                      className={'person-image'}
-                    />
-                  </div>
-                  <div className={'person-description'}>
-                    <p className={'is-font-size-title-m is-space-8'}>{'Naa Koshie Wellington'}</p>
-                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Customer Success Specialist'}
-                    </p>
-                    <div className={'button-bio'}>
-                      <div className={'person-modal-bio'}>
-                        <div
-                          data-w-id={'819a7619-058e-fe5e-e508-32c2a8c2073f'}
-                          className={'close-modal-screen'}
-                        ></div>
-                        <div className={'modal-content'}>
-                          <div className={'modal-flex'}>
-                            <img
-                              src={'/images/team/naa-koshie-wellington.webp'}
-                              loading={'lazy'}
-                              alt={'Naa Koshie Wellington'}
-                              className={'modal-img'}
-                            />
-                            <div className={'modal-desc'}>
-                              <h3 className={'is-space-16'}>{'Naa Koshie Wellington'}</h3>
-                              <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
-                              <p className={'is-color-grey-600'}>{'Customer Success Specialist'}</p>
-                            </div>
-                            <a
-                              data-w-id={'13c97fee-792b-f948-687f-e27b50c682e5'}
-                              href={'#'}
-                              className={'close-block w-inline-block'}
-                            >
-                              <img
-                                src={
-                                  'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70dec0_close.svg'
-                                }
-                                loading={'eager'}
-                                alt={''}
-                              />
-                            </a>
-                          </div>
-                          <div className={'modal-bio is-font-size-body-m'}>
-                            <p className={'bio-text'}>
-                              {
-                                'Naa Koshie supports clients as Customer Success Specialist at Maddy Group.'
-                              }
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <a
-                        data-w-id={'4335ad49-91df-10c7-ba15-f818e8a4b63c'}
-                        href={'#'}
-                        className={'button is-purple-button w-inline-block'}
-                      >
-                        <p className={'is-font-size-title-s'}>{'Read Bio'}</p>
-                        <img
-                          src={
-                            'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg'
-                          }
-                          loading={'lazy'}
-                          alt={''}
-                          className={'button-arrow inversed'}
-                        />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div role={'listitem'} className={'team-member w-dyn-item'}>
-                  <div className={'person-image-wrapper'}>
-                    <img
-                      src={'/images/team/fred.webp'}
-                      loading={'lazy'}
-                      alt={'Agyare Fredrick'}
-                      className={'person-image'}
-                    />
-                    <a
-                      href={'mailto:fredrick@maddygroupltd.com'}
-                      className={'person-image-link w-inline-block'}
-                    >
-                      <img
-                        src={
-                          'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debe_Vector%20(3).svg'
-                        }
-                        loading={'lazy'}
-                        alt={'Email Agyare Fredrick'}
-                        className={'linkedin-img'}
-                      />
-                    </a>
-                  </div>
-                  <div className={'person-description'}>
-                    <p className={'is-font-size-title-m is-space-8'}>{'Agyare Fredrick'}</p>
-                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Principal Software Engineer / Cloud Engineer'}
-                    </p>
-                    <div className={'button-bio'}>
-                      <div className={'person-modal-bio'}>
-                        <div
-                          data-w-id={'819a7619-058e-fe5e-e508-32c2a8c2073f'}
-                          className={'close-modal-screen'}
-                        ></div>
-                        <div className={'modal-content'}>
-                          <div className={'modal-flex'}>
-                            <img
-                              src={'/images/team/fred.webp'}
-                              loading={'lazy'}
-                              alt={'Agyare Fredrick'}
-                              className={'modal-img'}
-                            />
-                            <div className={'modal-desc'}>
-                              <h3 className={'is-space-16'}>{'Agyare Fredrick'}</h3>
-                              <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
-                              <p className={'is-color-grey-600'}>
-                                {'Principal Software Engineer / Cloud Engineer'}
-                              </p>
-                              <a
-                                href={'mailto:fredrick@maddygroupltd.com'}
-                                className={'w-inline-block'}
-                              >
-                                <img
-                                  src={
-                                    'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debf_linkedin.svg'
-                                  }
-                                  loading={'lazy'}
-                                  alt={'Email Agyare Fredrick'}
-                                  className={'modal-social'}
-                                />
-                              </a>
-                            </div>
-                            <a
-                              data-w-id={'13c97fee-792b-f948-687f-e27b50c682e5'}
-                              href={'#'}
-                              className={'close-block w-inline-block'}
-                            >
-                              <img
-                                src={
-                                  'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70dec0_close.svg'
-                                }
-                                loading={'eager'}
-                                alt={''}
-                              />
-                            </a>
-                          </div>
-                          <div className={'modal-bio is-font-size-body-m'}>
-                            <p className={'bio-text'}>
-                              {
-                                'Fredrick focuses on cloud engineering across major platforms. Certifications include AWS SAA and Azure Expert pathways.'
-                              }
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <a
-                        data-w-id={'4335ad49-91df-10c7-ba15-f818e8a4b63c'}
-                        href={'#'}
-                        className={'button is-purple-button w-inline-block'}
-                      >
-                        <p className={'is-font-size-title-s'}>{'Read Bio'}</p>
-                        <img
-                          src={
-                            'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg'
-                          }
-                          loading={'lazy'}
-                          alt={''}
-                          className={'button-arrow inversed'}
-                        />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div role={'listitem'} className={'team-member w-dyn-item'}>
-                  <div className={'person-image-wrapper'}>
-                    <img
-                      src={'/images/team/ebenezer-kwafo.webp'}
-                      loading={'lazy'}
-                      alt={'Ebenezer Kwafo'}
-                      className={'person-image'}
-                    />
-                    <a
-                      href={'mailto:ebenezer@maddygroupltd.com'}
-                      className={'person-image-link w-inline-block'}
-                    >
-                      <img
-                        src={
-                          'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debe_Vector%20(3).svg'
-                        }
-                        loading={'lazy'}
-                        alt={'Email Ebenezer Kwafo'}
-                        className={'linkedin-img'}
-                      />
-                    </a>
-                  </div>
-                  <div className={'person-description'}>
-                    <p className={'is-font-size-title-m is-space-8'}>{'Ebenezer Kwafo'}</p>
-                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Incident response'}
-                    </p>
-                    <div className={'button-bio'}>
-                      <div className={'person-modal-bio'}>
-                        <div
-                          data-w-id={'819a7619-058e-fe5e-e508-32c2a8c2073f'}
-                          className={'close-modal-screen'}
-                        ></div>
-                        <div className={'modal-content'}>
-                          <div className={'modal-flex'}>
-                            <img
-                              src={'/images/team/ebenezer-kwafo.webp'}
-                              loading={'lazy'}
-                              alt={'Ebenezer Kwafo'}
-                              className={'modal-img'}
-                            />
-                            <div className={'modal-desc'}>
-                              <h3 className={'is-space-16'}>{'Ebenezer Kwafo'}</h3>
-                              <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
-                              <p className={'is-color-grey-600'}>{'Incident response'}</p>
-                              <a
-                                href={'mailto:ebenezer@maddygroupltd.com'}
-                                className={'w-inline-block'}
-                              >
-                                <img
-                                  src={
-                                    'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debf_linkedin.svg'
-                                  }
-                                  loading={'lazy'}
-                                  alt={'Email Ebenezer Kwafo'}
-                                  className={'modal-social'}
-                                />
-                              </a>
-                            </div>
-                            <a
-                              data-w-id={'13c97fee-792b-f948-687f-e27b50c682e5'}
-                              href={'#'}
-                              className={'close-block w-inline-block'}
-                            >
-                              <img
-                                src={
-                                  'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70dec0_close.svg'
-                                }
-                                loading={'eager'}
-                                alt={''}
-                              />
-                            </a>
-                          </div>
-                          <div className={'modal-bio is-font-size-body-m'}>
-                            <p className={'bio-text'}>
-                              {
-                                'Ebenezer leads incident response work. Certifications include GCIH, GCFE and CEH.'
-                              }
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <a
-                        data-w-id={'4335ad49-91df-10c7-ba15-f818e8a4b63c'}
-                        href={'#'}
-                        className={'button is-purple-button w-inline-block'}
-                      >
-                        <p className={'is-font-size-title-s'}>{'Read Bio'}</p>
-                        <img
-                          src={
-                            'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg'
-                          }
-                          loading={'lazy'}
-                          alt={''}
-                          className={'button-arrow inversed'}
-                        />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div role={'listitem'} className={'team-member w-dyn-item'}>
-                  <div className={'person-image-wrapper'}>
-                    <img
-                      src={'https://maddygroup.lon1.cdn.digitaloceanspaces.com/images/team5.jpg'}
-                      loading={'lazy'}
-                      alt={'Richard Acheampong'}
-                      className={'person-image'}
-                    />
-                    <a
-                      href={'mailto:richard@maddygroupltd.com'}
-                      className={'person-image-link w-inline-block'}
-                    >
-                      <img
-                        src={
-                          'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debe_Vector%20(3).svg'
-                        }
-                        loading={'lazy'}
-                        alt={'Email Richard Acheampong'}
-                        className={'linkedin-img'}
-                      />
-                    </a>
-                  </div>
-                  <div className={'person-description'}>
-                    <p className={'is-font-size-title-m is-space-8'}>{'Richard Acheampong'}</p>
-                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Software and AI engineering'}
-                    </p>
-                    <div className={'button-bio'}>
-                      <div className={'person-modal-bio'}>
-                        <div
-                          data-w-id={'819a7619-058e-fe5e-e508-32c2a8c2073f'}
-                          className={'close-modal-screen'}
-                        ></div>
-                        <div className={'modal-content'}>
-                          <div className={'modal-flex'}>
-                            <img
-                              src={
-                                'https://maddygroup.lon1.cdn.digitaloceanspaces.com/images/team5.jpg'
-                              }
-                              loading={'lazy'}
-                              alt={'Richard Acheampong'}
-                              className={'modal-img'}
-                            />
-                            <div className={'modal-desc'}>
-                              <h3 className={'is-space-16'}>{'Richard Acheampong'}</h3>
-                              <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
-                              <p className={'is-color-grey-600'}>{'Software and AI engineering'}</p>
-                              <a
-                                href={'mailto:richard@maddygroupltd.com'}
-                                className={'w-inline-block'}
-                              >
-                                <img
-                                  src={
-                                    'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debf_linkedin.svg'
-                                  }
-                                  loading={'lazy'}
-                                  alt={'Email Richard Acheampong'}
-                                  className={'modal-social'}
-                                />
-                              </a>
-                            </div>
-                            <a
-                              data-w-id={'13c97fee-792b-f948-687f-e27b50c682e5'}
-                              href={'#'}
-                              className={'close-block w-inline-block'}
-                            >
-                              <img
-                                src={
-                                  'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70dec0_close.svg'
-                                }
-                                loading={'eager'}
-                                alt={''}
-                              />
-                            </a>
-                          </div>
-                          <div className={'modal-bio is-font-size-body-m'}>
-                            <p className={'bio-text'}>
-                              {
-                                'Richard builds software and AI engineering solutions for client and internal products. Background spans full stack and ML engineering.'
-                              }
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <a
-                        data-w-id={'4335ad49-91df-10c7-ba15-f818e8a4b63c'}
-                        href={'#'}
-                        className={'button is-purple-button w-inline-block'}
-                      >
-                        <p className={'is-font-size-title-s'}>{'Read Bio'}</p>
-                        <img
-                          src={
-                            'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg'
-                          }
-                          loading={'lazy'}
-                          alt={''}
-                          className={'button-arrow inversed'}
-                        />
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -851,6 +359,7 @@ function AboutDetails() {
           alt={''}
           className={'image maddy-background-image'}
         />
+        <LeaderModal />
       </section>
     </div>
   )
@@ -928,6 +437,7 @@ function PageRuntime() {
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.aboutUs[2] }} />
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.aboutUs[3] }} />
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.aboutUs[4] }} />
+      <script src={'/scripts/leadership-modal.js'} defer></script>
     </>
   )
 }
