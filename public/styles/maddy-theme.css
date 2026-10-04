@@ -222,17 +222,6 @@
   overflow: visible;
 }
 
-/* Center the incomplete last row of the About team grid (6 cards / 4 columns). */
-@media screen and (min-width: 992px) {
-  .leadership-team-features .team-member:nth-child(5) {
-    grid-column: 2;
-  }
-
-  .leadership-team-features .team-member:nth-child(6) {
-    grid-column: 3;
-  }
-}
-
 /* Page loader: navy + long logo */
 html.is-page-loading {
   overflow: hidden;
