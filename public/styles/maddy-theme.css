@@ -222,6 +222,44 @@
   overflow: visible;
 }
 
+/* About team grid: equal cards, Read Bio buttons on one line. */
+.leadership-team-features .person-description {
+  flex: 1 1 auto;
+}
+
+.leadership-team-features .person-description .height-48 {
+  height: auto;
+  min-height: 2.8rem;
+}
+
+.leadership-team-features .button-bio {
+  margin-top: auto;
+  padding-top: 0.8rem;
+}
+
+/* Center the incomplete last row of the About team grid (7 cards / 4 columns). */
+@media screen and (min-width: 992px) {
+  .leadership-team-features .team-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .leadership-team-features .team-member {
+    grid-column: span 2;
+  }
+
+  .leadership-team-features .team-member:nth-child(5) {
+    grid-column: 2 / span 2;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 991px) {
+  .leadership-team-features .team-member:nth-child(7) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 0.4rem);
+  }
+}
+
 /* Page loader: navy + long logo */
 html.is-page-loading {
   overflow: hidden;
