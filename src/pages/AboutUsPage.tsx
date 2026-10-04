@@ -194,7 +194,7 @@ function AboutDetails() {
                   <div className={'person-description'}>
                     <p className={'is-font-size-title-m is-space-8'}>{'Dunstan Guba'}</p>
                     <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'VAPT and digital forensics'}
+                      {'Director, VAPT & Forensic Expert'}
                     </p>
                     <a href={'mailto:dunstan@maddygroupltd.com'} className={'w-inline-block'}>
                       <img
@@ -223,7 +223,9 @@ function AboutDetails() {
                             <div className={'modal-desc'}>
                               <h3 className={'is-space-16'}>{'Dunstan Guba'}</h3>
                               <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
-                              <p className={'is-color-grey-600'}>{'VAPT and digital forensics'}</p>
+                              <p className={'is-color-grey-600'}>
+                                {'Director, VAPT & Forensic Expert'}
+                              </p>
                               <a
                                 href={'mailto:dunstan@maddygroupltd.com'}
                                 className={'w-inline-block'}
@@ -282,6 +284,257 @@ function AboutDetails() {
                 <div role={'listitem'} className={'team-member w-dyn-item'}>
                   <div className={'person-image-wrapper'}>
                     <img
+                      src={'/images/team/george-anim.webp'}
+                      loading={'lazy'}
+                      alt={'Dr. George Anim'}
+                      className={'person-image'}
+                    />
+                  </div>
+                  <div className={'person-description'}>
+                    <p className={'is-font-size-title-m is-space-8'}>{'Dr. George Anim'}</p>
+                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
+                      {'Director, Artificial Intelligence & Data Science'}
+                    </p>
+                    <div className={'button-bio'}>
+                      <div className={'person-modal-bio'}>
+                        <div
+                          data-w-id={'819a7619-058e-fe5e-e508-32c2a8c2073f'}
+                          className={'close-modal-screen'}
+                        ></div>
+                        <div className={'modal-content'}>
+                          <div className={'modal-flex'}>
+                            <img
+                              src={'/images/team/george-anim.webp'}
+                              loading={'lazy'}
+                              alt={'Dr. George Anim'}
+                              className={'modal-img'}
+                            />
+                            <div className={'modal-desc'}>
+                              <h3 className={'is-space-16'}>{'Dr. George Anim'}</h3>
+                              <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
+                              <p className={'is-color-grey-600'}>
+                                {'Director, Artificial Intelligence & Data Science'}
+                              </p>
+                            </div>
+                            <a
+                              data-w-id={'13c97fee-792b-f948-687f-e27b50c682e5'}
+                              href={'#'}
+                              className={'close-block w-inline-block'}
+                            >
+                              <img
+                                src={
+                                  'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70dec0_close.svg'
+                                }
+                                loading={'eager'}
+                                alt={''}
+                              />
+                            </a>
+                          </div>
+                          <div className={'modal-bio is-font-size-body-m'}>
+                            <p className={'bio-text'}>
+                              {
+                                'Dr. George Anim is an Artificial Intelligence expert, data scientist, and technology strategist with a Ph.D. in Computer Science.'
+                              }
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <a
+                        data-w-id={'4335ad49-91df-10c7-ba15-f818e8a4b63c'}
+                        href={'#'}
+                        className={'button is-purple-button w-inline-block'}
+                      >
+                        <p className={'is-font-size-title-s'}>{'Read Bio'}</p>
+                        <img
+                          src={
+                            'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg'
+                          }
+                          loading={'lazy'}
+                          alt={''}
+                          className={'button-arrow inversed'}
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div role={'listitem'} className={'team-member w-dyn-item'}>
+                  <div className={'person-image-wrapper'}>
+                    <img
+                      src={'/images/team/kojo-harding-mienza.webp'}
+                      loading={'lazy'}
+                      alt={'Kojo Harding Mienza'}
+                      className={'person-image'}
+                    />
+                  </div>
+                  <div className={'person-description'}>
+                    <p className={'is-font-size-title-m is-space-8'}>{'Kojo Harding Mienza'}</p>
+                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
+                      {'Director, Cybersecurity & Cyber Defense'}
+                    </p>
+                    <div className={'button-bio'}>
+                      <div className={'person-modal-bio'}>
+                        <div
+                          data-w-id={'819a7619-058e-fe5e-e508-32c2a8c2073f'}
+                          className={'close-modal-screen'}
+                        ></div>
+                        <div className={'modal-content'}>
+                          <div className={'modal-flex'}>
+                            <img
+                              src={'/images/team/kojo-harding-mienza.webp'}
+                              loading={'lazy'}
+                              alt={'Kojo Harding Mienza'}
+                              className={'modal-img'}
+                            />
+                            <div className={'modal-desc'}>
+                              <h3 className={'is-space-16'}>{'Kojo Harding Mienza'}</h3>
+                              <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
+                              <p className={'is-color-grey-600'}>
+                                {'Director, Cybersecurity & Cyber Defense'}
+                              </p>
+                            </div>
+                            <a
+                              data-w-id={'13c97fee-792b-f948-687f-e27b50c682e5'}
+                              href={'#'}
+                              className={'close-block w-inline-block'}
+                            >
+                              <img
+                                src={
+                                  'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70dec0_close.svg'
+                                }
+                                loading={'eager'}
+                                alt={''}
+                              />
+                            </a>
+                          </div>
+                          <div className={'modal-bio is-font-size-body-m'}>
+                            <p className={'bio-text'}>
+                              {
+                                'Kojo Mienza is a cybersecurity expert with over nine years of experience protecting organizations from cyber threats. He has worked with major companies and government agencies, including Microsoft, the National Institutes of Health, and the U.S. Commodity Futures Trading Commission.'
+                              }
+                            </p>
+                            <p className={'bio-text'}>
+                              {
+                                'At Microsoft, Kojo was a founding member of a team that worked to stop ransomware attacks around the world. He helped track down criminals who used ransomware to steal money, and his work supported cases with the FBI, U.S. Secret Service, and Interpol. He also helped shut down thousands of servers used by hackers.'
+                              }
+                            </p>
+                            <p className={'bio-text'}>
+                              {
+                                'Kojo has led security teams, developed security architecture, built detection tools using Python and Java, and trained dozens of security analysts. He is skilled at finding threats before they cause harm, and he has experience with tools used to track stolen cryptocurrency, analyze malware, and monitor networks for attacks.'
+                              }
+                            </p>
+                            <p className={'bio-text'}>
+                              {
+                                'He also works as a security consultant for start-up companies, helping them build strong security plans from the ground up.'
+                              }
+                            </p>
+                            <p className={'bio-text'}>
+                              {
+                                'Kojo holds CompTIA A+ and Security+ certifications, along with training in Python, SQL, and blockchain technology. He studied at Ohio State University and Montgomery College.'
+                              }
+                            </p>
+                            <p className={'bio-text'}>
+                              {
+                                'Today, Kojo helps businesses build strong defenses against cyberattacks and protect what matters most: their people, their data, and their future.'
+                              }
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <a
+                        data-w-id={'4335ad49-91df-10c7-ba15-f818e8a4b63c'}
+                        href={'#'}
+                        className={'button is-purple-button w-inline-block'}
+                      >
+                        <p className={'is-font-size-title-s'}>{'Read Bio'}</p>
+                        <img
+                          src={
+                            'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg'
+                          }
+                          loading={'lazy'}
+                          alt={''}
+                          className={'button-arrow inversed'}
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div role={'listitem'} className={'team-member w-dyn-item'}>
+                  <div className={'person-image-wrapper'}>
+                    <img
+                      src={'/images/team/naa-koshie-wellington.webp'}
+                      loading={'lazy'}
+                      alt={'Naa Koshie Wellington'}
+                      className={'person-image'}
+                    />
+                  </div>
+                  <div className={'person-description'}>
+                    <p className={'is-font-size-title-m is-space-8'}>{'Naa Koshie Wellington'}</p>
+                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
+                      {'Customer Success Specialist'}
+                    </p>
+                    <div className={'button-bio'}>
+                      <div className={'person-modal-bio'}>
+                        <div
+                          data-w-id={'819a7619-058e-fe5e-e508-32c2a8c2073f'}
+                          className={'close-modal-screen'}
+                        ></div>
+                        <div className={'modal-content'}>
+                          <div className={'modal-flex'}>
+                            <img
+                              src={'/images/team/naa-koshie-wellington.webp'}
+                              loading={'lazy'}
+                              alt={'Naa Koshie Wellington'}
+                              className={'modal-img'}
+                            />
+                            <div className={'modal-desc'}>
+                              <h3 className={'is-space-16'}>{'Naa Koshie Wellington'}</h3>
+                              <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
+                              <p className={'is-color-grey-600'}>{'Customer Success Specialist'}</p>
+                            </div>
+                            <a
+                              data-w-id={'13c97fee-792b-f948-687f-e27b50c682e5'}
+                              href={'#'}
+                              className={'close-block w-inline-block'}
+                            >
+                              <img
+                                src={
+                                  'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70dec0_close.svg'
+                                }
+                                loading={'eager'}
+                                alt={''}
+                              />
+                            </a>
+                          </div>
+                          <div className={'modal-bio is-font-size-body-m'}>
+                            <p className={'bio-text'}>
+                              {
+                                'Naa Koshie supports clients as Customer Success Specialist at Maddy Group.'
+                              }
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <a
+                        data-w-id={'4335ad49-91df-10c7-ba15-f818e8a4b63c'}
+                        href={'#'}
+                        className={'button is-purple-button w-inline-block'}
+                      >
+                        <p className={'is-font-size-title-s'}>{'Read Bio'}</p>
+                        <img
+                          src={
+                            'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg'
+                          }
+                          loading={'lazy'}
+                          alt={''}
+                          className={'button-arrow inversed'}
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div role={'listitem'} className={'team-member w-dyn-item'}>
+                  <div className={'person-image-wrapper'}>
+                    <img
                       src={'/images/team/fred.webp'}
                       loading={'lazy'}
                       alt={'Agyare Fredrick'}
@@ -291,7 +544,7 @@ function AboutDetails() {
                   <div className={'person-description'}>
                     <p className={'is-font-size-title-m is-space-8'}>{'Agyare Fredrick'}</p>
                     <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Cloud engineering'}
+                      {'Principal Software Engineer / Cloud Engineer'}
                     </p>
                     <a href={'mailto:fredrick@maddygroupltd.com'} className={'w-inline-block'}>
                       <img
@@ -320,7 +573,9 @@ function AboutDetails() {
                             <div className={'modal-desc'}>
                               <h3 className={'is-space-16'}>{'Agyare Fredrick'}</h3>
                               <p className={'is-color-grey-600 w-dyn-bind-empty'}></p>
-                              <p className={'is-color-grey-600'}>{'Cloud engineering'}</p>
+                              <p className={'is-color-grey-600'}>
+                                {'Principal Software Engineer / Cloud Engineer'}
+                              </p>
                               <a
                                 href={'mailto:fredrick@maddygroupltd.com'}
                                 className={'w-inline-block'}
@@ -379,7 +634,7 @@ function AboutDetails() {
                 <div role={'listitem'} className={'team-member w-dyn-item'}>
                   <div className={'person-image-wrapper'}>
                     <img
-                      src={'https://maddygroup.lon1.cdn.digitaloceanspaces.com/images/eben2.png'}
+                      src={'/images/team/ebenezer-kwafo.webp'}
                       loading={'lazy'}
                       alt={'Ebenezer Kwafo'}
                       className={'person-image'}
@@ -409,9 +664,7 @@ function AboutDetails() {
                         <div className={'modal-content'}>
                           <div className={'modal-flex'}>
                             <img
-                              src={
-                                'https://maddygroup.lon1.cdn.digitaloceanspaces.com/images/eben2.png'
-                              }
+                              src={'/images/team/ebenezer-kwafo.webp'}
                               loading={'lazy'}
                               alt={'Ebenezer Kwafo'}
                               className={'modal-img'}
