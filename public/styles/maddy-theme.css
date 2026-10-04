@@ -232,6 +232,28 @@
   min-height: 2.8rem;
 }
 
+.leadership-team-features .person-image-wrapper {
+  position: relative;
+}
+
+.leadership-team-features .person-image {
+  display: block;
+}
+
+.leadership-team-features .person-image-link {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 0.1rem 0.4rem rgba(19, 17, 22, 0.18);
+}
+
 .leadership-team-features .button-bio {
   margin-top: auto;
   padding-top: 0.8rem;

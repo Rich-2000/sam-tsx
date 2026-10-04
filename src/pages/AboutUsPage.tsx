@@ -190,13 +190,10 @@ function AboutDetails() {
                       alt={'Dunstan Guba'}
                       className={'person-image'}
                     />
-                  </div>
-                  <div className={'person-description'}>
-                    <p className={'is-font-size-title-m is-space-8'}>{'Dunstan Guba'}</p>
-                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Director, VAPT & Forensic Expert'}
-                    </p>
-                    <a href={'mailto:dunstan@maddygroupltd.com'} className={'w-inline-block'}>
+                    <a
+                      href={'mailto:dunstan@maddygroupltd.com'}
+                      className={'person-image-link w-inline-block'}
+                    >
                       <img
                         src={
                           'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debe_Vector%20(3).svg'
@@ -206,6 +203,12 @@ function AboutDetails() {
                         className={'linkedin-img'}
                       />
                     </a>
+                  </div>
+                  <div className={'person-description'}>
+                    <p className={'is-font-size-title-m is-space-8'}>{'Dunstan Guba'}</p>
+                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
+                      {'Director, VAPT & Forensic Expert'}
+                    </p>
                     <div className={'button-bio'}>
                       <div className={'person-modal-bio'}>
                         <div
@@ -540,13 +543,10 @@ function AboutDetails() {
                       alt={'Agyare Fredrick'}
                       className={'person-image'}
                     />
-                  </div>
-                  <div className={'person-description'}>
-                    <p className={'is-font-size-title-m is-space-8'}>{'Agyare Fredrick'}</p>
-                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Principal Software Engineer / Cloud Engineer'}
-                    </p>
-                    <a href={'mailto:fredrick@maddygroupltd.com'} className={'w-inline-block'}>
+                    <a
+                      href={'mailto:fredrick@maddygroupltd.com'}
+                      className={'person-image-link w-inline-block'}
+                    >
                       <img
                         src={
                           'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debe_Vector%20(3).svg'
@@ -556,6 +556,12 @@ function AboutDetails() {
                         className={'linkedin-img'}
                       />
                     </a>
+                  </div>
+                  <div className={'person-description'}>
+                    <p className={'is-font-size-title-m is-space-8'}>{'Agyare Fredrick'}</p>
+                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
+                      {'Principal Software Engineer / Cloud Engineer'}
+                    </p>
                     <div className={'button-bio'}>
                       <div className={'person-modal-bio'}>
                         <div
@@ -639,13 +645,10 @@ function AboutDetails() {
                       alt={'Ebenezer Kwafo'}
                       className={'person-image'}
                     />
-                  </div>
-                  <div className={'person-description'}>
-                    <p className={'is-font-size-title-m is-space-8'}>{'Ebenezer Kwafo'}</p>
-                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Incident response'}
-                    </p>
-                    <a href={'mailto:ebenezer@maddygroupltd.com'} className={'w-inline-block'}>
+                    <a
+                      href={'mailto:ebenezer@maddygroupltd.com'}
+                      className={'person-image-link w-inline-block'}
+                    >
                       <img
                         src={
                           'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debe_Vector%20(3).svg'
@@ -655,6 +658,12 @@ function AboutDetails() {
                         className={'linkedin-img'}
                       />
                     </a>
+                  </div>
+                  <div className={'person-description'}>
+                    <p className={'is-font-size-title-m is-space-8'}>{'Ebenezer Kwafo'}</p>
+                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
+                      {'Incident response'}
+                    </p>
                     <div className={'button-bio'}>
                       <div className={'person-modal-bio'}>
                         <div
@@ -736,13 +745,10 @@ function AboutDetails() {
                       alt={'Richard Acheampong'}
                       className={'person-image'}
                     />
-                  </div>
-                  <div className={'person-description'}>
-                    <p className={'is-font-size-title-m is-space-8'}>{'Richard Acheampong'}</p>
-                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
-                      {'Software and AI engineering'}
-                    </p>
-                    <a href={'mailto:richard@maddygroupltd.com'} className={'w-inline-block'}>
+                    <a
+                      href={'mailto:richard@maddygroupltd.com'}
+                      className={'person-image-link w-inline-block'}
+                    >
                       <img
                         src={
                           'https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70debe_Vector%20(3).svg'
@@ -752,6 +758,12 @@ function AboutDetails() {
                         className={'linkedin-img'}
                       />
                     </a>
+                  </div>
+                  <div className={'person-description'}>
+                    <p className={'is-font-size-title-m is-space-8'}>{'Richard Acheampong'}</p>
+                    <p className={'is-font-size-body-m height-48 is-color-grey-600'}>
+                      {'Software and AI engineering'}
+                    </p>
                     <div className={'button-bio'}>
                       <div className={'person-modal-bio'}>
                         <div
