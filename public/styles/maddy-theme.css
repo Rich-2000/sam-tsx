@@ -269,7 +269,12 @@
 
 .leadership-team-features .button-bio {
   margin-top: auto;
-  padding-top: 0.8rem;
+  padding-top: 0.2rem;
+}
+
+.leadership-team-features .button-bio > .button {
+  padding: 0.55rem 1.1rem;
+  grid-column-gap: 0.4rem;
 }
 
 /* Center the incomplete last row of the About team grid (7 cards / 4 columns). */
