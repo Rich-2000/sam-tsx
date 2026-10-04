@@ -222,6 +222,21 @@
   overflow: visible;
 }
 
+/* Leadership intro: a full-width white band keeps the section photo below the text. */
+.leadership-team-features .leadership-intro {
+  padding-bottom: 1.2rem;
+  background-color: #fff;
+  box-shadow: 0 0 0 100vmax #fff;
+  clip-path: inset(0 -100vmax);
+}
+
+/* One line on wide screens. */
+@media screen and (min-width: 992px) {
+  .leadership-team-features .leadership-intro {
+    max-width: none;
+  }
+}
+
 /* About team grid: equal cards, Read Bio buttons on one line. */
 .leadership-team-features .person-description {
   flex: 1 1 auto;
