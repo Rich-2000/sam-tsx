@@ -113,7 +113,7 @@ function AboutHero() {
             <div className={'about-right'}>
               <p className={'is-font-size-body-l'}>
                 {
-                  'We provide cybersecurity, software development and managed technology services to businesses and public organisations across Ghana. Our work is led by CEO Mr. Kenneth Ansah, with a team that covers assessment, response, cloud, DevOps, product and engineering.'
+                  'We provide cybersecurity, software development and managed technology services to businesses and public organisations across Ghana. Our team covers assessment, response, cloud, DevOps, product and engineering.'
                 }
               </p>
               <div className={'flex-about-description'}>
