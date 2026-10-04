@@ -173,11 +173,11 @@ function AboutDetails() {
       </section>
       <section id={'team'} className={'section is-markets-features leadership-team-features'}>
         <div className={'w-layout-blockcontainer container about-container w-container'}>
-          <div className={'max-width _745px is-centered is-text-center'}>
+          <div className={'max-width _745px is-centered is-text-center leadership-intro'}>
             <h2 className={'is-space-24'}>{'Our leadership'}</h2>
             <p className={'is-md-font-size-body-l'}>
               {
-                'These are the people who lead Maddy Group. Behind them is a team of cybersecurity analysts, software developers and remote staff who build the projects people care about, and protect them.'
+                'Leading a team of cybersecurity analysts, software developers and remote staff who build and protect the projects people care about.'
               }
             </p>
           </div>
