@@ -284,7 +284,7 @@ function AboutDetails() {
                 <div role={'listitem'} className={'team-member w-dyn-item'}>
                   <div className={'person-image-wrapper'}>
                     <img
-                      src={'https://maddygroup.lon1.cdn.digitaloceanspaces.com/images/fred.webp'}
+                      src={'/images/team/fred.webp'}
                       loading={'lazy'}
                       alt={'Agyare Fredrick'}
                       className={'person-image'}
@@ -314,9 +314,7 @@ function AboutDetails() {
                         <div className={'modal-content'}>
                           <div className={'modal-flex'}>
                             <img
-                              src={
-                                'https://maddygroup.lon1.cdn.digitaloceanspaces.com/images/fred.webp'
-                              }
+                              src={'/images/team/fred.webp'}
                               loading={'lazy'}
                               alt={'Agyare Fredrick'}
                               className={'modal-img'}
