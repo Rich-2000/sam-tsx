@@ -16,21 +16,21 @@ function PageHead() {
       <title>{'About Us | Maddy Group Ltd'}</title>
       <meta
         content={
-          'Maddy Group Ltd is a technology and cybersecurity company in Accra, Ghana. Meet the team behind secure systems and reliable software.'
+          'Maddy Group Ltd is a technology and cybersecurity company in Accra, Ghana. Meet the leadership behind secure systems and reliable software.'
         }
         name={'description'}
       />
       <meta content={'About Us | Maddy Group Ltd'} property={'og:title'} />
       <meta
         content={
-          'Maddy Group Ltd is a technology and cybersecurity company in Accra, Ghana. Meet the team behind secure systems and reliable software.'
+          'Maddy Group Ltd is a technology and cybersecurity company in Accra, Ghana. Meet the leadership behind secure systems and reliable software.'
         }
         property={'og:description'}
       />
       <meta content={'About Us | Maddy Group Ltd'} name={'twitter:title'} />
       <meta
         content={
-          'Maddy Group Ltd is a technology and cybersecurity company in Accra, Ghana. Meet the team behind secure systems and reliable software.'
+          'Maddy Group Ltd is a technology and cybersecurity company in Accra, Ghana. Meet the leadership behind secure systems and reliable software.'
         }
         name={'twitter:description'}
       />
@@ -174,9 +174,11 @@ function AboutDetails() {
       <section id={'team'} className={'section is-markets-features leadership-team-features'}>
         <div className={'w-layout-blockcontainer container about-container w-container'}>
           <div className={'max-width _745px is-centered is-text-center'}>
-            <h2 className={'is-space-24'}>{'Our team'}</h2>
+            <h2 className={'is-space-24'}>{'Our leadership'}</h2>
             <p className={'is-md-font-size-body-l'}>
-              {'Specialists across cybersecurity, cloud, DevOps, product and software engineering.'}
+              {
+                'These are the people who lead Maddy Group. Behind them is a team of cybersecurity analysts, software developers and remote staff who build the projects people care about, and protect them.'
+              }
             </p>
           </div>
           <div>

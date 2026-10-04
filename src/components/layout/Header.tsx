@@ -227,7 +227,7 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
                     <DropdownLink
                       href="/about-us#team"
                       pagePath="/about-us"
-                      label="Team"
+                      label="Leadership"
                       currentPath={currentPath}
                     />
                     <div className="navbar-dl-label">{'Partners'}</div>
