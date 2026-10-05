@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Header } from './Header.js'
 import { Loader, LoaderRuntime } from './Loader.js'
 import { PageSetup } from './PageSetup.js'
+import { SeoTags } from './SeoTags.js'
 
 type SiteDocumentProps = {
   children: ReactNode
@@ -20,7 +21,10 @@ export function SiteDocument({ children, currentPath, head, pageId, runtime }: S
       data-wf-site="6627b50ad2ace3686c70dd7b"
       lang="en"
     >
-      <head>{head}</head>
+      <head>
+        {head}
+        <SeoTags path={currentPath} />
+      </head>
       <body>
         <Loader />
         <PageSetup />

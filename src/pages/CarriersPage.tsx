@@ -12,21 +12,27 @@ function PageHead() {
         rel={'preconnect'}
         crossOrigin={'anonymous'}
       />
-      <title>{'Software Development | Maddy Group Ltd'}</title>
+      <title>{'Software Development in Accra, Ghana | Maddy Group Ltd'}</title>
       <meta
         content={
           'Custom software, websites, portals and systems integration from Maddy Group Ltd in Accra. Pricing is by quote.'
         }
         name={'description'}
       />
-      <meta content={'Software Development | Maddy Group Ltd'} property={'og:title'} />
+      <meta
+        content={'Software Development in Accra, Ghana | Maddy Group Ltd'}
+        property={'og:title'}
+      />
       <meta
         content={
           'Custom software, websites, portals and systems integration from Maddy Group Ltd in Accra. Pricing is by quote.'
         }
         property={'og:description'}
       />
-      <meta content={'Software Development | Maddy Group Ltd'} name={'twitter:title'} />
+      <meta
+        content={'Software Development in Accra, Ghana | Maddy Group Ltd'}
+        name={'twitter:title'}
+      />
       <meta
         content={
           'Custom software, websites, portals and systems integration from Maddy Group Ltd in Accra. Pricing is by quote.'
@@ -562,7 +568,7 @@ function PageRuntime() {
 export function CarriersDocument() {
   return (
     <SiteDocument
-      currentPath={'/carriers'}
+      currentPath={'/software-development'}
       pageId={'6627b50ad2ace3686c70ddc3'}
       head={<PageHead />}
       runtime={<PageRuntime />}

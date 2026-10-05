@@ -28,7 +28,7 @@ export function AudienceTabsSection() {
                 </h3>
                 <a
                   data-w-id="2618a5d8-cab5-82ba-82fd-9838885456a2"
-                  href="/retail-brokers"
+                  href="/cybersecurity-services"
                   className="button w-inline-block"
                 >
                   <p>{'Learn more'}</p>
@@ -135,7 +135,7 @@ export function AudienceTabsSection() {
                   <br />
                   {'how you work'}
                 </h3>
-                <a href="/carriers" className="button w-inline-block">
+                <a href="/software-development" className="button w-inline-block">
                   <p>{'Get a quote'}</p>
                   <img
                     loading="lazy"

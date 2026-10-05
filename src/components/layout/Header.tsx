@@ -163,9 +163,9 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
           </a>
           <nav role="navigation" className="nav-menu w-nav-menu">
             <a
-              href="/products-appetite"
-              aria-current={isCurrent('/products-appetite') ? 'page' : undefined}
-              className={currentLinkClass('nav-link w-nav-link', '/products-appetite', currentPath)}
+              href="/services"
+              aria-current={isCurrent('/services') ? 'page' : undefined}
+              className={currentLinkClass('nav-link w-nav-link', '/services', currentPath)}
             >
               {isMaddy ? 'Services' : 'Products & Appetite'}
             </a>
@@ -195,12 +195,12 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
                   ) : (
                     <>
                       <DropdownLink
-                        href="/retail-brokers"
+                        href="/cybersecurity-services"
                         label="For Retail Agents"
                         currentPath={currentPath}
                       />
                       <DropdownLink
-                        href="/carriers"
+                        href="/software-development"
                         label="For Carriers"
                         currentPath={currentPath}
                       />

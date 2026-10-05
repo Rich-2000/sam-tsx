@@ -12,21 +12,27 @@ function PageHead() {
         rel={'preconnect'}
         crossOrigin={'anonymous'}
       />
-      <title>{'Services | Maddy Group Ltd'}</title>
+      <title>{'Cybersecurity & IT Services in Ghana | Maddy Group Ltd'}</title>
       <meta
         content={
           'Cybersecurity, software development, websites, IoT and smart cards, ICT procurement and training from Maddy Group Ltd in Accra.'
         }
         name={'description'}
       />
-      <meta content={'Services | Maddy Group Ltd'} property={'og:title'} />
+      <meta
+        content={'Cybersecurity & IT Services in Ghana | Maddy Group Ltd'}
+        property={'og:title'}
+      />
       <meta
         content={
           'Cybersecurity, software development, websites, IoT and smart cards, ICT procurement and training from Maddy Group Ltd in Accra.'
         }
         property={'og:description'}
       />
-      <meta content={'Services | Maddy Group Ltd'} name={'twitter:title'} />
+      <meta
+        content={'Cybersecurity & IT Services in Ghana | Maddy Group Ltd'}
+        name={'twitter:title'}
+      />
       <meta
         content={
           'Cybersecurity, software development, websites, IoT and smart cards, ICT procurement and training from Maddy Group Ltd in Accra.'
@@ -195,7 +201,7 @@ function ProductsDirectory() {
     <div id={'find-flow'} className={'page-wrapper is-no-padding'}>
       <section className={'section is-full-light-tabs-section'}>
         <div className={'w-layout-blockcontainer container padding-as-a-section w-container'}>
-          <h1 className={'is-space-20'}>{'Our services'}</h1>
+          <h2 className={'is-space-20 is-h1'}>{'Our services'}</h2>
           <div className={'max-width _895px is-landscape-full-width'}>
             <p className={'is-space-40'}>
               {
@@ -1790,7 +1796,7 @@ function PageRuntime() {
 export function ProductsAppetiteDocument() {
   return (
     <SiteDocument
-      currentPath={'/products-appetite'}
+      currentPath={'/services'}
       pageId={'6627b50ad2ace3686c70ddc6'}
       head={<PageHead />}
       runtime={<PageRuntime />}

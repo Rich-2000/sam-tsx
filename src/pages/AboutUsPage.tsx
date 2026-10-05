@@ -14,21 +14,27 @@ function PageHead() {
         rel={'preconnect'}
         crossOrigin={'anonymous'}
       />
-      <title>{'About Us | Maddy Group Ltd'}</title>
+      <title>{'About Maddy Group Ltd | Cybersecurity Company in Accra'}</title>
       <meta
         content={
           'Maddy Group Ltd is a technology and cybersecurity company in Accra, Ghana. Meet the leadership behind secure systems and reliable software.'
         }
         name={'description'}
       />
-      <meta content={'About Us | Maddy Group Ltd'} property={'og:title'} />
+      <meta
+        content={'About Maddy Group Ltd | Cybersecurity Company in Accra'}
+        property={'og:title'}
+      />
       <meta
         content={
           'Maddy Group Ltd is a technology and cybersecurity company in Accra, Ghana. Meet the leadership behind secure systems and reliable software.'
         }
         property={'og:description'}
       />
-      <meta content={'About Us | Maddy Group Ltd'} name={'twitter:title'} />
+      <meta
+        content={'About Maddy Group Ltd | Cybersecurity Company in Accra'}
+        name={'twitter:title'}
+      />
       <meta
         content={
           'Maddy Group Ltd is a technology and cybersecurity company in Accra, Ghana. Meet the leadership behind secure systems and reliable software.'
@@ -105,11 +111,11 @@ function AboutHero() {
           data-w-id={'c0474c52-aa42-adbc-dc62-982b53513ae8'}
           className={'w-layout-blockcontainer container is-z-index-2 w-container'}
         >
-          <h1>
+          <h2 className={'is-h1'}>
             {'Technology with '}
             <br />
             {'professional care'}
-          </h1>
+          </h2>
           <div className={'about-flex'}>
             <div className={'about-right'}>
               <p className={'is-font-size-body-l'}>

@@ -27,7 +27,7 @@ const socialLinks = [
 const companyLinks = [
   { href: '/about-us', label: 'About Us' },
   { href: '/about-us#team', label: 'Our Leadership' },
-  { href: '/products-appetite', label: 'Products & Appetite' },
+  { href: '/services', label: 'Services' },
   { href: '/get-in-touch', label: 'Contact Us' },
 ]
 

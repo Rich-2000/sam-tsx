@@ -12,21 +12,21 @@ function PageHead() {
         rel={'preconnect'}
         crossOrigin={'anonymous'}
       />
-      <title>{'Contact Us | Maddy Group Ltd'}</title>
+      <title>{'Contact Maddy Group Ltd | Accra, Ghana'}</title>
       <meta
         content={
           'Contact Maddy Group Ltd in Accra for cybersecurity, software development and technology services. Call 0551111551 or email info@maddygroupltd.com.'
         }
         name={'description'}
       />
-      <meta content={'Contact Us | Maddy Group Ltd'} property={'og:title'} />
+      <meta content={'Contact Maddy Group Ltd | Accra, Ghana'} property={'og:title'} />
       <meta
         content={
           'Contact Maddy Group Ltd in Accra for cybersecurity, software development and technology services. Call 0551111551 or email info@maddygroupltd.com.'
         }
         property={'og:description'}
       />
-      <meta content={'Contact Us | Maddy Group Ltd'} name={'twitter:title'} />
+      <meta content={'Contact Maddy Group Ltd | Accra, Ghana'} name={'twitter:title'} />
       <meta
         content={
           'Contact Maddy Group Ltd in Accra for cybersecurity, software development and technology services. Call 0551111551 or email info@maddygroupltd.com.'

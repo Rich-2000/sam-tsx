@@ -1,4 +1,5 @@
 import { pageCode } from '../../content/pageCode.js'
+import { SeoTags } from './SeoTags.js'
 import { SiteIcons } from './SiteIcons.js'
 
 export function DocumentHead() {
@@ -10,19 +11,22 @@ export function DocumentHead() {
         rel="preconnect"
         crossOrigin="anonymous"
       />
-      <title>{'Maddy Group Ltd | Cybersecurity and software in Accra'}</title>
+      <title>{'Cybersecurity Company in Accra, Ghana | Maddy Group Ltd'}</title>
       <meta
-        content="Cybersecurity, software development and managed technology services from Maddy Group Ltd in Accra, Ghana."
+        content="Maddy Group Ltd is a cybersecurity and software company in Accra, Ghana: penetration testing, managed SOC, incident response and custom software for Africa."
         name="description"
       />
-      <meta content="Maddy Group Ltd | Cybersecurity and software in Accra" property="og:title" />
+      <meta content="Cybersecurity Company in Accra, Ghana | Maddy Group Ltd" property="og:title" />
       <meta
-        content="Cybersecurity, software development and managed technology services from Maddy Group Ltd in Accra, Ghana."
+        content="Maddy Group Ltd is a cybersecurity and software company in Accra, Ghana: penetration testing, managed SOC, incident response and custom software for Africa."
         property="og:description"
       />
-      <meta content="Maddy Group Ltd | Cybersecurity and software in Accra" name="twitter:title" />
       <meta
-        content="Cybersecurity, software development and managed technology services from Maddy Group Ltd in Accra, Ghana."
+        content="Cybersecurity Company in Accra, Ghana | Maddy Group Ltd"
+        name="twitter:title"
+      />
+      <meta
+        content="Maddy Group Ltd is a cybersecurity and software company in Accra, Ghana: penetration testing, managed SOC, incident response and custom software for Africa."
         name="twitter:description"
       />
       <meta property="og:type" content="website" />
@@ -36,6 +40,7 @@ export function DocumentHead() {
         dangerouslySetInnerHTML={{ __html: pageCode.webflowBootstrap }}
       />
       <SiteIcons />
+      <SeoTags path="/" />
       {'\n'}
       <script defer={true} src="/vendor/autovideo.js"></script>
       {'\n'}
