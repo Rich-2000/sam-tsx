@@ -9,6 +9,7 @@ test.describe('cookie choice banner', () => {
     expect(await page.evaluate(() => window.maddyConsent)).toEqual({
       decided: false,
       analytics: false,
+      marketing: false,
     })
 
     await banner.getByRole('button', { name: 'Reject optional' }).click()
@@ -16,6 +17,7 @@ test.describe('cookie choice banner', () => {
     expect(await page.evaluate(() => window.maddyConsent)).toEqual({
       decided: true,
       analytics: false,
+      marketing: false,
     })
 
     await gotoReady(page, '/')
@@ -28,12 +30,39 @@ test.describe('cookie choice banner', () => {
     expect(await page.evaluate(() => window.maddyConsent)).toEqual({
       decided: true,
       analytics: true,
+      marketing: true,
     })
+  })
+
+  test('lets the visitor allow one kind of cookie and not another', async ({ page }) => {
+    await gotoReady(page, '/about-us')
+    const banner = page.locator('[data-cookie-banner]')
+    const options = banner.locator('[data-cookie-options]')
+    await expect(options).toBeHidden()
+
+    await banner.getByRole('button', { name: 'Manage choices' }).click()
+    await expect(options).toBeVisible()
+    await expect(banner.getByRole('switch', { name: /Necessary/ })).toBeDisabled()
+    await expect(banner.getByRole('switch', { name: /Analytics/ })).not.toBeChecked()
+
+    await banner.getByRole('switch', { name: /Analytics/ }).check()
+    await banner.getByRole('button', { name: 'Save choices' }).click()
+    await expect(banner).toBeHidden()
+    expect(await page.evaluate(() => window.maddyConsent)).toEqual({
+      decided: true,
+      analytics: true,
+      marketing: false,
+    })
+
+    // Reopening from the footer shows the saved choice.
+    await page.locator('[data-cookie-settings]').click()
+    await expect(banner.getByRole('switch', { name: /Analytics/ })).toBeChecked()
+    await expect(banner.getByRole('switch', { name: /Marketing/ })).not.toBeChecked()
   })
 })
 
 declare global {
   interface Window {
-    maddyConsent: { decided: boolean; analytics: boolean }
+    maddyConsent: { decided: boolean; analytics: boolean; marketing: boolean }
   }
 }
