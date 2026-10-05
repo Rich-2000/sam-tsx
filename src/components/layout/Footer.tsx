@@ -1,3 +1,4 @@
+import { site } from '../../content/site.js'
 import { technologyNavItems } from '../../content/technologyNav.js'
 
 /** TODO: swap the "#" for the real profile URLs once the accounts are live. */
@@ -163,6 +164,15 @@ export function Footer() {
               </form>
 
               <div className="mf__socials">
+                <a
+                  href={`tel:${site.phone}`}
+                  className="mf__social"
+                  aria-label={`Call Maddy Group on ${site.phoneDisplay}`}
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z" />
+                  </svg>
+                </a>
                 {socialLinks.map((item) => (
                   <a
                     key={item.label}
