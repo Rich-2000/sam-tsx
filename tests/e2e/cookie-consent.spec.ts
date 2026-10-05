@@ -25,6 +25,9 @@ test.describe('cookie choice banner', () => {
 
     await page.locator('[data-cookie-settings]').click()
     await expect(banner).toBeVisible()
+    // The link reopens the banner in place; it must not raise the page-transition loader.
+    await expect(page.locator('html')).not.toHaveClass(/is-page-loading/)
+    await expect(page).toHaveURL(/\/$/)
     await banner.getByRole('button', { name: 'Accept all' }).click()
     await expect(banner).toBeHidden()
     expect(await page.evaluate(() => window.maddyConsent)).toEqual({
