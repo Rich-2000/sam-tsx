@@ -129,6 +129,14 @@ export function PrivacyPolicyDocument() {
             'We keep enquiry records for as long as needed to complete the conversation and meet legal or contractual duties, then delete or anonymise them where practical. We apply reasonable technical and organisational measures to protect information under our control.'
           }
         </p>
+        <h2 id={'cookies'} className={'is-space-16 is-font-size-title-l'}>
+          {'Cookies'}
+        </h2>
+        <p className={'is-font-size-body-m is-space-24'}>
+          {
+            'This website does not set advertising cookies. It keeps one small record in your browser to remember your cookie choice. If you choose "Accept all", we may use analytics cookies to understand how the site is used; if you choose "Reject optional", none are set. You can change your choice at any time using the "Cookies" link at the bottom of any page.'
+          }
+        </p>
         <h2 className={'is-space-16 is-font-size-title-l'}>{'Your rights'}</h2>
         <p className={'is-font-size-body-m'}>
           {

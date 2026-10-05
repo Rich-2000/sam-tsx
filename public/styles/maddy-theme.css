@@ -625,6 +625,114 @@ html.leader-modal-open {
   }
 }
 
+/* Cookie choice banner: sits above the page and navbar, below the page loader. */
+.cookie-banner {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 20px 40px -12px rgba(1, 5, 53, 0.35);
+  color: var(--color--grey-900);
+  text-align: left;
+}
+
+.cookie-banner[hidden] {
+  display: none;
+}
+
+.cookie-banner:focus {
+  outline: none;
+}
+
+.cookie-banner__text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cookie-banner__title {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  font-variation-settings: 'wght' 600;
+  line-height: 1.4;
+}
+
+.cookie-banner__copy {
+  margin: 0;
+  color: var(--color--grey-600);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cookie-banner__copy a {
+  color: #4d51ab;
+  text-decoration: underline;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+}
+
+/* Both choices carry the same weight, so rejecting is as easy as accepting. */
+.cookie-banner__button {
+  min-width: 140px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--color--grey-900);
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  font-variation-settings: 'wght' 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.cookie-banner__button--accept {
+  background-color: #4d51ab;
+}
+
+.cookie-banner__button:hover {
+  opacity: 0.88;
+}
+
+.cookie-banner__button:focus-visible {
+  outline: 2px solid #4d51ab;
+  outline-offset: 2px;
+}
+
+@media screen and (max-width: 767px) {
+  .cookie-banner {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .cookie-banner__button {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
 /* Page loader: navy + long logo */
 html.is-page-loading {
   overflow: hidden;

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { CookieConsent } from './CookieConsent.js'
 import { Header } from './Header.js'
 import { Loader, LoaderRuntime } from './Loader.js'
 import { PageSetup } from './PageSetup.js'
@@ -31,6 +32,7 @@ export function SiteDocument({ children, currentPath, head, pageId, runtime }: S
         <Header brand="maddy" currentPath={currentPath} showWhiteLogo />
         {children}
         {runtime}
+        <CookieConsent />
         <LoaderRuntime />
       </body>
     </html>
