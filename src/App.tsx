@@ -1,3 +1,4 @@
+import { CookieConsent } from './components/layout/CookieConsent.js'
 import { DocumentHead } from './components/layout/DocumentHead.js'
 import { Footer } from './components/layout/Footer.js'
 import { Header } from './components/layout/Header.js'
@@ -67,6 +68,7 @@ export function SamDocument() {
         <Loader />
         <App />
         <RuntimeScripts />
+        <CookieConsent />
         <LoaderRuntime />
       </body>
     </html>

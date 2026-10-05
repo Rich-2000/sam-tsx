@@ -201,7 +201,7 @@ export function Footer() {
               <a href="/terms-of-use" className="mf__link">
                 {'Terms of Service'}
               </a>
-              <a href="/privacy-policy" className="mf__link">
+              <a href="/privacy-policy#cookies" className="mf__link" data-cookie-settings="">
                 {'Cookies'}
               </a>
             </div>
