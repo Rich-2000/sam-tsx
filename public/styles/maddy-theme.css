@@ -1643,6 +1643,8 @@ html.is-page-loading {
   --af-fill-bg: var(--color--white);
   border-radius: 999px;
   padding-right: calc(var(--af-circle) + var(--af-right) + 1rem);
+  /* Never squeeze the label under the arrow circle when sharing a row with text. */
+  flex-shrink: 0;
 }
 
 .button.is-black-button.arrow-fill--button {
