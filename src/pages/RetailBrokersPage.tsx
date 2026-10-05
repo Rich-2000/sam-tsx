@@ -12,21 +12,21 @@ function PageHead() {
         rel={'preconnect'}
         crossOrigin={'anonymous'}
       />
-      <title>{'Security Assessment | Maddy Group Ltd'}</title>
+      <title>{'Cybersecurity Services in Ghana | Maddy Group Ltd'}</title>
       <meta
         content={
           'Penetration testing, vulnerability assessments, managed SOC, identity and cloud security from Maddy Group Ltd in Accra. Pricing is by quote.'
         }
         name={'description'}
       />
-      <meta content={'Security Assessment | Maddy Group Ltd'} property={'og:title'} />
+      <meta content={'Cybersecurity Services in Ghana | Maddy Group Ltd'} property={'og:title'} />
       <meta
         content={
           'Penetration testing, vulnerability assessments, managed SOC, identity and cloud security from Maddy Group Ltd in Accra. Pricing is by quote.'
         }
         property={'og:description'}
       />
-      <meta content={'Security Assessment | Maddy Group Ltd'} name={'twitter:title'} />
+      <meta content={'Cybersecurity Services in Ghana | Maddy Group Ltd'} name={'twitter:title'} />
       <meta
         content={
           'Penetration testing, vulnerability assessments, managed SOC, identity and cloud security from Maddy Group Ltd in Accra. Pricing is by quote.'
@@ -519,7 +519,7 @@ function PageRuntime() {
 export function RetailBrokersDocument() {
   return (
     <SiteDocument
-      currentPath={'/retail-brokers'}
+      currentPath={'/cybersecurity-services'}
       pageId={'6627b50ad2ace3686c70ddc2'}
       head={<PageHead />}
       runtime={<PageRuntime />}

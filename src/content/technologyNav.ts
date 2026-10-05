@@ -5,8 +5,8 @@ export type TechnologyNavItem = {
 
 /** Technologies dropdown + footer technology links */
 export const technologyNavItems: TechnologyNavItem[] = [
-  { href: '/retail-brokers', label: 'Security Assessment' },
-  { href: '/carriers', label: 'Software Development' },
+  { href: '/cybersecurity-services', label: 'Security Assessment' },
+  { href: '/software-development', label: 'Software Development' },
   { href: '/software-products', label: 'Software Products' },
   { href: '/iot-smart-cards', label: 'IoT & Smart Cards' },
   { href: '/uav', label: 'UAV Operations' },

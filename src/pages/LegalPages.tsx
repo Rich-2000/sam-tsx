@@ -148,7 +148,9 @@ export function TermsOfUseDocument() {
       head={
         <LegalHead
           title={'Terms of Use | Maddy Group Ltd'}
-          description={'Terms of use for the Maddy Group Ltd website.'}
+          description={
+            'Terms of use for the Maddy Group Ltd website: website content, quotes and services, acceptable use and liability.'
+          }
         />
       }
       runtime={<PageRuntime />}

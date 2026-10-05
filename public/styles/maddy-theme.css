@@ -222,6 +222,19 @@
   overflow: visible;
 }
 
+/* A second-level heading drawn at main-heading size, so each page keeps a single h1. */
+h2.is-h1 {
+  letter-spacing: -0.22rem;
+  font-size: 4.4rem;
+}
+
+@media screen and (max-width: 767px) {
+  h2.is-h1 {
+    letter-spacing: -0.15rem;
+    font-size: 2.7rem;
+  }
+}
+
 /* Leadership intro: a full-width white band keeps the section photo below the text. */
 .leadership-team-features .leadership-intro {
   padding-bottom: 1.2rem;

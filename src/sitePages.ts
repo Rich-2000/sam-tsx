@@ -31,9 +31,9 @@ const partnerDocuments = Object.fromEntries(
 
 const pageDocuments: Record<string, ComponentType> = {
   '/': SamDocument,
-  '/products-appetite': ProductsAppetiteDocument,
-  '/retail-brokers': RetailBrokersDocument,
-  '/carriers': CarriersDocument,
+  '/services': ProductsAppetiteDocument,
+  '/cybersecurity-services': RetailBrokersDocument,
+  '/software-development': CarriersDocument,
   '/about-us': AboutUsDocument,
   '/get-in-touch': GetInTouchDocument,
   '/privacy-policy': PrivacyPolicyDocument,
