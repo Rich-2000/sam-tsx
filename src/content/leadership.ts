@@ -62,7 +62,7 @@ export const leaders: Leader[] = [
   {
     name: 'Richard Acheampong',
     role: 'Software Developer',
-    image: 'https://maddygroup.lon1.cdn.digitaloceanspaces.com/images/team5.jpg',
+    image: '/images/team/richard-acheampong.png',
     email: 'richard@maddygroupltd.com',
     bio: [
       'Richard builds software and AI engineering solutions for client and internal products. Background spans full stack and ML engineering.',
