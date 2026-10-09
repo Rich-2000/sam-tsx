@@ -83,13 +83,16 @@ export function SpecialtiesTabsSection() {
                   </ul>
                 </div>
               </div>
-              <a href="/services#w-tabs-0-data-w-pane-0" className="button w-inline-block">
+              <a
+                href="/services#w-tabs-0-data-w-pane-0"
+                className="button w-inline-block text-white"
+              >
                 <p>{'Explore Cybersecurity'}</p>
                 <img
                   loading="lazy"
                   src="https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg"
                   alt=""
-                  className="button-arrow"
+                  className="button-arrow inversed"
                 />
               </a>
             </div>
@@ -152,13 +155,16 @@ export function SpecialtiesTabsSection() {
                   </ul>
                 </div>
               </div>
-              <a href="/services#w-tabs-0-data-w-pane-1" className="button w-inline-block">
+              <a
+                href="/services#w-tabs-0-data-w-pane-1"
+                className="button w-inline-block text-white"
+              >
                 <p>{'Explore Software Development'}</p>
                 <img
                   loading="lazy"
                   src="https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg"
                   alt=""
-                  className="button-arrow"
+                  className="button-arrow inversed"
                 />
               </a>
             </div>
@@ -224,13 +230,16 @@ export function SpecialtiesTabsSection() {
                   </ul>
                 </div>
               </div>
-              <a href="/services#w-tabs-0-data-w-pane-2" className="button w-inline-block">
+              <a
+                href="/services#w-tabs-0-data-w-pane-2"
+                className="button w-inline-block text-white"
+              >
                 <p>{'Explore IoT Services'}</p>
                 <img
                   loading="lazy"
                   src="https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg"
                   alt=""
-                  className="button-arrow"
+                  className="button-arrow inversed"
                 />
               </a>
             </div>

@@ -66,7 +66,7 @@ function Hero({ config }: { config: PartnerPageConfig }) {
             <p data-w-id={'cf1d3dc4-a54e-773c-276f-52cfbc4a1929'} className={'hero-description'}>
               {config.heroBody}
             </p>
-            <a href={'#partner-quote'} className={'button w-inline-block'}>
+            <a href={'#partner-quote'} className={'button w-inline-block text-white'}>
               <p>{'Request a quote'}</p>
               <img
                 src={
@@ -74,7 +74,7 @@ function Hero({ config }: { config: PartnerPageConfig }) {
                 }
                 loading={'lazy'}
                 alt={''}
-                className={'button-arrow'}
+                className={'button-arrow inversed'}
               />
             </a>
           </div>

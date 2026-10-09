@@ -47,6 +47,10 @@
   border-color: #2a2f8f !important;
 }
 
+.text-white {
+  color: white !important;
+}
+
 .section.is-hero-section {
   overflow: hidden;
   background-image: none !important;
@@ -149,15 +153,257 @@
   background: linear-gradient(
     to top,
     rgba(1, 5, 53, 0.96) 0%,
-    rgba(1, 5, 53, 0.75) 18%,
-    rgba(77, 81, 171, 0.45) 34%,
-    rgba(77, 81, 171, 0.12) 48%,
-    transparent 58%
+    rgba(1, 5, 53, 0.75) 34%,
+    rgba(77, 81, 171, 0.45) 50%,
+    rgba(77, 81, 171, 0.12) 64%,
+    transparent 74%
   );
 }
 
 .hero-description-container {
   z-index: 2;
+}
+
+/* Accordion */
+.acc {
+  --accent: #4d4fad;
+  --tab-size: 120px;
+  --gap: 16px;
+  --radius: 16px;
+  --line: #e1e2e8;
+  --ink: #0a0a0f;
+  --muted: #6b6d7b;
+  --speed: 600ms;
+  --ease: cubic-bezier(0.65, 0, 0.35, 1);
+
+  display: flex;
+  flex-direction: row;
+  height: min(780px, 90vh);
+  width: 100%;
+  overflow: hidden;
+  color: var(--ink);
+}
+
+/* ---------- Panel = tab + expanding content ---------- */
+.acc__panel {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 var(--tab-size); /* closed: only as wide as its tab */
+  min-width: 0;
+  min-height: 0;
+  border-left: 1px solid var(--line);
+  transition: flex-grow var(--speed) var(--ease);
+}
+.acc__panel:last-child {
+  border-right: 1px solid var(--line);
+}
+.acc__panel:has(> .acc__radio:checked) {
+  flex-grow: 1;
+}
+
+/* ---------- Accordion Tab ---------- */
+.acc__tab {
+  flex: 0 0 calc(var(--tab-size) - 1px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0 28px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  user-select: none;
+}
+
+.acc__radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.acc__radio:focus-visible + .acc__tab {
+  outline: 2px solid var(--accent);
+  outline-offset: -4px;
+}
+
+.acc__tab:hover .acc__label,
+.acc__panel:has(> .acc__radio:checked) .acc__label {
+  color: var(--accent);
+}
+
+.acc__caption,
+.acc__label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+.acc__caption {
+  font-size: 12px;
+  color: var(--muted);
+}
+.acc__label {
+  font-size: clamp(18px, 3vw, 30px);
+  letter-spacing: -0.01em;
+  transition: color 200ms ease;
+}
+
+/* ---------- Content (grows open next to the tab) ---------- */
+.acc__content {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--accent);
+  color: #fff;
+}
+.acc__inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 480px; /* stops text re-wrapping while the panel animates */
+  padding: clamp(24px, 3.2vw, 40px);
+
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 150ms ease,
+    visibility 0s linear 150ms;
+}
+.acc__panel:has(> .acc__radio:checked) .acc__inner {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 400ms ease calc(var(--speed) * 0.4),
+    visibility 0s;
+}
+
+.acc__title {
+  margin: 0 0 16px;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.acc__description {
+  margin: 0 0 clamp(20px, 3vw, 32px);
+  max-width: 62ch;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgb(255 255 255 / 0.82);
+}
+
+/* ---------- Image gallery (dynamic, two staggered columns) ---------- */
+.acc__gallery {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
+.acc__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  min-height: 0;
+}
+.acc__img {
+  flex: 3 1 0; /* odd: tall */
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #fff;
+}
+.acc__img:nth-child(even) {
+  flex: 2 1 0; /* even: short */
+}
+.acc__col--flip .acc__img {
+  flex: 2 1 0;
+}
+.acc__col--flip .acc__img:nth-child(even) {
+  flex: 3 1 0;
+}
+.acc__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Mobile: stack vertically ---------- */
+@media (max-width: 767px) {
+  .acc {
+    --tab-size: 64px;
+    flex-direction: column;
+    height: min(840px, 88svh);
+  }
+  .acc__panel {
+    flex-direction: column;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .acc__panel:first-child {
+    border-top-color: transparent;
+  }
+  .acc__panel:last-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .acc__tab {
+    flex: 0 0 calc(var(--tab-size) - 1px);
+    flex-direction: row-reverse; /* title first, caption after */
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 0 20px;
+  }
+  .acc__caption,
+  .acc__label {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+  .acc__label {
+    font-size: 22px;
+  }
+
+  .acc__inner {
+    min-width: 0;
+    min-height: 380px;
+    padding: 20px;
+  }
+  .acc__title {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+  .acc__description {
+    font-size: 14px;
+    margin-bottom: 18px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .acc__gallery,
+  .acc__col {
+    gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acc__panel,
+  .acc__inner {
+    transition-duration: 1ms !important;
+    transition-delay: 0s !important;
+  }
 }
 
 .maddy-image-frame {
@@ -1354,6 +1600,87 @@ html.is-page-loading {
   }
 }
 
+/* The second, whole-frame copy of the clip is a phone-only layer. */
+.is-contact-hero .hero-media__video-whole {
+  display: none;
+}
+
+/* Phone layout (up to 767px; tablet and desktop are untouched).
+   1. Reading order, top to bottom: heading + intro, the form, then phone /
+      email / office. .git-left is dissolved (display: contents) so its two
+      blocks and the form become siblings in the stacked .git-hero and can be
+      ordered freely. Desktop never matches this query, so its two columns stay.
+   2. The video still fills the whole card, as before (.hero-media__video,
+      object-fit: cover). On its own that crops a portrait card to the middle of
+      the 16:9 clip and cuts off the mascots, who stand at its left and right
+      edges. So a second copy of the same clip (.hero-media__video-whole) is
+      laid over the bottom of the card at full width and its own 1600:902 shape,
+      nothing cropped, and fades into the full-card video above it. The card's
+      bottom padding reserves the strip the mascots stand in, so the form and
+      text never cover them, on any phone width. */
+@media (max-width: 767px) {
+  .section.is-get-in-touch-section.is-contact-hero {
+    /* clip height at full card width (the card is full viewport width here) */
+    --contact-media-h: calc(100vw * 902 / 1600);
+    /* the mascots and their ground take the lowest ~28% of the clip */
+    --contact-mascot-zone: calc(var(--contact-media-h) * 0.28);
+    padding-top: 5.5rem;
+    padding-bottom: calc(var(--contact-mascot-zone) + 1rem);
+  }
+
+  .is-contact-hero .hero-media__video-whole {
+    display: block;
+    position: absolute;
+    inset: auto 0 0 0;
+    width: 100%;
+    height: var(--contact-media-h);
+    object-fit: cover; /* the box already has the clip's shape: no crop */
+    background: url('/images/brand/contact-bg-poster.jpg') center / 100% 100% no-repeat;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 30%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 30%);
+  }
+
+  /* Navy tint for legibility, as on desktop, easing off over the mascot strip
+     so they keep their colour. */
+  .is-contact-hero .contact-bg-overlay {
+    background: linear-gradient(
+      0deg,
+      rgba(1, 5, 53, 0.05) 0,
+      rgba(1, 5, 53, 0.05) var(--contact-mascot-zone),
+      rgba(1, 5, 53, 0.4) calc(var(--contact-mascot-zone) + 3rem),
+      rgba(1, 5, 53, 0.55) 100%
+    );
+  }
+
+  .is-contact-hero .git-hero {
+    row-gap: 0;
+  }
+
+  .is-contact-hero .git-left {
+    display: contents;
+  }
+
+  .is-contact-hero .git-intro-block,
+  .is-contact-hero .git-details-block {
+    width: 100%;
+    padding-left: 1.33333rem;
+    padding-right: 1.33333rem;
+    text-align: center;
+  }
+
+  .is-contact-hero .git-intro-block {
+    order: 1;
+  }
+
+  .is-contact-hero .git-right {
+    order: 2;
+  }
+
+  .is-contact-hero .git-details-block {
+    order: 3;
+  }
+}
+
 /* Contact intro: justified block with a width cap so the last line doesn't
    stretch. Whole words only, no hyphenation. */
 .git-intro {
@@ -1781,6 +2108,20 @@ html.is-page-loading {
   transition: none !important;
 }
 
+.navbar .dropdown-link.navbar-dl-link:hover,
+.navbar .dropdown-link.navbar-dl-link.arrow-fill.w--current {
+  background-color: var(--color--flow-lime) !important;
+  color: var(--color--white) !important;
+}
+
+.navbar .dropdown-link.navbar-dl-link.arrow-fill.w--current span {
+  transition: none !important;
+}
+
+.navbar .dropdown-link.navbar-dl-link.arrow-fill.w--current svg {
+  transition: none !important;
+}
+
 .arrow-fill .arrow-fill__label {
   position: relative;
   z-index: 1;
@@ -1904,6 +2245,11 @@ html.is-page-loading {
 .button.is-black-button.arrow-fill--button:focus-visible {
   background-color: var(--color--white);
   transition-delay: var(--af-duration);
+}
+
+.navbar .dropdown-link.navbar-dl-link.arrow-fill.w--current > span.arrow-fill__icon:hover {
+  color: var(--color--flow-lime) !important;
+  background-color: var(--color--white) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2464,6 +2810,13 @@ html.is-page-loading {
 
 .pg__close:active {
   transform: scale(0.9);
+}
+
+@media screen and (min-width: 1440px) {
+  .section.is-about-more-section {
+    padding-top: 14rem;
+    padding-bottom: 3rem;
+  }
 }
 
 /* Dock of every shot, draggable anywhere in the dialog. */

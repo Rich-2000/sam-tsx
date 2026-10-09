@@ -65,6 +65,18 @@ function GetInTouchContent() {
               <source src={'/images/brand/contact-bg.webm'} type={'video/webm'} />
               <source src={'/images/brand/contact-bg.mp4'} type={'video/mp4'} />
             </video>
+            <video
+              className={'hero-media__video-whole'}
+              aria-hidden={'true'}
+              tabIndex={-1}
+              muted
+              loop
+              playsInline
+              preload={'none'}
+            >
+              <source src={'/images/brand/contact-bg.webm'} type={'video/webm'} />
+              <source src={'/images/brand/contact-bg.mp4'} type={'video/mp4'} />
+            </video>
             <div className={'contact-bg-overlay'}></div>
           </div>
           <div
@@ -72,110 +84,114 @@ function GetInTouchContent() {
           >
             <div className={'git-hero'}>
               <div data-w-id={'d6ec158b-413a-2252-c730-9e6331badb22'} className={'git-left'}>
-                <h1 data-w-id={'5688d7d9-6d15-3f37-8131-e8be09b8e9fa'} className={'is-h2'}>
-                  {'Contact us'}
-                </h1>
-                <p className={'is-md-font-size-body-l is-bottom-48 is-sm-bottom-32 git-intro'}>
-                  {
-                    'Cybersecurity, software development and technology services for organisations across Africa. Tell us what you need and we will get back to you promptly.'
-                  }
-                </p>
-                <div className={'text-with-icon is-bottom-24'}>
-                  <span className={'phone-icon'} aria-hidden={'true'}>
-                    <svg
-                      width={'20'}
-                      height={'20'}
-                      viewBox={'0 0 24 24'}
-                      fill={'none'}
-                      stroke={'currentColor'}
-                      strokeWidth={'2'}
-                      strokeLinecap={'round'}
-                      strokeLinejoin={'round'}
-                    >
-                      <path
-                        d={
-                          'M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384'
-                        }
-                      />
-                    </svg>
-                  </span>
-                  <div className={'mail-wrapper'}>
-                    <p className={'is-font-size-body-m'}>
-                      <span className={'is-opacity-60'}>{'Phone '}</span>
-                      {'- '}
-                      <a href={'tel:0551111551'} className={'link-on-dark'}>
-                        {'0551111551'}
-                      </a>
-                    </p>
-                  </div>
+                <div className={'git-intro-block'}>
+                  <h1 data-w-id={'5688d7d9-6d15-3f37-8131-e8be09b8e9fa'} className={'is-h2'}>
+                    {'Contact us'}
+                  </h1>
+                  <p className={'is-md-font-size-body-l is-bottom-48 is-sm-bottom-32 git-intro'}>
+                    {
+                      'Cybersecurity, software development and technology services for organisations across Africa. Tell us what you need and we will get back to you promptly.'
+                    }
+                  </p>
                 </div>
-                <div className={'text-with-icon is-bottom-24'}>
-                  <span className={'at-icon'} aria-hidden={'true'}>
-                    <svg
-                      width={'20'}
-                      height={'20'}
-                      viewBox={'0 0 24 24'}
-                      fill={'none'}
-                      stroke={'currentColor'}
-                      strokeWidth={'2'}
-                      strokeLinecap={'round'}
-                      strokeLinejoin={'round'}
-                    >
-                      <circle
-                        className={'at-icon__circle'}
-                        cx={'12'}
-                        cy={'12'}
-                        r={'4'}
-                        pathLength={1}
-                      />
-                      <path
-                        className={'at-icon__path'}
-                        d={'M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8'}
-                        pathLength={1}
-                      />
-                    </svg>
-                  </span>
-                  <div className={'mail-wrapper'}>
-                    <p className={'is-font-size-body-m'}>
-                      <span className={'is-opacity-60'}>{'Email '}</span>
-                      {'- '}
-                      <a href={'mailto:info@maddygroupltd.com'} className={'link-on-dark'}>
-                        {'info@maddygroupltd.com'}
-                      </a>
-                    </p>
+                <div className={'git-details-block'}>
+                  <div className={'text-with-icon is-bottom-24'}>
+                    <span className={'phone-icon'} aria-hidden={'true'}>
+                      <svg
+                        width={'20'}
+                        height={'20'}
+                        viewBox={'0 0 24 24'}
+                        fill={'none'}
+                        stroke={'currentColor'}
+                        strokeWidth={'2'}
+                        strokeLinecap={'round'}
+                        strokeLinejoin={'round'}
+                      >
+                        <path
+                          d={
+                            'M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384'
+                          }
+                        />
+                      </svg>
+                    </span>
+                    <div className={'mail-wrapper'}>
+                      <p className={'is-font-size-body-m'}>
+                        <span className={'is-opacity-60'}>{'Phone '}</span>
+                        {'- '}
+                        <a href={'tel:0551111551'} className={'link-on-dark'}>
+                          {'0551111551'}
+                        </a>
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className={'text-with-icon'}>
-                  <span className={'pin-icon'} aria-hidden={'true'}>
-                    <svg
-                      width={'20'}
-                      height={'20'}
-                      viewBox={'0 0 24 24'}
-                      fill={'none'}
-                      stroke={'currentColor'}
-                      strokeWidth={'2'}
-                      strokeLinecap={'round'}
-                      strokeLinejoin={'round'}
-                    >
-                      <path
-                        d={
-                          'M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0'
-                        }
-                      />
-                      <circle
-                        className={'pin-icon__circle'}
-                        cx={'12'}
-                        cy={'10'}
-                        r={'3'}
-                        pathLength={1}
-                      />
-                    </svg>
-                  </span>
-                  <div className={'mail-wrapper'}>
-                    <p className={'is-font-size-body-m'}>
-                      <span className={'is-opacity-60'}>{'Office '}</span>
-                      {'- GD-219-3654, Adjiriganor, Accra'}
-                    </p>
+                  <div className={'text-with-icon is-bottom-24'}>
+                    <span className={'at-icon'} aria-hidden={'true'}>
+                      <svg
+                        width={'20'}
+                        height={'20'}
+                        viewBox={'0 0 24 24'}
+                        fill={'none'}
+                        stroke={'currentColor'}
+                        strokeWidth={'2'}
+                        strokeLinecap={'round'}
+                        strokeLinejoin={'round'}
+                      >
+                        <circle
+                          className={'at-icon__circle'}
+                          cx={'12'}
+                          cy={'12'}
+                          r={'4'}
+                          pathLength={1}
+                        />
+                        <path
+                          className={'at-icon__path'}
+                          d={'M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8'}
+                          pathLength={1}
+                        />
+                      </svg>
+                    </span>
+                    <div className={'mail-wrapper'}>
+                      <p className={'is-font-size-body-m'}>
+                        <span className={'is-opacity-60'}>{'Email '}</span>
+                        {'- '}
+                        <a href={'mailto:info@maddygroupltd.com'} className={'link-on-dark'}>
+                          {'info@maddygroupltd.com'}
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div className={'text-with-icon'}>
+                    <span className={'pin-icon'} aria-hidden={'true'}>
+                      <svg
+                        width={'20'}
+                        height={'20'}
+                        viewBox={'0 0 24 24'}
+                        fill={'none'}
+                        stroke={'currentColor'}
+                        strokeWidth={'2'}
+                        strokeLinecap={'round'}
+                        strokeLinejoin={'round'}
+                      >
+                        <path
+                          d={
+                            'M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0'
+                          }
+                        />
+                        <circle
+                          className={'pin-icon__circle'}
+                          cx={'12'}
+                          cy={'10'}
+                          r={'3'}
+                          pathLength={1}
+                        />
+                      </svg>
+                    </span>
+                    <div className={'mail-wrapper'}>
+                      <p className={'is-font-size-body-m'}>
+                        <span className={'is-opacity-60'}>{'Office '}</span>
+                        {'- GD-219-3654, Adjiriganor, Accra'}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -497,6 +513,31 @@ const glassSelectScript = `
 })();
 `
 
+/**
+ * Phones only: a second copy of the background clip, shown whole at the bottom
+ * of the card so the mascots are never cropped (see maddy-theme.css). Desktop
+ * and tablet never need it, so it is not loaded there (preload="none"); it
+ * starts when the viewport is phone-sized and stops if it grows past that.
+ */
+const wholeVideoScript = `
+(function () {
+  var video = document.querySelector('.hero-media__video-whole');
+  if (!video || !window.matchMedia) return;
+  var phone = window.matchMedia('(max-width: 767px)');
+  function sync() {
+    if (phone.matches) {
+      var started = video.play();
+      if (started && started.catch) started.catch(function () {});
+    } else {
+      video.pause();
+    }
+  }
+  if (phone.addEventListener) phone.addEventListener('change', sync);
+  else phone.addListener(sync);
+  sync();
+})();
+`
+
 function PageRuntime() {
   return (
     <>
@@ -511,6 +552,7 @@ function PageRuntime() {
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.getInTouch[3] }} />
       <script dangerouslySetInnerHTML={{ __html: sitePageCode.getInTouch[4] }} />
       <script dangerouslySetInnerHTML={{ __html: glassSelectScript }} />
+      <script dangerouslySetInnerHTML={{ __html: wholeVideoScript }} />
       <script
         dangerouslySetInnerHTML={{
           __html: `
