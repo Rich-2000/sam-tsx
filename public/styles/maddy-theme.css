@@ -153,10 +153,10 @@
   background: linear-gradient(
     to top,
     rgba(1, 5, 53, 0.96) 0%,
-    rgba(1, 5, 53, 0.75) 18%,
-    rgba(77, 81, 171, 0.45) 34%,
-    rgba(77, 81, 171, 0.12) 48%,
-    transparent 58%
+    rgba(1, 5, 53, 0.75) 34%,
+    rgba(77, 81, 171, 0.45) 50%,
+    rgba(77, 81, 171, 0.12) 64%,
+    transparent 74%
   );
 }
 
