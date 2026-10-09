@@ -44,10 +44,7 @@ function LegalShell({ title, children }: { title: string; children: ReactNode })
             <div className={'about-flex'}>
               <div className={'about-right'} style={{ maxWidth: '48rem' }}>
                 {children}
-                <p
-                  className={'is-font-size-body-m is-color-grey-600'}
-                  style={{ marginTop: '2rem' }}
-                >
+                <p className={'is-font-size-body-m'} style={{ marginTop: '2rem' }}>
                   {
                     'This page is provided for general information and should be reviewed by counsel before use as a final legal policy.'
                   }

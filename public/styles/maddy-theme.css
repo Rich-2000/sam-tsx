@@ -181,7 +181,6 @@
   height: min(780px, 90vh);
   width: 100%;
   overflow: hidden;
-  font-family: 'Inter', system-ui, sans-serif;
   color: var(--ink);
 }
 
@@ -201,10 +200,10 @@
   border-right: 1px solid var(--line);
 }
 .acc__panel:has(> .acc__radio:checked) {
-  flex-grow: 1; /* open: takes all the free space */
+  flex-grow: 1;
 }
 
-/* ---------- Tab (always visible) ---------- */
+/* ---------- Accordion Tab ---------- */
 .acc__tab {
   flex: 0 0 calc(var(--tab-size) - 1px);
   display: flex;
@@ -219,6 +218,7 @@
   cursor: pointer;
   user-select: none;
 }
+
 .acc__radio {
   position: absolute;
   width: 1px;
@@ -227,10 +227,12 @@
   opacity: 0;
   pointer-events: none;
 }
+
 .acc__radio:focus-visible + .acc__tab {
   outline: 2px solid var(--accent);
   outline-offset: -4px;
 }
+
 .acc__tab:hover .acc__label,
 .acc__panel:has(> .acc__radio:checked) .acc__label {
   color: var(--accent);
@@ -239,7 +241,7 @@
 .acc__caption,
 .acc__label {
   writing-mode: vertical-rl;
-  transform: rotate(180deg); /* reads bottom → top */
+  transform: rotate(180deg);
   white-space: nowrap;
 }
 .acc__caption {
@@ -247,7 +249,7 @@
   color: var(--muted);
 }
 .acc__label {
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(18px, 3vw, 30px);
   letter-spacing: -0.01em;
   transition: color 200ms ease;
 }
@@ -2106,6 +2108,20 @@ html.is-page-loading {
   transition: none !important;
 }
 
+.navbar .dropdown-link.navbar-dl-link:hover,
+.navbar .dropdown-link.navbar-dl-link.arrow-fill.w--current {
+  background-color: var(--color--flow-lime) !important;
+  color: var(--color--white) !important;
+}
+
+.navbar .dropdown-link.navbar-dl-link.arrow-fill.w--current span {
+  transition: none !important;
+}
+
+.navbar .dropdown-link.navbar-dl-link.arrow-fill.w--current svg {
+  transition: none !important;
+}
+
 .arrow-fill .arrow-fill__label {
   position: relative;
   z-index: 1;
@@ -2229,6 +2245,11 @@ html.is-page-loading {
 .button.is-black-button.arrow-fill--button:focus-visible {
   background-color: var(--color--white);
   transition-delay: var(--af-duration);
+}
+
+.navbar .dropdown-link.navbar-dl-link.arrow-fill.w--current > span.arrow-fill__icon:hover {
+  color: var(--color--flow-lime) !important;
+  background-color: var(--color--white) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2789,6 +2810,13 @@ html.is-page-loading {
 
 .pg__close:active {
   transform: scale(0.9);
+}
+
+@media screen and (min-width: 1440px) {
+  .section.is-about-more-section {
+    padding-top: 14rem;
+    padding-bottom: 3rem;
+  }
 }
 
 /* Dock of every shot, draggable anywhere in the dialog. */

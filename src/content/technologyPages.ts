@@ -58,7 +58,8 @@ export const technologyPageConfigs: TechnologyPageConfig[] = [
           'Construction documentation and progress views',
           'Thermal imaging when heat signatures matter',
         ],
-        imageSrc: '/images/brand/accra-modern-architecture-larry-dre-7066315.jpg',
+        imageSrc:
+          'https://maddy-web-assets.lon1.cdn.digitaloceanspaces.com/UAV%20-%20Operations-1.avif',
         imageAlt: 'Modern glass architecture in Accra',
         imageFirst: true,
       },
@@ -71,7 +72,8 @@ export const technologyPageConfigs: TechnologyPageConfig[] = [
           'Agricultural and environmental monitoring',
           'Clear deliverables defined before each mission',
         ],
-        imageSrc: '/images/brand/accra-skyline-prince-enos-31781975.jpg',
+        imageSrc:
+          'https://maddy-web-assets.lon1.cdn.digitaloceanspaces.com/UAV%20-%20Operations%20-2.jpg',
         imageAlt: 'Accra city skyline with modern towers',
       },
     ],
@@ -162,7 +164,7 @@ export const technologyPageConfigs: TechnologyPageConfig[] = [
           'Handover that matches your deployment plan',
           'Optional follow-on support and maintenance',
         ],
-        imageSrc: '/images/brand/network-cables-brett-sayles-1597776.jpg',
+        imageSrc: 'https://maddy-web-assets.lon1.cdn.digitaloceanspaces.com/Ict-procurement-3.avif',
         imageAlt: 'Network cabling in data-centre infrastructure',
         imageFirst: true,
       },
@@ -242,7 +244,8 @@ export const technologyPageConfigs: TechnologyPageConfig[] = [
           'Maddy Security Ops: cases, OSINT and link analysis',
           'Built for law enforcement and corporate security use',
         ],
-        imageSrc: '/images/brand/coding-laptop-cottonbro-5483075.jpg',
+        imageSrc:
+          'https://maddy-web-assets.lon1.cdn.digitaloceanspaces.com/software-products-1.jpg',
         imageAlt: 'Application code open on a laptop',
         imageFirst: true,
       },
@@ -255,7 +258,8 @@ export const technologyPageConfigs: TechnologyPageConfig[] = [
           'MaddyCMS delivery analytics and approval workflows',
           'AkontaX and BeaconOS for finance and HR needs',
         ],
-        imageSrc: '/images/brand/software-collaboration-mizuno-k-12899191.jpg',
+        imageSrc:
+          'https://maddy-web-assets.lon1.cdn.digitaloceanspaces.com/software-products-2.avif',
         imageAlt: 'Developers reviewing application work together',
       },
     ],

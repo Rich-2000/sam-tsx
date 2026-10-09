@@ -212,9 +212,9 @@ function ProductsDirectory() {
         </div>
         <div
           data-current={'Professional Liability'}
-          data-easing={'ease'}
-          data-duration-in={'0'}
-          data-duration-out={'0'}
+          data-easing={'ease-out'}
+          data-duration-in={'240'}
+          data-duration-out={'180'}
           className={'light-tabs w-tabs'}
         >
           <div className={'light-tabs-menu w-tab-menu'}>

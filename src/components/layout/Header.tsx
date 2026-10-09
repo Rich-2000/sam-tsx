@@ -9,13 +9,27 @@ type HeaderProps = {
   brand?: 'flow' | 'maddy'
 }
 
-/**
- * Desktop with a mouse: dropdowns open on hover and close on mouse-out, and a
- * click still toggles. Mobile menu and touch: click only, since hover-open and
- * click-toggle cancel each other out there. Webflow reads data-hover when it
- * sets dropdowns up, so set it before that runs and re-run setup on breakpoint
- * changes.
- */
+const activeLinkScrollScript = `(function () {
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a');
+    if (!link) return;
+
+    var href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+
+    var currentPath = window.location.pathname.replace(/\\/$/, '') || '/';
+    var targetPath = href.split('?')[0].split('#')[0].replace(/\\/$/, '') || '/';
+
+    if (currentPath === targetPath) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  }, true);
+})();`
+
 const dropdownHoverScript = `(function () {
   var mq = window.matchMedia('(min-width: 992px) and (hover: hover)');
   function apply() {
@@ -36,11 +50,6 @@ const dropdownHoverScript = `(function () {
   else if (mq.addListener) mq.addListener(onChange);
 })();`
 
-/**
- * The navbar fades from transparent to white on scroll (Webflow interaction) and
- * is white behind the open mobile menu. Mirror its background opacity into
- * --maddy-nav-solid so the white logo cross-fades to the navy one with it.
- */
 const logoContrastScript = `(function () {
   var nav = document.querySelector('.navbar');
   var wrap = nav && nav.closest('.navbar-wrap');
@@ -68,10 +77,6 @@ type DropdownLinkProps = {
   pagePath?: string
 }
 
-/**
- * Navbar dropdown item with an arrow-fill hover: the arrow circle on the right
- * expands to fill the item, the label turns white and the arrow slides through.
- */
 function DropdownLink({ href, label, currentPath, pagePath = href }: DropdownLinkProps) {
   return (
     <a
@@ -289,6 +294,7 @@ export function Header({ currentPath = '/', showWhiteLogo = false, brand = 'flow
           </ButtonLink>
         </div>
       </div>
+      <script dangerouslySetInnerHTML={{ __html: activeLinkScrollScript }} />
       <script dangerouslySetInnerHTML={{ __html: dropdownHoverScript }} />
       {isMaddy ? <script dangerouslySetInnerHTML={{ __html: logoContrastScript }} /> : null}
     </div>
