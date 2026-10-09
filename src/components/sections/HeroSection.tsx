@@ -36,14 +36,14 @@ export function HeroSection() {
           <ButtonLink
             data-w-id="6edbdcda-b7a6-c67d-3d34-d671091daf17"
             href="/get-in-touch"
-            className="w-inline-block"
+            className="w-inline-block text-white"
           >
             <p>{'Get started'}</p>
             <img
               src="https://cdn.prod.website-files.com/6627b50ad2ace3686c70dd7b/6627b50ad2ace3686c70ddfa_arrow-top-right%201.svg"
               loading="lazy"
               alt=""
-              className="button-arrow"
+              className="button-arrow inversed"
             />
           </ButtonLink>
         </div>

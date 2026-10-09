@@ -67,7 +67,7 @@ function Hero({ config }: { config: TechnologyPageConfig }) {
             <a
               data-w-id={'6edbdcda-b7a6-c67d-3d34-d671091daf17'}
               href={'/get-in-touch'}
-              className={'button w-inline-block'}
+              className={'button w-inline-block text-white'}
             >
               <p>{'Request a quote'}</p>
               <img
@@ -76,7 +76,7 @@ function Hero({ config }: { config: TechnologyPageConfig }) {
                 }
                 loading={'lazy'}
                 alt={''}
-                className={'button-arrow'}
+                className={'button-arrow inversed'}
               />
             </a>
           </div>

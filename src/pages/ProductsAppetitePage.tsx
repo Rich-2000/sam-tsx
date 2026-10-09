@@ -92,7 +92,7 @@ function ProductsHero() {
             <a
               data-w-id={'6edbdcda-b7a6-c67d-3d34-d671091daf17'}
               href={'/get-in-touch'}
-              className={'button w-inline-block'}
+              className={'button w-inline-block text-white'}
             >
               <p>{'Request a quote'}</p>
               <img
@@ -101,7 +101,7 @@ function ProductsHero() {
                 }
                 loading={'lazy'}
                 alt={''}
-                className={'button-arrow'}
+                className={'button-arrow inversed'}
               />
             </a>
           </div>
@@ -1691,7 +1691,7 @@ function ProductsAdditions() {
             </div>
           </div>
           <div style={{ marginTop: '2rem' }}>
-            <a href={'/get-in-touch'} className={'button w-inline-block'}>
+            <a href={'/get-in-touch'} className={'button w-inline-block text-white'}>
               <p>{'Request a quote'}</p>
               <img
                 src={
@@ -1699,7 +1699,7 @@ function ProductsAdditions() {
                 }
                 loading={'lazy'}
                 alt={''}
-                className={'button-arrow'}
+                className={'button-arrow inversed'}
               />
             </a>
           </div>

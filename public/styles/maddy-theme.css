@@ -47,6 +47,10 @@
   border-color: #2a2f8f !important;
 }
 
+.text-white {
+  color: white !important;
+}
+
 .section.is-hero-section {
   overflow: hidden;
   background-image: none !important;

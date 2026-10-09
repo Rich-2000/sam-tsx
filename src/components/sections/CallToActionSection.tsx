@@ -14,7 +14,7 @@ export function CallToActionSection() {
           <ButtonLink
             data-w-id="6f019d19-8439-ebb1-03aa-e83ff5622970"
             href="/get-in-touch"
-            className="is-black-button w-inline-block"
+            className="is-black-button w-inline-block text-white"
           >
             <p>{'Get in touch'}</p>
             <img
